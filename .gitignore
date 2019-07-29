@@ -6,12 +6,13 @@
 .pnp.js
 
 # testing
-/coverage
+/test
 
 # production
 /build
 
 # misc
+babel.config.js
 .DS_Store
 .env.local
 .env.development.local
