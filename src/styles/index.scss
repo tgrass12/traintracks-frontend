@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway&display=swap');
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import 'colors';
 
 body {
   margin: 0;
@@ -8,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $off-white;
 }
 
 code {
