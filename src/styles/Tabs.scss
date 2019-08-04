@@ -1,0 +1,57 @@
+@import 'colors';
+
+.tab-container {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 85%;
+	height: 40%;
+	border-radius: 2px;
+	padding: 2px;
+}
+
+.tab-header {
+	display: flex;
+}
+
+.tab {
+	height: 32px;
+	z-index: 2;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 1px solid blue;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	background-color: blue;
+	color: white;
+	cursor: pointer;
+}
+
+.tab-contents {
+	z-index: 1;
+	height: 100%;
+	overflow: scroll;
+	box-shadow: 0 0 10px 2px $light-gray;
+}
+
+.tab.active {
+	background-color: white;
+	border-color: blue;
+	border-type: solid;
+	border-width: 1px 1px 0 1px;
+	color: blue;
+}
+
+.tab-content {
+	display: none;
+}
+
+.tab-content.active {
+	display: block;
+	background-color: white;
+}
