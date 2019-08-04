@@ -1,6 +1,4 @@
-/* COLORS TO USE 
-https://coolors.co/32213a-80ff72-7ee8fa-ef6b74-fff177
-*/
+@import 'colors';
 
 .calendar-container {
 	font-family: 'Raleway', sans-serif;
@@ -18,8 +16,8 @@ https://coolors.co/32213a-80ff72-7ee8fa-ef6b74-fff177
 	display: flex;
 	flex-direction: column;
 	width: 60%;
-	margin: 10px;
-	box-shadow: 0px 0px 10px 2px #bbbbbb;
+	margin-right: 10px;
+	box-shadow: 0px 0px 10px 2px $light-gray;
 }
 
 .details-container {
@@ -27,8 +25,7 @@ https://coolors.co/32213a-80ff72-7ee8fa-ef6b74-fff177
 	display: flex;
 	box-sizing: border-box;
 	width: 40%;
-	box-shadow: 0px 0px 10px 2px #bbbbbb;
-	margin: 10px;
+	box-shadow: 0px 0px 10px 2px $light-gray;
 }
 
 .header {
@@ -37,8 +34,8 @@ https://coolors.co/32213a-80ff72-7ee8fa-ef6b74-fff177
 	width: 100%;
 	height: 70px;
 	box-sizing: border-box;
-	background-color: #ef6b74;
-	border-bottom: 1px solid #;
+	background-color: $flat-red;
+	border-bottom: 1px solid;
 
 }
 
@@ -86,7 +83,7 @@ https://coolors.co/32213a-80ff72-7ee8fa-ef6b74-fff177
 .days-row {
 	display: flex;
 	flex-direction: row;
-	border-bottom: 1px solid #aaaaaa;
+	border-bottom: 1px solid $dark-gray;
 	height: 16.5%;
 }
 
@@ -105,18 +102,18 @@ https://coolors.co/32213a-80ff72-7ee8fa-ef6b74-fff177
 .day-cell {
 	flex: 1;
 	position: relative;
-	border-right: 1px solid #aaaaaa;
-}
+	border-right: 1px solid $dark-gray;
 
-.day-cell span {
-	position: absolute;
-	font-size: .75em;
-	right: 0;
-	margin: 2px;
+	span {
+		position: absolute;
+		font-size: .75em;
+		right: 0;
+		margin: 2px;		
+	}
 }
 
 .disabled {
-	color: lightgray;
+	color: $dark-gray;
 }
 
 .day-banner {
@@ -129,11 +126,11 @@ https://coolors.co/32213a-80ff72-7ee8fa-ef6b74-fff177
 	width: 10px;
 	margin: 5px;
 	border-radius: 1em;
-	background-color: #80ff72;
+	background-color: $bright-green;
 }
 
 .selected .day-banner {
-	background-color: #7158e2;
+	background-color: $flat-red;
 	height: 1.10em;
 	color: white;
 }
@@ -147,6 +144,8 @@ https://coolors.co/32213a-80ff72-7ee8fa-ef6b74-fff177
 	.calendar {
 		width: 100%;
 		height: 70%;
+		margin-right: 0px;
+		margin-bottom: 10px;
 		border-bottom: 1px solid lightgray;
 	}
 

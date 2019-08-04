@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { initStore } from '../store';
-import '../styles/App.css';
+import '../styles/App.scss';
 import RepMaxContainer from './MaxCalculator/RepMaxContainer';
 import CalendarContainer from './Calendar/CalendarContainer';
 

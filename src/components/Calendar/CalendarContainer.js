@@ -3,7 +3,7 @@ import dateFns from 'date-fns';
 import Header from './Header';
 import DaysContainer from './DaysContainer';
 import Details from './Details';
-import '../../styles/Calendar.css';
+import '../../styles/Calendar.scss';
 
 let CalendarContainer = () => {
 	let [date, setDate] = useState(new Date());

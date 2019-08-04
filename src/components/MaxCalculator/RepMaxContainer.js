@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import RepMaxTable from './RepMaxTable';
 import MaxSelector from './MaxSelector';
-import '../../styles/RepTable.css';
+import '../../styles/RepTable.scss';
 
 let RepMaxContainer = () => {
 
