@@ -12,6 +12,10 @@ export const formatDateNamedMonth = function(date) {
 	return dateFns.format(date, 'MMMM YYYY')
 }
 
+export const formatDateFullNamed = function(date) {
+	return dateFns.format(date, 'dddd, MMMM DD, YYYY')
+}
+
 export const setToNextMonth = function(date) {
 	return dateFns.addMonths(date, 1);
 }
