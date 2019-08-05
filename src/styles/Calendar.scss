@@ -1,5 +1,6 @@
 @import 'colors';
 
+//TODO: Refactor header stuff to mixin;
 .calendar-container {
 	font-family: 'Raleway', sans-serif;
 	box-sizing: border-box;
@@ -47,6 +48,16 @@
 	justify-content: center;
 	align-items: center;
 	border-bottom: 1px solid lightgray;
+
+	.icon:first-of-type {
+	 	position: absolute;
+	 	left: 0;
+	}
+
+	.icon:last-of-type {
+		position: absolute;
+		right: 0;
+	}
 }
 
 .header-days {
@@ -62,22 +73,6 @@
 	flex: 1;
 	align-items: flex-end;
 	justify-content: center;
-}
-
-.icon {
-  	font-family: 'Material Icons', serif;
- 	cursor: pointer;
- 	user-select: none;
-}
-
-.icon:first-of-type {
- 	position: absolute;
- 	left: 0;
-}
-
-.icon:last-of-type {
-	position: absolute;
-	right: 0;
 }
 
 .days-row {
