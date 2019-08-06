@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {formatDateFullNamed, setToNextDay, setToPrevDay} from '../../shared/util';
 
 let Header = ({date, setDate}) => {
@@ -12,10 +13,6 @@ let Header = ({date, setDate}) => {
 		setDate(setToNextDay(date));
 	}
 
-	let openCalendar = () => {
-		//Navigate to calendar route
-	}
-
 	//TODO: Refactor to HOC
 	return (
 		<div className='journal-header'>
@@ -24,7 +21,9 @@ let Header = ({date, setDate}) => {
 				{formattedDate}
 				<span className="icon" onClick={nextDay}>chevron_right</span>
 			</div>
-			<span className="icon calendar-icon" onClick={openCalendar}>calendar_today</span>
+			<Link to="/calendar"> 
+				<span className="icon calendar-icon">calendar_today</span>
+			</Link>
 		</div>
 	)
 }

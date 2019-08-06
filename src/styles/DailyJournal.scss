@@ -1,9 +1,8 @@
 @import 'colors';
 
-
 //TODO: Refactor to mixin;
 .daily-journal {
-	position: absolute;
+	position: relative;
 	top: 30px;
 	left: 30px;
 	width: 745px;

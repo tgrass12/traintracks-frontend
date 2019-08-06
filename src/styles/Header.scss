@@ -1,0 +1,36 @@
+@import 'colors';
+
+.header {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 70px;
+	background-color: $flat-red;
+}
+
+.header-content {
+	box-sizing: border-box;
+	position: relative;
+	height: inherit;
+	width: 1366px;
+	border: 1px solid black;
+
+	* {
+		text-decoration: none;
+		color: white;
+	}
+}
+
+.nav-items {
+	list-style-type: none;
+}
+
+#app-icon {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	left: 5px;
+	font-size: 36px;
+	color: white;
+}
