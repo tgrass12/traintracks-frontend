@@ -11,10 +11,10 @@ let CalendarContainer = () => {
 
 	let getJournalEntries = (newDate) => {
 		let date = dateFns.format(newDate, 'YYYY-MM-DD');
-		let apiUrl = `/api/users/tyler/journal?range=month&date=${date}`;
+		let apiUrl = `/api/users/tyler/journal/range?range=month&date=${date}`;
 		return fetch(apiUrl).then(res => res.json())
 			.then(journalEntries => {
-				return journalEntries.filter(j => j.diet.total.calories > 0)
+				return journalEntries.filter(j => j.total.calories > 0)
 					.map(j => j.date);
 		});
 	}

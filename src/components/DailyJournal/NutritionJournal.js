@@ -9,7 +9,7 @@ let NutritionJournal = ({date}) => {
 
 	let getNutritionJournal = (journalDate) => {
 		let dateToFetch = formatDateStandard(journalDate);
-		let apiUrl = `/api/users/tyler/journal/${dateToFetch}`;
+		let apiUrl = `/api/users/tyler/journal?date=${dateToFetch}`;
 		return fetch(apiUrl).then(res => res.json());
 	}
 
