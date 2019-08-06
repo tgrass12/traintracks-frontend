@@ -2,7 +2,6 @@ import React from 'react';
 import MealItem from './MealItem';
 
 let Meal = ({name, foods, loggedValues}) => {
-
 	let mealItems = foods.map(f => {
 		return (
 			<MealItem

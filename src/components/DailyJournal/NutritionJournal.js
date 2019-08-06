@@ -10,16 +10,7 @@ let NutritionJournal = ({date}) => {
 	let getNutritionJournal = (journalDate) => {
 		let dateToFetch = formatDateStandard(journalDate);
 		let apiUrl = `/api/users/tyler/journal/${dateToFetch}`;
-		return fetch(apiUrl).then(res => res.json())
-			.then(entry => {
-				//TODO: Handle empty entry on backend
-				if (!entry) return {
-					'meals': [],
-					'targets': {}
-				};
-
-				return entry;
-			});
+		return fetch(apiUrl).then(res => res.json());
 	}
 
 	useEffect(() => {
