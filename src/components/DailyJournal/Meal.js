@@ -2,13 +2,14 @@ import React from 'react';
 import MealItem from './MealItem';
 import TrackedNutrients from './TrackedNutrients';
 
-let Meal = ({name, foods=[], loggedValues}) => {
+let Meal = ({name, foods=[], loggedValues, handleClick}) => {
 	let mealItems = foods.map(f => {
 		return (
 			<MealItem
 				key={f._id}
 				food={f.food}
 				servings={f.servings}
+				handleClick={handleClick}
 			/>
 		)
 	});
