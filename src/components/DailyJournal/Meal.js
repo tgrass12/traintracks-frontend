@@ -1,15 +1,14 @@
 import React from 'react';
 import MealItem from './MealItem';
+import TrackedNutrients from './TrackedNutrients';
 
-let Meal = ({name, foods, loggedValues}) => {
+let Meal = ({name, foods=[], loggedValues}) => {
 	let mealItems = foods.map(f => {
 		return (
 			<MealItem
 				key={f._id}
-				name={f.food.name}
+				food={f.food}
 				servings={f.servings}
-				calories={f.food.calories}
-				macros={f.food.macros}
 			/>
 		)
 	});
@@ -33,12 +32,7 @@ let Meal = ({name, foods, loggedValues}) => {
 					<div className='meal-actions'>
 						<button> Add foods </button>
 					</div>
-					<div className='logged-values'>
-						<span className='calories'>{loggedValues.calories}</span>
-						<span className='carbs'>{loggedValues.macros.carbohydrates.total}</span>
-						<span className='protein'>{loggedValues.macros.protein}</span>
-						<span className='fats'>{loggedValues.macros.fats.total}</span>
-					</div>
+					<TrackedNutrients nutrients={loggedValues} />
 				</div>
 			</div>	
 		</div>

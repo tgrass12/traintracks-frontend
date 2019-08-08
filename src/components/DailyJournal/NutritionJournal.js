@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import TrackedNutrients from './TrackedNutrients';
 import Meal from './Meal';
 import {formatDateStandard} from '../../shared/util';
 
@@ -9,7 +10,7 @@ let NutritionJournal = ({date}) => {
 
 	let getNutritionJournal = (journalDate) => {
 		let dateToFetch = formatDateStandard(journalDate);
-		let apiUrl = `/api/users/tyler/journal?date=${dateToFetch}`;
+		let apiUrl = `/api/users/tyler/journal/${dateToFetch}`;
 		return fetch(apiUrl).then(res => res.json());
 	}
 
@@ -18,20 +19,38 @@ let NutritionJournal = ({date}) => {
 			setMeals(entry.meals);
 			setTargets(entry.targets);
 			setTotals(entry.total);
+
 		})
 	}, [date]);
 
 	let mealComponents = meals.map(m => {
 		return (
-			<Meal 
+			<Meal
 				key={m.name} 
 				name={m.name} 
 				foods={m.foods} 
 				loggedValues={m.total}
 			/>
 		);
-
 	});
+
+	//TODO: Expand this for customizably tracked nutrients
+	let getRemainingNutrients = function(target, logged) {
+		if (logged == null) return target;
+
+		return {
+			"cals": target.cals - logged.cals,
+			"macros": {
+				"carbs": { 
+					"total": target.macros.carbs.total - logged.macros.carbs.total 
+				},
+				"protein": target.macros.protein - logged.macros.protein,
+				"fats": {
+					"total": target.macros.fats.total - logged.macros.fats.total
+				}
+			}
+		}
+	}
 
 	return (
 		<div className='nutrition-journal'>
@@ -39,39 +58,18 @@ let NutritionJournal = ({date}) => {
 				{mealComponents}
 			</div>
 			<div className='journal-values'>
-				{ totals && 	
-					<div className='journal-logged'>
-						<span className='values-label'>Logged</span>
-						<div className='journal-logged-values'>
-							<span>{totals.calories}</span>
-							<span>{totals.macros.carbohydrates.total}</span>
-							<span>{totals.macros.protein}</span>
-							<span>{totals.macros.fats.total}</span>
-						</div>
-					</div>
-				}
-				{ targets && 
-					<div className='journal-targets'>
-						<span className='values-label'>Targets</span>
-						<div className='journal-target-values'>
-							<span>{targets.calories}</span>
-							<span>{targets.macros.carbohydrates.total}</span>
-							<span>{targets.macros.protein}</span>
-							<span>{targets.macros.fats.total}</span>					
-						</div>
-					</div>
-				}
-				{ targets && totals &&
-					<div className='journal-remaining'>
-						<span className='values-label'>Remaining</span>
-						<div className='journal-remaining-values'>
-							<span>{targets.calories - totals.calories}</span>
-							<span>{targets.macros.carbohydrates.total - totals.macros.carbohydrates.total}</span>
-							<span>{targets.macros.protein - totals.macros.protein}</span>
-							<span>{targets.macros.fats.total - totals.macros.fats.total}</span>	
-						</div>
-					</div>
-				}
+				<div className='journal-logged'>
+					<span className='values-label'>Logged</span>
+					<TrackedNutrients nutrients={totals} />
+				</div>
+				<div className='journal-targets'>
+					<span className='values-label'>Targets</span>
+					<TrackedNutrients nutrients={targets} />
+				</div>
+				<div className='journal-remaining'>
+					<span className='values-label'>Remaining</span>
+					<TrackedNutrients nutrients={getRemainingNutrients(targets, totals)} />
+				</div>
 			</div>
 		</div>
 	)

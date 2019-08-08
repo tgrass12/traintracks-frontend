@@ -1,17 +1,13 @@
 import React from 'react';
+import TrackedNutrients from './TrackedNutrients';
 
-let MealItem = ({name, servings, calories, macros}) => {
-
+let MealItem = ({food, servings}) => {
+	let nutrients = {'cals': food.cals, 'macros': food.macros}
 	return (
 		<div className='meal-item'>
-			<div className='name'>{name}</div>
+			<div className='name'>{food.name}</div>
 			<span className='servings'>{servings}</span>
-			<div className='nutrition'>
-				<span>{calories}</span>
-				<span>{macros.carbohydrates.total}</span>
-				<span>{macros.protein}</span>
-				<span>{macros.fats.total}</span>
-			</div>	
+			<TrackedNutrients nutrients={nutrients}/>
 		</div>
 	)
 }
