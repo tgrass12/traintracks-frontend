@@ -1,4 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { 
+	setNutritionTargets,
+	setLoggedNutrition,
+	setMeals,
+	setSelectedFood
+} from '../../store/actions/nutritionJournal';
 import Header from './Header';
 import TrackedNutrients from './TrackedNutrients';
 import Meal from './Meal';
@@ -7,10 +14,11 @@ import WaterTracker from './WaterTracker';
 import {formatDateStandard} from '../../shared/util';
 
 let NutritionJournal = ({date, setDate}) => {
-	let [meals, setMeals] = useState([]);
-	let [targets, setTargets] = useState();
-	let [totals, setTotals] = useState();
-	let [food, setFood] = useState();
+	const dispatch = useDispatch();
+	const targets = useSelector(state => state.nutritionJournal.targets);
+	const logged = useSelector(state => state.nutritionJournal.logged);
+	const meals = useSelector(state => state.nutritionJournal.meals);
+	const selectedFood = useSelector(state => state.nutritionJournal.selectedFood);
 
 	let getNutritionJournal = (journalDate) => {
 		let dateToFetch = formatDateStandard(journalDate);
@@ -20,17 +28,17 @@ let NutritionJournal = ({date, setDate}) => {
 
 	useEffect(() => {
 		getNutritionJournal(date).then(entry => {
-			setMeals(entry.meals);
-			setTargets(entry.targets);
-			setTotals(entry.total);
+			dispatch(setMeals(entry.meals));
+			dispatch(setNutritionTargets(entry.targets));
+			dispatch(setLoggedNutrition(entry.total));
 
 		})
-	}, [date]);
+	}, [dispatch, date]);
 
 	let handleClick = async (foodId) => {
 		let apiUrl = `/api/foods/${foodId}`;
 		let foodDetails = await fetch(apiUrl).then(res => res.json());
-		setFood(foodDetails);
+		dispatch(setSelectedFood(foodDetails));
 	}
 
 	let mealComponents = meals.map(m => {
@@ -73,7 +81,7 @@ let NutritionJournal = ({date, setDate}) => {
 				<div className='journal-values'>
 					<div className='journal-logged'>
 						<span className='values-label'>Logged</span>
-						<TrackedNutrients nutrients={totals} />
+						<TrackedNutrients nutrients={logged} />
 					</div>
 					<div className='journal-targets'>
 						<span className='values-label'>Targets</span>
@@ -81,12 +89,12 @@ let NutritionJournal = ({date, setDate}) => {
 					</div>
 					<div className='journal-remaining'>
 						<span className='values-label'>Remaining</span>
-						<TrackedNutrients nutrients={getRemainingNutrients(targets, totals)} />
+						<TrackedNutrients nutrients={getRemainingNutrients(targets, logged)} />
 					</div>
 				</div>
 			</div>
 			<div>
-				<FoodDetails food={food} />
+				<FoodDetails food={selectedFood} />
 				<WaterTracker />
 			</div>
 		</div>

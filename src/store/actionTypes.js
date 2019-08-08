@@ -1,2 +1,6 @@
 export const SET_MAX = "SET_MAX";
 export const GET_MAX = "GET_MAX";
+export const SET_NUTRITION_TARGETS = "SET_NUTRITION_TARGETS";
+export const SET_LOGGED_NUTRITION = "SET_LOGGED_NUTRITION";
+export const SET_MEALS = "SET_MEALS";
+export const SET_SELECTED_FOOD = "SET_SELECTED_FOOD";
