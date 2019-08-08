@@ -3,6 +3,7 @@ import Header from './Header';
 import TrackedNutrients from './TrackedNutrients';
 import Meal from './Meal';
 import FoodDetails from './FoodDetails';
+import WaterTracker from './WaterTracker';
 import {formatDateStandard} from '../../shared/util';
 
 let NutritionJournal = ({date, setDate}) => {
@@ -84,7 +85,10 @@ let NutritionJournal = ({date, setDate}) => {
 					</div>
 				</div>
 			</div>
-			<FoodDetails food={food} />
+			<div>
+				<FoodDetails food={food} />
+				<WaterTracker />
+			</div>
 		</div>
 	)
 }
