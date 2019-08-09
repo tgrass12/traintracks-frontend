@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { 
 	setNutritionTargets,
@@ -13,20 +13,21 @@ import FoodDetails from './FoodDetails';
 import WaterTracker from './WaterTracker';
 import {formatDateStandard} from '../../shared/util';
 
-let NutritionJournal = ({date, setDate}) => {
+let NutritionJournal = () => {
 	const dispatch = useDispatch();
+	const date = useSelector(state => state.journal.selectedDate);
 	const targets = useSelector(state => state.nutritionJournal.targets);
 	const logged = useSelector(state => state.nutritionJournal.logged);
 	const meals = useSelector(state => state.nutritionJournal.meals);
 	const selectedFood = useSelector(state => state.nutritionJournal.selectedFood);
 
-	let getNutritionJournal = (journalDate) => {
-		let dateToFetch = formatDateStandard(journalDate);
-		let apiUrl = `/api/users/tyler/journal/${dateToFetch}`;
-		return fetch(apiUrl).then(res => res.json());
-	}
-
 	useEffect(() => {
+		let getNutritionJournal = (journalDate) => {
+			let dateToFetch = formatDateStandard(journalDate);
+			let apiUrl = `/api/users/tyler/journal/${dateToFetch}`;
+			return fetch(apiUrl).then(res => res.json());
+		}
+
 		getNutritionJournal(date).then(entry => {
 			dispatch(setMeals(entry.meals));
 			dispatch(setNutritionTargets(entry.targets));
@@ -74,7 +75,7 @@ let NutritionJournal = ({date, setDate}) => {
 	return (
 		<div className="journal-container">
 			<div className='nutrition-journal'>
-				<Header date={date} setDate={setDate}/>
+				<Header/>
 				<div className='journal-meals'>
 					{mealComponents}
 				</div>

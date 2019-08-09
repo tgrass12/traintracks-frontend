@@ -1,16 +1,25 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {formatDateFullNamed, setToNextDay, setToPrevDay} from '../../shared/util';
+import { setSelectedDate } from '../../store/actions/journal';
+import { 
+	formatDateFullNamed,
+	setToNextDay,
+	setToPrevDay
+} from '../../shared/util';
 
-let Header = ({date, setDate}) => {
-
+let Header = () => {
+	const dispatch = useDispatch();
+	const date = useSelector(state => state.journal.selectedDate);
 	let formattedDate = formatDateFullNamed(date);
 	let prevDay = () => {
-		setDate(setToPrevDay(date));
+		let newDate = setToPrevDay(date);
+		dispatch(setSelectedDate(newDate));
 	}
 
 	let nextDay = () => {
-		setDate(setToNextDay(date));
+		let newDate = setToNextDay(date);
+		dispatch(setSelectedDate(newDate));
 	}
 
 	//TODO: Refactor to HOC
