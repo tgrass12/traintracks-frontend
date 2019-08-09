@@ -2,7 +2,9 @@ import {
 	SET_NUTRITION_TARGETS,
 	SET_LOGGED_NUTRITION,
 	SET_MEALS,
-	SET_SELECTED_FOOD
+	SET_SELECTED_FOOD,
+	SET_WATER_INTAKE,
+	ADD_TO_WATER_INTAKE
 } from '../actionTypes';
 
 const initialState = {
@@ -31,6 +33,7 @@ const initialState = {
 		},
 	},
 	meals: [],
+	water: 0,
 	selectedFood: {}
 };
 
@@ -44,6 +47,10 @@ const nutritionJournal = (state = initialState, action) => {
 			return {...state, 'meals': action.meals};
 		case SET_SELECTED_FOOD: 
 			return {...state, 'selectedFood': action.selectedFood};
+		case SET_WATER_INTAKE:
+			return {...state, 'water': action.waterIntake};
+			case ADD_TO_WATER_INTAKE:
+			return {...state, 'water': state.water + action.waterIntake};
 		default:
 			return state;
 	}

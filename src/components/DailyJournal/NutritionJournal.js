@@ -4,7 +4,9 @@ import {
 	setNutritionTargets,
 	setLoggedNutrition,
 	setMeals,
-	setSelectedFood
+	setSelectedFood,
+	setWaterIntake,
+	addToWaterIntake
 } from '../../store/actions/nutritionJournal';
 import Header from './Header';
 import TrackedNutrients from './TrackedNutrients';
@@ -20,6 +22,7 @@ let NutritionJournal = () => {
 	const logged = useSelector(state => state.nutritionJournal.logged);
 	const meals = useSelector(state => state.nutritionJournal.meals);
 	const selectedFood = useSelector(state => state.nutritionJournal.selectedFood);
+	const water = useSelector(state => state.nutritionJournal.water);
 
 	useEffect(() => {
 		let getNutritionJournal = (journalDate) => {
@@ -29,9 +32,11 @@ let NutritionJournal = () => {
 		}
 
 		getNutritionJournal(date).then(entry => {
+			dispatch(setSelectedFood({}));
 			dispatch(setMeals(entry.meals));
 			dispatch(setNutritionTargets(entry.targets));
 			dispatch(setLoggedNutrition(entry.total));
+			dispatch(setWaterIntake(entry.water));
 
 		})
 	}, [dispatch, date]);
@@ -72,6 +77,14 @@ let NutritionJournal = () => {
 		}
 	}
 
+	let addWaterIntake = (e) => {
+		dispatch(addToWaterIntake(
+			formatDateStandard(date), 
+			Number(e.target.value)
+			)
+		);
+	}
+
 	return (
 		<div className="journal-container">
 			<div className='nutrition-journal'>
@@ -96,7 +109,7 @@ let NutritionJournal = () => {
 			</div>
 			<div>
 				<FoodDetails food={selectedFood} />
-				<WaterTracker />
+				<WaterTracker addWaterIntake={addWaterIntake} amount={water}/>
 			</div>
 		</div>
 	)
