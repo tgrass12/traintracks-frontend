@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { 
-	setNutritionTargets,
-	setLoggedNutrition,
-	setMeals,
-	setSelectedFood,
-	setWaterIntake,
-	addToWaterIntake
-} from '../../store/actions/nutritionJournal';
+import {
+	addToWaterIntake,
+	fetchJournal
+} from '../../store/actions/journal';
 import Header from './Header';
 import TrackedNutrients from './TrackedNutrients';
 import Meal from './Meal';
@@ -18,36 +14,21 @@ import {formatDateStandard} from '../../shared/util';
 let NutritionJournal = () => {
 	const dispatch = useDispatch();
 	const date = useSelector(state => state.journal.selectedDate);
-	const targets = useSelector(state => state.nutritionJournal.targets);
-	const logged = useSelector(state => state.nutritionJournal.logged);
-	const meals = useSelector(state => state.nutritionJournal.meals);
-	const selectedFood = useSelector(state => state.nutritionJournal.selectedFood);
-	const water = useSelector(state => state.nutritionJournal.water);
+	const nutrition = useSelector(state => state.journal.nutrition);
+	const [selectedFood, setSelectedFood] = useState({});
+	const water = useSelector(state => state.journal.nutrition.water);
 
 	useEffect(() => {
-		let getNutritionJournal = (journalDate) => {
-			let dateToFetch = formatDateStandard(journalDate);
-			let apiUrl = `/api/users/tyler/journal/${dateToFetch}`;
-			return fetch(apiUrl).then(res => res.json());
-		}
-
-		getNutritionJournal(date).then(entry => {
-			dispatch(setSelectedFood({}));
-			dispatch(setMeals(entry.meals));
-			dispatch(setNutritionTargets(entry.targets));
-			dispatch(setLoggedNutrition(entry.total));
-			dispatch(setWaterIntake(entry.water));
-
-		})
+		dispatch(fetchJournal(date));
 	}, [dispatch, date]);
 
 	let handleClick = async (foodId) => {
 		let apiUrl = `/api/foods/${foodId}`;
 		let foodDetails = await fetch(apiUrl).then(res => res.json());
-		dispatch(setSelectedFood(foodDetails));
+		setSelectedFood(foodDetails);
 	}
 
-	let mealComponents = meals.map(m => {
+	let mealComponents = nutrition.meals.map(m => {
 		return (
 			<Meal
 				key={m.name} 
@@ -84,7 +65,6 @@ let NutritionJournal = () => {
 			)
 		);
 	}
-
 	return (
 		<div className="journal-container">
 			<div className='nutrition-journal'>
@@ -95,15 +75,15 @@ let NutritionJournal = () => {
 				<div className='journal-values'>
 					<div className='journal-logged'>
 						<span className='values-label'>Logged</span>
-						<TrackedNutrients nutrients={logged} />
+						<TrackedNutrients nutrients={nutrition.logged} />
 					</div>
 					<div className='journal-targets'>
 						<span className='values-label'>Targets</span>
-						<TrackedNutrients nutrients={targets} />
+						<TrackedNutrients nutrients={nutrition.targets} />
 					</div>
 					<div className='journal-remaining'>
 						<span className='values-label'>Remaining</span>
-						<TrackedNutrients nutrients={getRemainingNutrients(targets, logged)} />
+						<TrackedNutrients nutrients={getRemainingNutrients(nutrition.targets, nutrition.logged)} />
 					</div>
 				</div>
 			</div>
