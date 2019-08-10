@@ -14,7 +14,7 @@ let CalendarContainer = () => {
 		let apiUrl = `/api/users/tyler/journal/range?range=month&scope=${date}`;
 		return fetch(apiUrl).then(res => res.json())
 			.then(journalEntries => {
-				return journalEntries.filter(j => j.total.cals > 0)
+				return journalEntries.filter(j => j.logged.cals > 0)
 					.map(j => j.date);
 		});
 	}
