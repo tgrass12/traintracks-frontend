@@ -7,6 +7,7 @@ import {
 import Header from './Header';
 import TrackedNutrients from './TrackedNutrients';
 import Meal from './Meal';
+import LogFood from './LogFood';
 import FoodDetails from './FoodDetails';
 import WaterTracker from './WaterTracker';
 import {formatDateStandard} from '../../shared/util';
@@ -65,6 +66,7 @@ let NutritionJournal = () => {
 			)
 		);
 	}
+	
 	return (
 		<div className="journal-container">
 			<div className='nutrition-journal'>
@@ -90,6 +92,9 @@ let NutritionJournal = () => {
 			<div>
 				<FoodDetails food={selectedFood} />
 				<WaterTracker addWaterIntake={addWaterIntake} amount={water}/>
+			</div>
+			<div className="journal-additional-actions">
+				<LogFood meals={nutrition.meals.map(m => m.name)} /> 
 			</div>
 		</div>
 	)

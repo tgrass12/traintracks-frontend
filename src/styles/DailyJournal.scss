@@ -4,6 +4,7 @@
 
 .journal-container {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .nutrition-journal {
@@ -167,6 +168,14 @@
 .water-tracker {
 	width: 345px;
 	height: 165px;
+	background-color: white;
+	box-shadow: 0px 0px 10px 2px $light-gray;
+}
+
+.journal-additional-actions {
+	width: 1120px;
+	min-height: 140px;
+	margin-left: 30px;
 	background-color: white;
 	box-shadow: 0px 0px 10px 2px $light-gray;
 }
