@@ -15,7 +15,7 @@ import FoodDetails from './FoodDetails';
 import WaterTracker from './WaterTracker';
 import { isValidDateString } from '../../shared/util';
 
-let NutritionJournal = (props) => {
+let NutritionJournal = ({location}) => {
 	const dispatch = useDispatch();
 	const date = useSelector(state => state.journal.selectedDate);
 	const nutrition = useSelector(state => state.journal.nutrition);
@@ -23,11 +23,11 @@ let NutritionJournal = (props) => {
 	const water = useSelector(state => state.journal.nutrition.water);
 
 	useEffect(() => {
-		let dateStr = queryString.parse(props.location.search).date;
+		let dateStr = queryString.parse(location.search).date;
 		if (isValidDateString(dateStr)) {
 			dispatch(setSelectedDate(dateStr));
 		}
-	}, [dispatch, props.location.search]);
+	}, [dispatch, location.search]);
 
 	useEffect(() => {
 		dispatch(fetchJournal(date));
