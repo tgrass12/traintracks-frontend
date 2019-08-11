@@ -31,6 +31,7 @@ let NutritionJournal = (props) => {
 
 	useEffect(() => {
 		dispatch(fetchJournal(date));
+		setSelectedFood({});
 	}, [dispatch, date]);
 
 	let handleClick = async (foodId) => {
