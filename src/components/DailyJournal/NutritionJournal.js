@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import queryString from 'query-string';
 import {
 	addToWaterIntake,
-	fetchJournal
+	fetchJournal,
+	setSelectedDate
 } from '../../store/actions/journal';
 import Header from './Header';
 import TrackedNutrients from './TrackedNutrients';
@@ -10,14 +13,21 @@ import Meal from './Meal';
 import LogFood from './LogFood';
 import FoodDetails from './FoodDetails';
 import WaterTracker from './WaterTracker';
-import {formatDateStandard} from '../../shared/util';
+import { isValidDateString } from '../../shared/util';
 
-let NutritionJournal = () => {
+let NutritionJournal = (props) => {
 	const dispatch = useDispatch();
 	const date = useSelector(state => state.journal.selectedDate);
 	const nutrition = useSelector(state => state.journal.nutrition);
 	const [selectedFood, setSelectedFood] = useState({});
 	const water = useSelector(state => state.journal.nutrition.water);
+
+	useEffect(() => {
+		let dateStr = queryString.parse(props.location.search).date;
+		if (isValidDateString(dateStr)) {
+			dispatch(setSelectedDate(dateStr));
+		}
+	}, [dispatch, props.location.search]);
 
 	useEffect(() => {
 		dispatch(fetchJournal(date));
@@ -44,7 +54,6 @@ let NutritionJournal = () => {
 	//TODO: Expand this for customizably tracked nutrients
 	let getRemainingNutrients = function(target, logged) {
 		if (logged == null) return target;
-
 		return {
 			"cals": target.cals - logged.cals,
 			"macros": {
@@ -61,12 +70,12 @@ let NutritionJournal = () => {
 
 	let addWaterIntake = (e) => {
 		dispatch(addToWaterIntake(
-			formatDateStandard(date), 
+			date, 
 			Number(e.target.value)
 			)
 		);
 	}
-	
+
 	return (
 		<div className="journal-container">
 			<div className='nutrition-journal'>
@@ -100,4 +109,4 @@ let NutritionJournal = () => {
 	)
 }
 
-export default NutritionJournal;
+export default withRouter(NutritionJournal);
