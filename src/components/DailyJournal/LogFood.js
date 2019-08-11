@@ -27,7 +27,8 @@ let LogFood = ({meals}) => {
 
 	let findFoods = async (e) => {
 		e.preventDefault();
-		let relevantFoods = await fetch('/api/foods').then(res => res.json());
+		let relevantFoods = await fetch(`/api/foods?query=${foodToFind}`)
+			.then(res => res.json());
 		let foods = relevantFoods.map(f => {
 			return {
 				'id': f._id,
