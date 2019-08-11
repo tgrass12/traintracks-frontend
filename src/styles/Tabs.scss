@@ -1,15 +1,5 @@
 @import 'colors';
 
-.tab-container {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	width: 85%;
-	height: 40%;
-	border-radius: 2px;
-	padding: 2px;
-}
-
 .tab-header {
 	display: flex;
 }
@@ -32,13 +22,6 @@
 	cursor: pointer;
 }
 
-.tab-contents {
-	z-index: 1;
-	height: 100%;
-	overflow: scroll;
-	box-shadow: 0 0 10px 2px $light-gray;
-}
-
 .tab.active {
 	background-color: white;
 	border-color: blue;
@@ -53,5 +36,4 @@
 
 .tab-content.active {
 	display: block;
-	background-color: white;
 }
