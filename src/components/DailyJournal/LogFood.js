@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import FoodOverview from './FoodOverview';
 import { fetchJournal } from '../../store/actions/journal';
@@ -12,10 +12,6 @@ let LogFood = ({meals}) => {
 	let [foodToFind, setFoodToFind] = useState();
 	let [foundFoods, setFoundFoods] = useState([]);
 	let [foodToLog, setFoodToLog] = useState();
-
-	useEffect(() => {
-		setSelectedMeal(meals[0]);
-	}, [meals]);
 
 	let handleSelectedMeal = (e) => {
 		setSelectedMeal(e.target.value);
