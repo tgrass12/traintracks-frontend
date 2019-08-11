@@ -1,3 +1,5 @@
+import { getCurrentDate } from '../../shared/util';
+
 import { 
 	SET_SELECTED_DATE,
 	SET_NUTRITION_JOURNAL,
@@ -6,7 +8,7 @@ import {
 } from '../actionTypes';
 
 let initialState = {
-	'selectedDate': new Date(),
+	'selectedDate': getCurrentDate(),
 	'nutrition': {
 		targets: {
 			'cals': 0,

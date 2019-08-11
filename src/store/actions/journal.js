@@ -5,8 +5,6 @@ import {
 	SET_WATER_INTAKE,
 } from '../actionTypes';
 
-import { formatDateStandard } from '../../shared/util';
-
 export const setSelectedDate = function(selectedDate) {
 	return {
 		type: SET_SELECTED_DATE,
@@ -23,8 +21,7 @@ export const setNutritionJournal = function(entry) {
 
 export const fetchJournal = function(date) {
 	return dispatch => {
-		let dateToFetch = formatDateStandard(date);
-		let apiUrl = `/api/users/tyler/journal/${dateToFetch}`;
+		let apiUrl = `/api/users/tyler/journal/${date}`;
 		return fetch(apiUrl).then(res => res.json())
 			.then(entry => {
 				dispatch(setNutritionJournal(entry));

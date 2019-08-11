@@ -16,18 +16,32 @@ export const formatDateFullNamed = function(date) {
 	return dateFns.format(date, 'dddd, MMMM DD, YYYY')
 }
 
+export const getCurrentDate = function() {
+	return dateFns.format(dateFns.startOfToday(), 'YYYY-MM-DD');
+}
+
 export const setToNextMonth = function(date) {
-	return dateFns.addMonths(date, 1);
+	return formatDateStandard(dateFns.addMonths(date, 1));
 }
 
 export const setToPrevMonth = function(date) {
-	return dateFns.subMonths(date, 1);
+	return formatDateStandard(dateFns.subMonths(date, 1));
 }
 
 export const setToNextDay = function(date) {
-	return dateFns.addDays(date, 1);
+	return formatDateStandard(dateFns.addDays(date, 1));
 }
 
 export const setToPrevDay = function(date) {
-	return dateFns.subDays(date, 1);
+	return formatDateStandard(dateFns.subDays(date, 1));
+}
+
+export const isValidDateString = function(dateStr) {
+ 	const format = 'YYYY-MM-DD';
+    const pattern = /^\d{4}-\d{2}-\d{2}$/;
+    
+    if (!pattern.test(dateStr)) return false;
+    if (dateFns.format(dateStr, format) !== dateStr) return false;
+
+    return true;
 }
