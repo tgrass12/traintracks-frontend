@@ -2,19 +2,16 @@
 
 .header {
 	display: flex;
-	justify-content: center;
-	width: 100%;
 	height: 70px;
+	justify-content: center;
 	background-color: $flat-red;
 }
 
 .header-content {
-	box-sizing: border-box;
 	position: relative;
-	height: inherit;
 	width: 1366px;
 	border: 1px solid black;
-
+	
 	* {
 		text-decoration: none;
 		color: white;
@@ -29,8 +26,7 @@
 	position: absolute;
 	display: flex;
 	align-items: center;
-	height: 100%;
 	left: 5px;
-	font-size: 36px;
+	font-size: 3rem;
 	color: white;
 }

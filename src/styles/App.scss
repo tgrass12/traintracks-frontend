@@ -1,4 +1,11 @@
 .App {
-  text-align: center;
+  height: 100%;
   font-size: 1.6rem;
+  text-align: center;
+}
+
+.main {
+	display: flex;
+	min-height: calc(100vh - 70px);
+	align-items: stretch;
 }

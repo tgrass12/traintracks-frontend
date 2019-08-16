@@ -13,10 +13,11 @@ let defaultNutrients = {
 	}
 }
 
-let TrackedNutrients = ({nutrients=defaultNutrients}) => {
+let TrackedNutrients = ({nutrients=defaultNutrients, servings}) => {
 	let {cals, macros} = nutrients;
 	return (
-		<div>
+		<div className='logged-nutrients-total'>
+			<span>{servings}</span>
 			<span>{cals}</span>
 			<span>{macros.carbs.total}</span>
 			<span>{macros.protein}</span>

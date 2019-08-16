@@ -23,7 +23,7 @@ let Header = ({date, setDate}) => {
 	};
 	
 	return (
-		<div className="header">
+		<div className="calendar-header">
 			<div className="header-month">
 				<div className="icon" onClick={prevMonth}>chevron_left</div>
 				{formattedMonthYear}

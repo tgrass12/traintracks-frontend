@@ -1,16 +1,22 @@
 @import 'colors';
 
 //TODO: Refactor to mixin;
+//TODO: Create table-row mixin;
+
+.daily-journal {
+	width: 100%;
+}
 
 .journal-container {
 	display: flex;
 	flex-wrap: wrap;
+	padding: 1.5rem 1.5rem 0 1.5rem;
+	height: 100%;
+	width: 100%;
 }
 
 .nutrition-journal {
-	margin: 30px;
-	width: 745px;
-	height: 555px;
+	flex: 0 1 70%;
 	background-color: white;
 	box-shadow: 0px 0px 10px 2px $light-gray;
 }
@@ -24,7 +30,6 @@
 	height: 36px;
 	box-sizing: border-box;
 	background-color: $flat-red;
-	border-bottom: 1px solid;
 
 	.icon.calendar-icon {
 		position: absolute;
@@ -58,50 +63,44 @@
 .journal-values {
 	display: flex;
 	flex-direction: column;
-	margin-left: 16px;
-	margin-right: 16px;
-}
-
-.journal-values div {
-	display: flex;
-	flex: 1;
-}
-
-.values-label {
-	flex: 1;
-}
-
-.journal-values div div {
-	display: flex;
-	justify-content: space-between;
+	margin: 0 5px;
 }
 
 .meal {
 	margin: 5px;
+	display: flex;
+	flex-wrap: wrap;
 
 	.meal-header {
+		flex: 1 1 100%;
 		display: flex;
-		justify-content: space-between;
+		margin: 2px 5px;
 	}
 
 	.meal-name {
+		margin-left: 10px;
 		text-align: start;
-		margin-left: 16px;
 		font-weight: bold;
-		flex: 1;
+		flex: 0 1 40%;
 	}
 
 	.meal-labels {
 		display: flex;
 		justify-content: space-between;
+		flex: 1 1;
+		margin-right: 12px;
+	}
+
+	.meal-labels * {
 		flex: 1;
 	}
 
-	.meal-contents {	
+	.meal-contents {
+		flex: 1;
 		border: 1px solid $flat-red;
 		border-radius: 2px;
-		margin-left: 5px;
-		margin-right: 5px;
+		margin: 0 5px;
+		padding: 2px 0;
 		overflow: auto;
 
 		.meal-footer {
@@ -109,8 +108,10 @@
 		}
 
 		.meal-actions {
-			flex: 1;
+			margin-left: 10px;
+			flex: 1 0 40%;
 		}
+
 		button {
 			float: left;
 			margin-left: 5px;
@@ -118,18 +119,36 @@
 	}
 }
 
+.meal-logged-total {
+	margin-right: 10px;
+	flex: 1 1 60%;
+	display: flex;
+	color: $bright-purple;
+}
+
+.daily-details {
+	flex: 0 1 30%;
+}
+
 .meal-item {
 	display: flex;
 	justify-content: space-between;
-	.name {
-		display: flex;
-		flex: 2;
-		align-items: left;
-		padding-left: 16px;
-	}
 
-	.servings {
-		flex: 2;
+	.meal-item-name {
+		display: flex;
+		flex: 1 0 40%;
+		margin-left: 10px;
+	}
+	
+	.meal-item-values {
+		display: flex;
+		margin-right: 10px;
+		justify-content: space-between;
+		flex: 1 1 60%;
+	}
+	
+	.meal-item-values * {
+		width: 100%;
 	}
 
 	.nutrition {
@@ -140,18 +159,44 @@
 	}
 }
 
-.logged-values {
+.logged-nutrients-total {
 	display: flex;
 	flex: 1;
 	justify-content: space-between;
-	margin-right: 16px;
+
+	* {
+		width: 100%;
+	}
+}
+
+.journal-footer-row {
+	display: flex;
+	margin: 0 5px;
+}
+
+.values-label {
+	flex: 1 0 40%;
+	margin-left: 10px;
+}
+
+.journal-nutrients-values {
+	flex: 1 1 60%;
+	margin-right: 10px;
+	* {
+		width: 100%;
+	}
+}
+
+.logged-nutrients {
+	flex: 1 1 50%;
+	display: flex;
+	justify-content: space-between;
 }
 
 .food-details {
-	margin-top: 30px;
-	margin-bottom: 30px;
-	height: 360px;
-	width: 345px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	height: 385px;
 	background-color: white;
 	box-shadow: 0px 0px 10px 2px $light-gray;
 }
@@ -166,16 +211,43 @@
 }
 
 .water-tracker {
-	width: 345px;
 	height: 165px;
+	background-color: white;
+	box-shadow: 0px 0px 10px 2px $light-gray;
+	margin-left: 10px;
+}
+
+.journal-additional-actions {
+	flex: 1;
+	min-height: 120px;
+	margin-top: 10px;
 	background-color: white;
 	box-shadow: 0px 0px 10px 2px $light-gray;
 }
 
-.journal-additional-actions {
-	width: 1120px;
-	min-height: 140px;
-	margin-left: 30px;
-	background-color: white;
-	box-shadow: 0px 0px 10px 2px $light-gray;
+@media all and (max-width: 1100px) {
+	.nutrition-journal {
+		flex: 0 1 100%;
+		padding-bottom: 10px;
+	}
+	
+	.daily-details {
+		display: flex;
+		flex: 0 1 100%;
+		margin-top: 10px;
+	}
+
+	.food-details {
+		flex: 1 1 50%;
+		margin-left: 0;
+	}
+
+	.water-tracker {
+		flex: 1 1 50%;
+		margin-left: 10px;
+	}
+
+	.journal-additional-actions {
+		margin-top: 0;
+	}
 }

@@ -18,11 +18,11 @@ let Meal = ({name, foods=[], loggedValues, handleClick}) => {
 			<div className='meal-header'>
 				<div className='meal-name'>{name}</div>
 				<div className='meal-labels'>
-					<span className='servings'>Servings</span>
-					<span className='calories'>Calories</span>
-					<span className='carbs'>Carbs</span>
-					<span className='protein'>Protein</span>
-					<span className='fats'>Fats</span>
+					<span>Servings</span>
+					<span>Calories</span>
+					<span>Carbs</span>
+					<span>Protein</span>
+					<span>Fats</span>
 				</div>
 			</div>
 			<div className='meal-contents'>
@@ -33,8 +33,10 @@ let Meal = ({name, foods=[], loggedValues, handleClick}) => {
 					<div className='meal-actions'>
 						<button> Add foods </button>
 					</div>
-					<TrackedNutrients nutrients={loggedValues} />
-				</div>
+					<div className='meal-logged-total'>
+						<TrackedNutrients nutrients={loggedValues} />
+					</div>
+				</div>	
 			</div>	
 		</div>
 	)

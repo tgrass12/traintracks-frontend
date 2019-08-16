@@ -85,21 +85,27 @@ let NutritionJournal = ({location}) => {
 					{mealComponents}
 				</div>
 				<div className='journal-values'>
-					<div className='journal-logged'>
+					<div className='journal-footer-row'>
 						<span className='values-label'>Logged</span>
-						<TrackedNutrients nutrients={nutrition.logged} />
+						<div className='journal-nutrients-values'>
+							<TrackedNutrients nutrients={nutrition.logged} />
+						</div>
 					</div>
-					<div className='journal-targets'>
+					<div className='journal-footer-row'>
 						<span className='values-label'>Targets</span>
-						<TrackedNutrients nutrients={nutrition.targets} />
+						<div className='journal-nutrients-values'>
+							<TrackedNutrients nutrients={nutrition.targets} />
+						</div>
 					</div>
-					<div className='journal-remaining'>
+					<div className='journal-footer-row'>
 						<span className='values-label'>Remaining</span>
-						<TrackedNutrients nutrients={getRemainingNutrients(nutrition.targets, nutrition.logged)} />
+						<div className='journal-nutrients-values'>
+							<TrackedNutrients nutrients={getRemainingNutrients(nutrition.targets, nutrition.logged)} />
+						</div>
 					</div>
 				</div>
 			</div>
-			<div>
+		<div className="daily-details">
 				<FoodDetails food={selectedFood} />
 				<WaterTracker addWaterIntake={addWaterIntake} amount={water}/>
 			</div>

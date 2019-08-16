@@ -10,9 +10,10 @@ let MealItem = ({food, servings, handleClick}) => {
 	
 	return (
 		<div className='meal-item' onClick={onClick}>
-			<div className='name'>{food.name}</div>
-			<span className='servings'>{servings}</span>
-			<TrackedNutrients nutrients={nutrients}/>
+			<div className='meal-item-name'>{food.name}</div>
+			<div className='meal-item-values'>
+				<TrackedNutrients servings={servings} nutrients={nutrients} />
+			</div>
 		</div>
 	)
 }
