@@ -1,0 +1,332 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should navigate to home page when logo is clicked 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      "/test",
+    ]
+  }
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "PUSH",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/test",
+            "search": "",
+            "state": undefined,
+          },
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 1,
+        "length": 2,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Header>
+      <div
+        className="header"
+      >
+        <nav
+          className="header-content"
+        >
+          <Link
+            id="app-icon"
+            to="/"
+          >
+            <a
+              href="/"
+              id="app-icon"
+              onClick={[Function]}
+            >
+               TrainTracks 
+            </a>
+          </Link>
+          <ul
+            className="nav-items"
+          >
+            <li>
+              <Link
+                to="/journal"
+              >
+                <a
+                  href="/journal"
+                  onClick={[Function]}
+                >
+                   Journal 
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/calendar"
+              >
+                <a
+                  href="/calendar"
+                  onClick={[Function]}
+                >
+                   Calendar 
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </Header>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`should navigate to the calendar when Calendar is clicked 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "PUSH",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          Object {
+            "hash": "",
+            "pathname": "/calendar",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 1,
+        "length": 2,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/calendar",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Header>
+      <div
+        className="header"
+      >
+        <nav
+          className="header-content"
+        >
+          <Link
+            id="app-icon"
+            to="/"
+          >
+            <a
+              href="/"
+              id="app-icon"
+              onClick={[Function]}
+            >
+               TrainTracks 
+            </a>
+          </Link>
+          <ul
+            className="nav-items"
+          >
+            <li>
+              <Link
+                to="/journal"
+              >
+                <a
+                  href="/journal"
+                  onClick={[Function]}
+                >
+                   Journal 
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/calendar"
+              >
+                <a
+                  href="/calendar"
+                  onClick={[Function]}
+                >
+                   Calendar 
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </Header>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`should navigate to the journal when Journal is clicked 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "PUSH",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          Object {
+            "hash": "",
+            "pathname": "/journal",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 1,
+        "length": 2,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/journal",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Header>
+      <div
+        className="header"
+      >
+        <nav
+          className="header-content"
+        >
+          <Link
+            id="app-icon"
+            to="/"
+          >
+            <a
+              href="/"
+              id="app-icon"
+              onClick={[Function]}
+            >
+               TrainTracks 
+            </a>
+          </Link>
+          <ul
+            className="nav-items"
+          >
+            <li>
+              <Link
+                to="/journal"
+              >
+                <a
+                  href="/journal"
+                  onClick={[Function]}
+                >
+                   Journal 
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/calendar"
+              >
+                <a
+                  href="/calendar"
+                  onClick={[Function]}
+                >
+                   Calendar 
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </Header>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`should render a navigation bar with links 1`] = `
+<div
+  className="header"
+>
+  <nav
+    className="header-content"
+  >
+    <a
+      href="/"
+      id="app-icon"
+      onClick={[Function]}
+    >
+       TrainTracks 
+    </a>
+    <ul
+      className="nav-items"
+    >
+      <li>
+        <a
+          href="/journal"
+          onClick={[Function]}
+        >
+           Journal 
+        </a>
+      </li>
+      <li>
+        <a
+          href="/calendar"
+          onClick={[Function]}
+        >
+           Calendar 
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
