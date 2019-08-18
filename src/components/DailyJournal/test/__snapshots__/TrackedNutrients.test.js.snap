@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render an empty entry properly 1`] = `
+<div
+  className="logged-nutrients-total"
+>
+  <span />
+  <span>
+    0
+  </span>
+  <span>
+    0
+  </span>
+  <span>
+    0
+  </span>
+  <span>
+    0
+  </span>
+</div>
+`;
+
+exports[`should render the passed nutrients and servings. 1`] = `
+<div
+  className="logged-nutrients-total"
+>
+  <span>
+    2
+  </span>
+  <span>
+    200
+  </span>
+  <span>
+    15
+  </span>
+  <span>
+    20
+  </span>
+  <span>
+    9
+  </span>
+</div>
+`;

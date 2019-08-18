@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render an empty entry properly 1`] = `
+<div
+  className="meal-item"
+  onClick={[Function]}
+>
+  <div
+    className="meal-item-name"
+  />
+  <div
+    className="meal-item-values"
+  >
+    <TrackedNutrients
+      nutrients={
+        Object {
+          "cals": undefined,
+          "macros": undefined,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the given food name 1`] = `
+<div
+  className="meal-item"
+  onClick={[Function]}
+>
+  <div
+    className="meal-item-name"
+  >
+    Cheesecake
+  </div>
+  <div
+    className="meal-item-values"
+  >
+    <TrackedNutrients
+      nutrients={
+        Object {
+          "cals": 100,
+          "macros": Object {
+            "carbs": Object {
+              "total": 15,
+            },
+            "fats": Object {
+              "total": 9,
+            },
+            "protein": 20,
+          },
+        }
+      }
+    />
+  </div>
+</div>
+`;

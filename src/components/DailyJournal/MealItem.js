@@ -1,7 +1,7 @@
 import React from 'react';
 import TrackedNutrients from './TrackedNutrients';
 
-let MealItem = ({food, servings, handleClick}) => {
+let MealItem = ({food={}, servings, handleClick}) => {
 	let nutrients = {'cals': food.cals, 'macros': food.macros}
 
 	let onClick = () => {

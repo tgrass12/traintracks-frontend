@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly 1`] = `
+<div
+  className="water-tracker"
+>
+  <h3>
+    Water Intake
+  </h3>
+  <div
+    className="intake-buttons-container"
+  >
+    <button
+      className="add-water-intake"
+      value="4"
+    >
+      +4oz
+    </button>
+    <button
+      className="add-water-intake"
+      value="8"
+    >
+      +8oz
+    </button>
+    <button
+      className="add-water-intake"
+      value="16"
+    >
+      +16oz
+    </button>
+    <button
+      className="add-water-intake"
+      value="32"
+    >
+      +32oz
+    </button>
+  </div>
+  0
+   oz
+</div>
+`;
+
+exports[`should render with the provided water amount 1`] = `
+<div
+  className="water-tracker"
+>
+  <h3>
+    Water Intake
+  </h3>
+  <div
+    className="intake-buttons-container"
+  >
+    <button
+      className="add-water-intake"
+      value="4"
+    >
+      +4oz
+    </button>
+    <button
+      className="add-water-intake"
+      value="8"
+    >
+      +8oz
+    </button>
+    <button
+      className="add-water-intake"
+      value="16"
+    >
+      +16oz
+    </button>
+    <button
+      className="add-water-intake"
+      value="32"
+    >
+      +32oz
+    </button>
+  </div>
+  10
+   oz
+</div>
+`;

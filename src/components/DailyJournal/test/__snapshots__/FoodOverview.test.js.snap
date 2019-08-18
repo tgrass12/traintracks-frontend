@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly 1`] = `
+<div
+  onClick={[Function]}
+>
+  <span />
+  <span />
+</div>
+`;
+
+exports[`should render the name and calories of the food provided. 1`] = `
+<div
+  onClick={[Function]}
+>
+  <span>
+    Cheeseburger
+  </span>
+  <span>
+    500
+  </span>
+</div>
+`;

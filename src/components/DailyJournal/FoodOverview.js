@@ -1,7 +1,6 @@
 import React from 'react';
 
-let FoodOverview = ({food, setFoodToLog}) => {
-
+let FoodOverview = ({food={}, setFoodToLog}) => {
 	let handleClick = () => {
 		setFoodToLog(food.id);
 	}
