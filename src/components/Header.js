@@ -11,6 +11,8 @@ let Header = () => {
 				<ul className="nav-items">
 					<li>
 						<Link to="/journal"> Journal </Link>
+					</li>
+					<li>
 						<Link to="/calendar"> Calendar </Link>
 					</li>
 				</ul>
