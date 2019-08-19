@@ -4,11 +4,11 @@ import FoodOverview from './FoodOverview';
 import { fetchJournal } from '../../store/actions/journal';
 import { formatDateStandard } from '../../shared/util';
 
-let LogFood = ({meals}) => {
+let LogFood = ({meals, hideModal}) => {
 	let dispatch = useDispatch();
 	let journalDate = useSelector(state => state.journal.selectedDate);
 	let [servings, setServings] = useState(1);
-	let [selectedMeal, setSelectedMeal] = useState();
+	let [selectedMeal, setSelectedMeal] = useState(meals[0]);
 	let [foodToFind, setFoodToFind] = useState();
 	let [foundFoods, setFoundFoods] = useState([]);
 	let [foodToLog, setFoodToLog] = useState();
@@ -38,7 +38,6 @@ let LogFood = ({meals}) => {
 		});
 		setFoundFoods(foods);
 	}
-
 	let logFood = async (e) => {
 		e.preventDefault();
 		let date = formatDateStandard(journalDate);
@@ -58,9 +57,9 @@ let LogFood = ({meals}) => {
 
 			//TODO: this is dirty, only replace relevant components
 			dispatch(fetchJournal(date));
+			if (hideModal) hideModal();
 		}
 	}
-
 	let mealOptions = meals.map(m => 
 		<option key={m} value={m}>{m}</option> 
 	);

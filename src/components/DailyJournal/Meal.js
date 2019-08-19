@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from '../../hocs/Modal/Modal';
 import MealItem from './MealItem';
+import LogFood from './LogFood';
 import TrackedNutrients from './TrackedNutrients';
 
 let Meal = ({name, foods=[], loggedValues, handleClick}) => {
+	let [isModalVisible, setIsModalVisible] = useState(false);
+
+	const displayModal = () => {
+		setIsModalVisible(true);
+	}
+
+	const hideModal = () => {
+		setIsModalVisible(false);
+	}
+
 	let mealItems = foods.map(f => {
 		return (
 			<MealItem
@@ -13,6 +25,14 @@ let Meal = ({name, foods=[], loggedValues, handleClick}) => {
 			/>
 		)
 	});
+
+	const LogFoodModal = Modal(
+		LogFood, 
+		isModalVisible,
+		hideModal,
+		{meals: [name]}
+	);
+
 	return (
 		<div className='meal'>
 			<div className='meal-header'>
@@ -31,13 +51,14 @@ let Meal = ({name, foods=[], loggedValues, handleClick}) => {
 				</div>
 				<div className='meal-footer'>
 					<div className='meal-actions'>
-						<button> Add foods </button>
+						<button onClick={displayModal}> Add foods </button>
 					</div>
 					<div className='meal-logged-total'>
 						<TrackedNutrients nutrients={loggedValues} />
 					</div>
 				</div>	
-			</div>	
+			</div>
+			{LogFoodModal}
 		</div>
 	)
 }
