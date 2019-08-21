@@ -1,0 +1,44 @@
+{
+	"energy": "kcals",
+	"macros": {
+		"carbs": {
+			"total": "g",
+			"fiber": "g",
+			"sugars": "g"
+		},
+		"protein": "g",
+		"fats": {
+			"total": "g",
+			"sat": "g",
+			"poly": "g",
+			"mono": "g",
+			"trans": "g"
+		},
+	},
+	"micros": {
+		"vitamins": {
+			"vitaminA": "mcg",
+			"vitaminC": "mg",
+			"vitaminD": "mcg",
+			"vitaminE": "mg",
+			"vitaminK": "mcg",
+			"vitaminB5": "mg",
+			"vitaminB6": "mg",
+			"vitaminB12": "mcg",
+			"thiamin": "mg",
+			"riboflavin": "mg",
+			"niacin": "mg",
+			"biotin": "mcg",
+			"folate": "mcg"
+		},
+		"minerals": {
+			"calcium": "mg",
+			"iron": "mg",
+			"magnesium": "mg",
+			"sodium": "mg",
+			"potassium": "mg",
+			"zinc": "mg",
+			"phosphorus": "mg" 	
+		}
+	}
+}
