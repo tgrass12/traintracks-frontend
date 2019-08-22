@@ -5,7 +5,6 @@ import queryString from 'query-string';
 import {
 	addToWaterIntake,
 	fetchJournal,
-	setSelectedDate
 } from '../../store/actions/journal';
 import Header from './Header';
 import TrackedNutrients from './TrackedNutrients';
@@ -18,21 +17,17 @@ import { isValidDateString } from '../../shared/util';
 let NutritionJournal = ({location}) => {
 	const dispatch = useDispatch();
 	const date = useSelector(state => state.journal.selectedDate);
-	const nutrition = useSelector(state => state.journal.nutrition);
+	const nutrition = useSelector(state => state.journal[date].nutrition);
+	const water = useSelector(state => state.journal[date].nutrition.water);
 	const [selectedFood, setSelectedFood] = useState({});
-	const water = useSelector(state => state.journal.nutrition.water);
 
 	useEffect(() => {
-		let dateStr = queryString.parse(location.search).date;
+		let dateStr = queryString.parse(location.search).date || date;
 		if (isValidDateString(dateStr)) {
-			dispatch(setSelectedDate(dateStr));
+			dispatch(fetchJournal(dateStr));
+			setSelectedFood({});
 		}
-	}, [dispatch, location.search]);
-
-	useEffect(() => {
-		dispatch(fetchJournal(date));
-		setSelectedFood({});
-	}, [dispatch, date]);
+	}, [dispatch, date, location.search]);
 
 	let handleClick = async (foodId) => {
 		let apiUrl = `/api/foods/${foodId}`;

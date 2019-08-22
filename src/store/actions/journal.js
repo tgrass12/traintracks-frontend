@@ -12,26 +12,39 @@ export const setSelectedDate = function(selectedDate) {
 	};
 }
 
-export const setNutritionJournal = function(entry) {
+export const setNutritionJournal = function(date, entry) {
 	return {
 		type: SET_NUTRITION_JOURNAL,
+		date,
 		entry
 	}
 }
 
 export const fetchJournal = function(date) {
-	return dispatch => {
+	return (dispatch, getState) => {
+		const state = getState();
+		if (state.journal[date] && 
+			state.journal[date].nutrition.logged) {
+			let entry = state.journal[date];
+			return Promise.resolve().then(() => {
+				dispatch(setNutritionJournal(date, entry.nutrition));
+				dispatch(setSelectedDate(date));
+			});
+		}
+
 		let apiUrl = `/api/users/tyler/journal/${date}`;
 		return fetch(apiUrl).then(res => res.json())
-			.then(entry => {
-				dispatch(setNutritionJournal(entry));
+			.then(nutritionEntry => {
+				dispatch(setNutritionJournal(date, nutritionEntry));
+				dispatch(setSelectedDate(date));
 			});
 	}
 }
 
-export const setWaterIntake = (waterIntake) => {
+export const setWaterIntake = (date, waterIntake) => {
 	return {
 		type: SET_WATER_INTAKE,
+		date,
 		waterIntake
 	};
 }
@@ -48,6 +61,7 @@ export const addToWaterIntake = (date, waterIntake) => {
 		    });
 			dispatch({
 				type: ADD_TO_WATER_INTAKE,
+				date,
 				waterIntake
 			});
 

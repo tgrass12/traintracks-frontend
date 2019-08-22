@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { setSelectedDate } from '../../store/actions/journal';
+import { fetchJournal } from '../../store/actions/journal';
 import { 
 	formatDateFullNamed,
 	setToNextDay,
@@ -15,13 +15,13 @@ let Header = (props) => {
 	
 	let prevDay = () => {
 		let newDate = setToPrevDay(date);
-		dispatch(setSelectedDate(newDate));
+		dispatch(fetchJournal(newDate));
 		props.history.push(`/journal?date=${newDate}`);
 	}
 
 	let nextDay = () => {
 		let newDate = setToNextDay(date);
-		dispatch(setSelectedDate(newDate));
+		dispatch(fetchJournal(newDate));
 		props.history.push(`/journal?date=${newDate}`);
 	}
 

@@ -8,35 +8,25 @@ import {
 } from '../actionTypes';
 
 let initialState = {
-	'selectedDate': getCurrentDate(),
-	'nutrition': {
-		targets: {
-			'cals': 0,
-			'macros': {
-				'protein': 0,
-				'carbs': {
-					'total': 0
-				},
-				'fats': {
-					'total': 0
+	selectedDate: getCurrentDate(),
+	[getCurrentDate()]: {
+		nutrition: {
+			target: {
+				cals: 0,
+				macros: {
+					carbs: {
+						total: 0
+					},
+					protein: 0,
+					fats: {
+						total: 0
+					}
 				}
-			}
-		},
-		logged: {
-			'cals': 0,
-			'macros': {
-				'protein': 0,
-				'carbs': {
-					'total': 0
-				},
-				'fats': {
-					'total': 0
-				}		
 			},
-		},
-		meals: [],
-		water: 0,
+			meals: [],
+			water: 0,
 		}
+	}
 }
 
 const journal = (state=initialState, action) => {
@@ -46,16 +36,20 @@ const journal = (state=initialState, action) => {
 		case SET_NUTRITION_JOURNAL:
 			return { 
 				...state,
-				'nutrition': action.entry
+				[action.date]: {
+					'nutrition': action.entry
+				}
 			};
 		case SET_WATER_INTAKE:
 			return { ...state, 'nutrition.water': action.waterIntake };
 		case ADD_TO_WATER_INTAKE:
 			return { 
 				...state, 
-				'nutrition': {
-					...state.nutrition,
-					'water': state.nutrition.water + action.waterIntake
+				[action.date]: {
+					'nutrition': {
+						...state.entries[action.date].nutrition,
+						'water': state.entries[action.date].nutrition.water + action.waterIntake
+					}
 				}
 			};
 		default:
