@@ -66,7 +66,7 @@ export const addToWaterIntake = (date, waterIntake) => {
 			});
 
 		} catch(err) {
-			const error = new Error('Error setting water intake');
+			let error = new Error('Error setting water intake');
 			error.inner = err;
 			throw error;
 

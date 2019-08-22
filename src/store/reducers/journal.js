@@ -47,8 +47,8 @@ const journal = (state=initialState, action) => {
 				...state, 
 				[action.date]: {
 					'nutrition': {
-						...state.entries[action.date].nutrition,
-						'water': state.entries[action.date].nutrition.water + action.waterIntake
+						...state[action.date].nutrition,
+						'water': state[action.date].nutrition.water + action.waterIntake
 					}
 				}
 			};
