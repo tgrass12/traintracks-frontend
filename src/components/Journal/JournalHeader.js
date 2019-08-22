@@ -8,7 +8,7 @@ import {
 	setToPrevDay
 } from '../../shared/util';
 
-let Header = (props) => {
+let JournalHeader = (props) => {
 	const dispatch = useDispatch();
 	const date = useSelector(state => state.journal.selectedDate);
 	let formattedDate = formatDateFullNamed(date);
@@ -40,4 +40,4 @@ let Header = (props) => {
 	)
 }
 
-export default withRouter(Header);
+export default withRouter(JournalHeader);

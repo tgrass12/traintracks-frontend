@@ -8,9 +8,12 @@
 }
 
 .journal-container {
+	padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.nutrition-journal-container {
 	display: flex;
 	flex-wrap: wrap;
-	padding: 1.5rem 1.5rem 0 1.5rem;
 	height: 100%;
 	width: 100%;
 }
@@ -26,8 +29,8 @@
 	display: flex;
 	justify-content: center;
 	color: white;
-	width: 100%;
 	height: 36px;
+	width: 70%;
 	box-sizing: border-box;
 	background-color: $flat-red;
 
@@ -229,6 +232,10 @@
 	.nutrition-journal {
 		flex: 0 1 100%;
 		padding-bottom: 10px;
+	}
+	
+	.journal-header {
+		width: 100%;
 	}
 	
 	.daily-details {

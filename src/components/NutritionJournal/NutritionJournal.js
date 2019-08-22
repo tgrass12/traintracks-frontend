@@ -6,7 +6,7 @@ import {
 	addToWaterIntake,
 	fetchJournal,
 } from '../../store/actions/journal';
-import Header from './Header';
+import JournalHeader from '../Journal/JournalHeader';
 import TrackedNutrients from './TrackedNutrients';
 import Meal from './Meal';
 import LogFood from './LogFood';
@@ -73,9 +73,8 @@ let NutritionJournal = ({location}) => {
 	}
 
 	return (
-		<div className="journal-container">
+		<div className='nutrition-journal-container'>
 			<div className='nutrition-journal'>
-				<Header/>
 				<div className='journal-meals'>
 					{mealComponents}
 				</div>
