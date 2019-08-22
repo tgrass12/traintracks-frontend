@@ -1,5 +1,5 @@
 import React from 'react';
-import NutritionJournal from './NutritionJournal';
+import NutritionJournal from '../NutritionJournal/NutritionJournal';
 import '../../styles/DailyJournal.scss';
 
 let DailyJournal = () => {
