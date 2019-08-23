@@ -7,7 +7,7 @@ import {
 	fetchJournal,
 } from '../../store/actions/journal';
 import JournalHeader from '../Journal/JournalHeader';
-import TrackedNutrients from './TrackedNutrients';
+import ComputedNutrients from './ComputedNutrients';
 import Meal from './Meal';
 import LogFood from './LogFood';
 import FoodDetails from './FoodDetails';
@@ -81,27 +81,23 @@ let NutritionJournal = ({location}) => {
 						{mealComponents}
 					</div>
 					<div className='journal-values'>
-						<div className='journal-footer-row'>
-							<span className='values-label'>Logged</span>
-							<div className='journal-nutrients-values'>
-								<TrackedNutrients label="Logged" nutrients={nutrition.logged} />
-							</div>
-						</div>
-						<div className='journal-footer-row'>
-							<span className='values-label'>Targets</span>
-							<div className='journal-nutrients-values'>
-								<TrackedNutrients label="Targets" nutrients={nutrition.targets} />
-							</div>
-						</div>
-						<div className='journal-footer-row'>
-							<span className='values-label'>Remaining</span>
-							<div className='journal-nutrients-values'>
-								<TrackedNutrients 
-									label="Remaining"
-									nutrients={getRemainingNutrients(nutrition.targets, nutrition.logged)} 
-								/>
-							</div>
-						</div>
+						<ComputedNutrients 
+							label="Logged" 
+							nutrients={nutrition.logged} 
+						/>
+						<ComputedNutrients 
+							label="Targets" 
+							nutrients={nutrition.targets} 
+						/>
+						<ComputedNutrients 
+							label="Remaining" 
+							nutrients={
+								getRemainingNutrients(
+									nutrition.targets, 
+									nutrition.logged
+								)
+							} 
+						/>
 					</div>
 				</div>
 			</div>
