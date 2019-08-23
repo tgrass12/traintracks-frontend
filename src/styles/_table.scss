@@ -1,0 +1,35 @@
+%table {
+	margin: 5px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+%table-header {
+	flex: 1 1 100%;
+	display: flex;
+	margin: 2px 5px;
+	padding: 0 1px;
+}
+
+%table-row {
+	display: flex;
+	justify-content: space-between;
+}
+
+%row-primary {
+	flex: 0 1 40%;
+	margin-left: 10px;
+}
+
+%row-secondary {
+	margin-right: 10px;
+	flex: 1 1 60%;
+	display: flex;
+	justify-content: space-between;
+}
+
+%row-secondary-items {
+	display: flex;
+	justify-content: space-between;
+	flex: 1 0;
+}

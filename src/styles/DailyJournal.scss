@@ -1,7 +1,6 @@
 @import 'colors';
 @import 'card';
-
-//TODO: Create table-row partial;
+@import 'table';
 
 .daily-journal {
 	width: 100%;
@@ -68,28 +67,20 @@
 }
 
 .meal {
-	margin: 5px;
-	display: flex;
-	flex-wrap: wrap;
+	@extend %table;
 
 	.meal-header {
-		flex: 1 1 100%;
-		display: flex;
-		margin: 2px 5px;
+		@extend %table-header;
 	}
 
 	.meal-name {
-		margin-left: 10px;
+		@extend %row-primary;
 		text-align: start;
 		font-weight: bold;
-		flex: 0 1 40%;
 	}
 
 	.meal-labels {
-		display: flex;
-		justify-content: space-between;
-		flex: 1 1;
-		margin-right: 12px;
+		@extend %row-secondary;
 	}
 
 	.meal-labels * {
@@ -109,8 +100,7 @@
 		}
 
 		.meal-actions {
-			margin-left: 10px;
-			flex: 1 0 40%;
+			@extend %row-primary;
 		}
 
 		button {
@@ -121,9 +111,7 @@
 }
 
 .meal-logged-total {
-	margin-right: 10px;
-	flex: 1 1 60%;
-	display: flex;
+	@extend %row-secondary;
 	color: $bright-purple;
 }
 
@@ -136,20 +124,16 @@
 	justify-content: space-between;
 
 	.meal-item-name {
-		display: flex;
-		flex: 1 0 40%;
-		margin-left: 10px;
+		@extend %row-primary;
+		text-align: left;
 	}
 	
 	.meal-item-values {
-		display: flex;
-		margin-right: 10px;
-		justify-content: space-between;
-		flex: 1 1 60%;
+		@extend %row-secondary;
 	}
 	
 	.meal-item-values * {
-		width: 100%;
+		flex: 1;
 	}
 
 	.nutrition {
@@ -161,9 +145,7 @@
 }
 
 .logged-nutrients-total {
-	display: flex;
-	flex: 1;
-	justify-content: space-between;
+	@extend %row-secondary-items;
 
 	* {
 		width: 100%;
@@ -176,22 +158,14 @@
 }
 
 .values-label {
-	flex: 1 0 40%;
-	margin-left: 10px;
+	@extend %row-primary;
 }
 
 .nutrient-values {
-	flex: 1 1 60%;
-	margin-right: 10px;
+	@extend %row-secondary;
 	* {
 		width: 100%;
 	}
-}
-
-.logged-nutrients {
-	flex: 1 1 50%;
-	display: flex;
-	justify-content: space-between;
 }
 
 .food-details {
