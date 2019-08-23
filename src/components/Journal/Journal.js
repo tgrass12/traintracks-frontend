@@ -9,7 +9,7 @@ let DailyJournal = () => {
 		<div className="daily-journal">
 			<div className="journal-container">
 				<JournalHeader/>	
-				<NutritionJournal/>
+				<WorkoutLog/>
 			</div>
 		</div>
 	)

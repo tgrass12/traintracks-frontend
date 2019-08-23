@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LogNewExercise /> should render 1`] = `
+<div
+  className="new-exercise-hero"
+>
+  <h3>
+    No Exercises Yet
+  </h3>
+  <button>
+    Log One Now
+  </button>
+</div>
+`;

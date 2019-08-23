@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LogNewExercise from './LogNewExercise';
+import '../../styles/WorkoutLog.scss';
 
 let WorkoutLog = () => {
+	let [loggedExercises, setLoggedExercises] = useState([]);
+
+	let exercises = loggedExercises.map(e => {
+		return (<div key={e}>{e}</div>);
+	});
+	
 	return (
-		<div className="workout-log">
-			WorkoutLog Component
+		<div className="workout-log-container">
+			<div className="workout-log">
+				{exercises.length > 0 ?
+					exercises
+					:
+					<LogNewExercise />
+				}
+			</div>
 		</div>
 	)
 }
