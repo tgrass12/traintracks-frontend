@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from '../../hocs/Modal/Modal';
+import Modal from '../../hocs/Modal';
 import MealItem from './MealItem';
 import LogFood from './LogFood';
 import TrackedNutrients from './TrackedNutrients';

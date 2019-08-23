@@ -5,7 +5,7 @@ import DaysContainer from './DaysContainer';
 import Details from './Details';
 import '../../styles/Calendar.scss';
 
-let CalendarContainer = () => {
+let Calendar = () => {
 	let [date, setDate] = useState(new Date());
 	let [datesWithEntries, setEntryDates] = useState([]);
 
@@ -45,4 +45,4 @@ let CalendarContainer = () => {
 	)
 }
 
-export default CalendarContainer;
+export default Calendar;

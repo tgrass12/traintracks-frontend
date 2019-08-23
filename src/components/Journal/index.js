@@ -1,7 +1,7 @@
 import React from 'react';
-import NutritionJournal from '../NutritionJournal/NutritionJournal';
-import Tabs from '../../hocs/Tabs/Tabs';
-import WorkoutLog from '../WorkoutLog/WorkoutLog';
+import NutritionJournal from '../NutritionJournal';
+import Tabs from '../../hocs/Tabs';
+import WorkoutLog from '../WorkoutLog';
 import '../../styles/DailyJournal.scss';
 
 let Journal = () => {
