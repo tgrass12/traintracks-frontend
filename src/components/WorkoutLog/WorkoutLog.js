@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import JournalHeader from '../Journal/JournalHeader';
 import LogNewExercise from './LogNewExercise';
 import '../../styles/WorkoutLog.scss';
 
@@ -8,9 +9,10 @@ let WorkoutLog = () => {
 	let exercises = loggedExercises.map(e => {
 		return (<div key={e}>{e}</div>);
 	});
-	
+
 	return (
 		<div className="workout-log-container">
+			<JournalHeader/>
 			<div className="workout-log">
 				{exercises.length > 0 ?
 					exercises

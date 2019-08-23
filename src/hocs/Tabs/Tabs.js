@@ -18,25 +18,15 @@ let Tabs = (ComponentsToTab) => {
 		/>
 	}
 
-	let createTabContent = function(label, component, isActive) {
-		return (
-			<div key={`${label}-content`}
-				className={
-				`tab-content
-				${isActive ? 'active': ''}`
-				}>
-				{component}
-			</div>
-		)
-	}
-
 	let createTabs = function() {
 		for (let c of ComponentsToTab) {
 			let isActive = snakeCase(c.label) === activeItem;
-			tabContents.push(createTabContent(c.label, c.component, isActive));
-			tabHeaders.push(createTabHeaderItem(c.label, isActive));
-		}
 
+			tabHeaders.push(createTabHeaderItem(c.label, isActive));
+			if (isActive) {
+				tabContents = (<c.component />);
+			}
+		}
 	}
 
 	createTabs();

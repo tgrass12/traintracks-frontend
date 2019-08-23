@@ -74,6 +74,7 @@ let NutritionJournal = ({location}) => {
 
 	return (
 		<div className='nutrition-journal-container'>
+			<JournalHeader />
 			<div className='nutrition-journal'>
 				<div className='journal-meals'>
 					{mealComponents}

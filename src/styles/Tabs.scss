@@ -6,34 +6,24 @@
 
 .tab {
 	height: 32px;
-	z-index: 2;
-	box-sizing: border-box;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-right: 10px;
-	padding-left: 5px;
-	padding-right: 5px;
-	border: 1px solid blue;
+	padding: 0 5px;
+	border: 1px solid $flat-red;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
-	background-color: blue;
-	color: white;
+	background-color: white;
+	color: $flat-red;
 	cursor: pointer;
 }
 
 .tab.active {
-	background-color: white;
-	border-color: blue;
+	background-color: $flat-red;
+	border-color: $flat-red;
 	border-type: solid;
 	border-width: 1px 1px 0 1px;
-	color: blue;
-}
-
-.tab-content {
-	display: none;
-}
-
-.tab-content.active {
-	display: block;
+	color: white;
+	font-weight: bold;
 }
