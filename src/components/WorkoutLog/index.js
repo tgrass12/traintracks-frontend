@@ -12,13 +12,15 @@ let WorkoutLog = () => {
 
 	return (
 		<div className="workout-log-container">
-			<JournalHeader/>
-			<div className="workout-log">
-				{exercises.length > 0 ?
-					exercises
-					:
-					<LogNewExercise />
-				}
+			<div className="exercise-logger">
+				<JournalHeader/>
+				<div className="workout-log">
+					{exercises.length > 0 ?
+						exercises
+						:
+						<LogNewExercise />
+					}
+				</div>
 			</div>
 		</div>
 	)

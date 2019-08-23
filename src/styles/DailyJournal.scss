@@ -1,7 +1,7 @@
 @import 'colors';
+@import 'card';
 
-//TODO: Refactor to mixin;
-//TODO: Create table-row mixin;
+//TODO: Create table-row partial;
 
 .daily-journal {
 	width: 100%;
@@ -18,10 +18,9 @@
 	width: 100%;
 }
 
-.nutrition-journal {
+.nutrition-logger {
+	@extend %card;
 	flex: 0 1 70%;
-	background-color: white;
-	box-shadow: 0px 0px 10px 2px $light-gray;
 }
 
 .journal-header {
@@ -30,7 +29,6 @@
 	justify-content: center;
 	color: white;
 	height: 36px;
-	width: 70%;
 	box-sizing: border-box;
 	background-color: $flat-red;
 
@@ -197,11 +195,10 @@
 }
 
 .food-details {
+	@extend %card;
 	margin-left: 10px;
 	margin-bottom: 10px;
 	height: 385px;
-	background-color: white;
-	box-shadow: 0px 0px 10px 2px $light-gray;
 }
 
 .food-details-header {
@@ -214,22 +211,20 @@
 }
 
 .water-tracker {
+	@extend %card;
 	height: 165px;
-	background-color: white;
-	box-shadow: 0px 0px 10px 2px $light-gray;
 	margin-left: 10px;
 }
 
 .journal-additional-actions {
+	@extend %card;
 	flex: 1;
 	min-height: 120px;
 	margin-top: 10px;
-	background-color: white;
-	box-shadow: 0px 0px 10px 2px $light-gray;
 }
 
 @media all and (max-width: 1100px) {
-	.nutrition-journal {
+	.nutrition-logger {
 		flex: 0 1 100%;
 		padding-bottom: 10px;
 	}

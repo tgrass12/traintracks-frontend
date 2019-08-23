@@ -74,28 +74,33 @@ let NutritionJournal = ({location}) => {
 
 	return (
 		<div className='nutrition-journal-container'>
-			<JournalHeader />
-			<div className='nutrition-journal'>
-				<div className='journal-meals'>
-					{mealComponents}
-				</div>
-				<div className='journal-values'>
-					<div className='journal-footer-row'>
-						<span className='values-label'>Logged</span>
-						<div className='journal-nutrients-values'>
-							<TrackedNutrients nutrients={nutrition.logged} />
-						</div>
+			<div className="nutrition-logger">
+				<JournalHeader />
+				<div className='nutrition-journal'>
+					<div className='journal-meals'>
+						{mealComponents}
 					</div>
-					<div className='journal-footer-row'>
-						<span className='values-label'>Targets</span>
-						<div className='journal-nutrients-values'>
-							<TrackedNutrients nutrients={nutrition.targets} />
+					<div className='journal-values'>
+						<div className='journal-footer-row'>
+							<span className='values-label'>Logged</span>
+							<div className='journal-nutrients-values'>
+								<TrackedNutrients label="Logged" nutrients={nutrition.logged} />
+							</div>
 						</div>
-					</div>
-					<div className='journal-footer-row'>
-						<span className='values-label'>Remaining</span>
-						<div className='journal-nutrients-values'>
-							<TrackedNutrients nutrients={getRemainingNutrients(nutrition.targets, nutrition.logged)} />
+						<div className='journal-footer-row'>
+							<span className='values-label'>Targets</span>
+							<div className='journal-nutrients-values'>
+								<TrackedNutrients label="Targets" nutrients={nutrition.targets} />
+							</div>
+						</div>
+						<div className='journal-footer-row'>
+							<span className='values-label'>Remaining</span>
+							<div className='journal-nutrients-values'>
+								<TrackedNutrients 
+									label="Remaining"
+									nutrients={getRemainingNutrients(nutrition.targets, nutrition.logged)} 
+								/>
+							</div>
 						</div>
 					</div>
 				</div>
