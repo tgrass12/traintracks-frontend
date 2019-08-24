@@ -110,6 +110,7 @@
 			@extend %btn-action;
 			float: left;
 			margin-left: 5px;
+			width: 10rem;
 		}
 	}
 }
@@ -196,6 +197,12 @@
 	@extend %card;
 	height: 165px;
 	margin-left: 10px;
+}
+
+.add-water-intake {
+	@extend %btn-action;
+	width: 6rem;
+	margin: 0 0.5rem;
 }
 
 .journal-additional-actions {
