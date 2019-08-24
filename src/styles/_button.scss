@@ -1,6 +1,8 @@
 @import 'colors';
 
 button {
+	vertical-align: middle;
+	
 	&:hover {
 		cursor: pointer;
 	}
