@@ -81,7 +81,11 @@ let LogFood = ({meals, hideModal}) => {
 				<form>
 					<label>Find a food</label>
 					<input onChange={handleFoodToFind}/>
-					<button onClick={findFoods}> Find </button>
+					<button 
+						id="find-food-btn" 
+						onClick={findFoods}>
+						Find
+					 </button>
 				</form>
 				<div>
 					{foundFoodsComponents}
@@ -100,7 +104,11 @@ let LogFood = ({meals, hideModal}) => {
 						onChange={handleServingsChange}
 					/>
 				</div>
-				<button onClick={logFood}>Log</button>
+				<button 
+					id="log-food-btn"
+					onClick={logFood}>
+					Log
+				</button>
 			</form>
 		</div>
 	)

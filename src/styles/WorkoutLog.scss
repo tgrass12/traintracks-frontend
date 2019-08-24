@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'card';
+@import 'button';
 
 .workout-log-container {
 	display: flex;
@@ -23,6 +24,10 @@
 	left: 50%;
 	transform: translate(-50%, -25%);
 	width: 100%;
+}
+
+#exercise-cta {
+	@extend %btn-cta;
 }
 
 @media all and (max-width: 1100px) {

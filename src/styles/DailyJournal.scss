@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'card';
+@import 'button';
 @import 'table';
 
 .daily-journal {
@@ -104,6 +105,7 @@
 		}
 
 		button {
+			@extend %btn-action;
 			float: left;
 			margin-left: 5px;
 		}
@@ -173,6 +175,10 @@
 	margin-left: 10px;
 	margin-bottom: 10px;
 	height: 385px;
+}
+
+#find-food-btn, #log-food-btn {
+	@extend %btn-standard;
 }
 
 .food-details-header {
