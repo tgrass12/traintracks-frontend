@@ -1,6 +1,7 @@
 import * as actions from '../user';
 import {
-	SET_USER
+	SET_USER,
+	SET_MEALS
 } from '../../actionTypes';
 
 describe('user actions', () => {
@@ -13,4 +14,12 @@ describe('user actions', () => {
 		expect(actions.setUser(username)).toEqual(expectedAction);
 	});
 
+	it('should create an action to set meals', () => {
+		const meals = ['Breakfast', 'Lunch', 'Dinner'];
+		const expectedAction = {
+			type: SET_MEALS,
+			meals
+		}
+		expect(actions.setMeals(meals)).toEqual(expectedAction);
+	});
 });

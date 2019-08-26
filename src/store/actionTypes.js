@@ -9,3 +9,4 @@ export const UPDATE_WATER_INTAKE = "UPDATE_WATER_INTAKE";
 
 /* User Actions */
 export const SET_USER = "SET_USER";
+export const SET_MEALS = "SET_MEALS";
