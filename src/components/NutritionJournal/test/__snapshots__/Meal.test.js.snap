@@ -71,7 +71,7 @@ exports[`should render an empty meal 1`] = `
     shouldFocusAfterRender={true}
     shouldReturnFocusAfterClose={true}
   >
-    <LogFood
+    <FoodLogger
       hideModal={[Function]}
       meals={
         Array [

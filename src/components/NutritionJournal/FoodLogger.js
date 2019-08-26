@@ -5,7 +5,7 @@ import LogFoodForm from './LogFoodForm';
 import { fetchJournal } from '../../store/actions/journal';
 import { formatDateStandard } from '../../shared/util';
 
-let LogFood = ({hideModal}) => {
+let FoodLogger = ({hideModal}) => {
 	let dispatch = useDispatch();
 	let journalDate = useSelector(state => state.journal.selectedDate);
 	let meals = useSelector(state => state.journal[journalDate].nutrition.meals);
@@ -44,4 +44,4 @@ let LogFood = ({hideModal}) => {
 	)
 }
 
-export default LogFood;
+export default FoodLogger;
