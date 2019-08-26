@@ -62,6 +62,7 @@ export const addToWaterIntake = (date, waterIntake) => {
 		try {
 			const state = getState();
 			const user = state.user.username;
+			dispatch(updateWaterIntake(date, waterIntake));
 			await fetch(`/api/users/${user}/journal/${date}/water`, {
 		  		method: 'PATCH',
 		  		body: JSON.stringify({ 'waterAmount': waterIntake }),
@@ -69,9 +70,9 @@ export const addToWaterIntake = (date, waterIntake) => {
 		    		'Content-Type': 'application/json'
 		    	}
 		    });
-			dispatch(updateWaterIntake(date, waterIntake));
 
 		} catch(err) {
+			dispatch(updateWaterIntake(date, -waterIntake));
 			let error = new Error('Error setting water intake');
 			error.inner = err;
 			throw error;
