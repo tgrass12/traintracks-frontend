@@ -9,7 +9,7 @@ import {
 import JournalHeader from '../Journal/JournalHeader';
 import ComputedNutrients from './ComputedNutrients';
 import Meal from './Meal';
-import LogFood from './LogFood';
+import FoodLogger from './FoodLogger';
 import FoodDetails from './FoodDetails';
 import WaterTracker from './WaterTracker';
 import { isValidDateString } from '../../shared/util';
@@ -106,7 +106,7 @@ let NutritionJournal = ({location}) => {
 				<WaterTracker addWaterIntake={addWaterIntake} amount={water}/>
 			</div>
 			<div className="journal-additional-actions">
-				<LogFood meals={nutrition.meals.map(m => m.name)} /> 
+				<FoodLogger meals={nutrition.meals.map(m => m.name)} /> 
 			</div>
 		</div>
 	)

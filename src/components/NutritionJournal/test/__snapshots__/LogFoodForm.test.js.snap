@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LogFoodForm /> should render 1`] = `
+<form>
+  <div>
+    <label>
+       Add to... 
+    </label>
+    <select
+      onChange={[Function]}
+    />
+    <label>
+      Servings 
+    </label>
+    <input
+      onChange={[Function]}
+      type="number"
+      value={1}
+    />
+  </div>
+  <button
+    id="log-food-btn"
+    onClick={[Function]}
+  >
+    Log
+  </button>
+</form>
+`;
+
+exports[`<LogFoodForm /> should render passed meal options 1`] = `
+<form>
+  <div>
+    <label>
+       Add to... 
+    </label>
+    <select
+      onChange={[Function]}
+      value="Breakfast"
+    >
+      <option
+        key="Breakfast"
+        value="Breakfast"
+      >
+        Breakfast
+      </option>
+      <option
+        key="Lunch"
+        value="Lunch"
+      >
+        Lunch
+      </option>
+      <option
+        key="Dinner"
+        value="Dinner"
+      >
+        Dinner
+      </option>
+    </select>
+    <label>
+      Servings 
+    </label>
+    <input
+      onChange={[Function]}
+      type="number"
+      value={1}
+    />
+  </div>
+  <button
+    id="log-food-btn"
+    onClick={[Function]}
+  >
+    Log
+  </button>
+</form>
+`;

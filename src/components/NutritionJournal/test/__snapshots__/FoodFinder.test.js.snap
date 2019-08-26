@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FoodFinder /> should render 1`] = `
+<div>
+  <form>
+    <label>
+      Find a food
+    </label>
+    <input
+      onChange={[Function]}
+    />
+    <button
+      id="find-food-btn"
+      onClick={[Function]}
+    >
+      Find
+    </button>
+  </form>
+  <div />
+</div>
+`;

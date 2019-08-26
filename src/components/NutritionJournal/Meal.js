@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '../../hocs/Modal';
 import MealItem from './MealItem';
-import LogFood from './LogFood';
+import FoodLogger from './FoodLogger';
 import TrackedNutrients from './TrackedNutrients';
 
 let Meal = ({name, foods=[], loggedValues, handleClick}) => {
@@ -26,8 +26,8 @@ let Meal = ({name, foods=[], loggedValues, handleClick}) => {
 		)
 	});
 
-	const LogFoodModal = Modal(
-		LogFood, 
+	const FoodLoggerModal = Modal(
+		FoodLogger, 
 		isModalVisible,
 		hideModal,
 		{meals: [name]}
@@ -58,7 +58,7 @@ let Meal = ({name, foods=[], loggedValues, handleClick}) => {
 					</div>
 				</div>	
 			</div>
-			{LogFoodModal}
+			{FoodLoggerModal}
 		</div>
 	)
 }
