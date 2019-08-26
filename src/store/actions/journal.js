@@ -31,8 +31,8 @@ export const fetchJournal = function(date) {
 				dispatch(setSelectedDate(date));
 			});
 		}
-
-		let apiUrl = `/api/users/tyler/journal/${date}`;
+		const user = state.user.username;
+		let apiUrl = `/api/users/${user}/journal/${date}`;
 		return fetch(apiUrl).then(res => res.json())
 			.then(nutritionEntry => {
 				dispatch(setNutritionJournal(date, nutritionEntry));
@@ -50,9 +50,11 @@ export const setWaterIntake = (date, waterIntake) => {
 }
 
 export const addToWaterIntake = (date, waterIntake) => {
-	return async dispatch => {
+	return async (dispatch, getState) => {
 		try {
-			await fetch(`/api/users/tyler/journal/${date}/water`, {
+			const state = getState();
+			const user = state.user.username;
+			await fetch(`/api/users/${user}/journal/${date}/water`, {
 		  		method: 'PATCH',
 		  		body: JSON.stringify({ 'waterAmount': waterIntake }),
 		  		headers: {
@@ -75,8 +77,10 @@ export const addToWaterIntake = (date, waterIntake) => {
 }
 
 export const fetchWaterIntake = (date) => {
-	return dispatch => {
-		return fetch(`/api/users/tyler/journal/${date}/water`)
+	return (dispatch, getState) => {
+		const state = getState();
+		const user = state.user.username;
+		return fetch(`/api/users/${user}/journal/${date}/water`)
 			.then(res => res.json())
 			.then(res => dispatch(setWaterIntake(res.water)));
 	}
