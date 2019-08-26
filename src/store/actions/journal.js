@@ -1,7 +1,7 @@
 import { 
 	SET_SELECTED_DATE,
 	SET_NUTRITION_JOURNAL,
-	ADD_TO_WATER_INTAKE,
+	UPDATE_WATER_INTAKE,
 	SET_WATER_INTAKE,
 } from '../actionTypes';
 
@@ -49,6 +49,14 @@ export const setWaterIntake = (date, waterIntake) => {
 	};
 }
 
+export const updateWaterIntake = (date, waterIntake) => {
+	return {
+		type: UPDATE_WATER_INTAKE,
+		date,
+		waterIntake	
+	}
+}
+
 export const addToWaterIntake = (date, waterIntake) => {
 	return async (dispatch, getState) => {
 		try {
@@ -61,11 +69,7 @@ export const addToWaterIntake = (date, waterIntake) => {
 		    		'Content-Type': 'application/json'
 		    	}
 		    });
-			dispatch({
-				type: ADD_TO_WATER_INTAKE,
-				date,
-				waterIntake
-			});
+			dispatch(updateWaterIntake(date, waterIntake));
 
 		} catch(err) {
 			let error = new Error('Error setting water intake');

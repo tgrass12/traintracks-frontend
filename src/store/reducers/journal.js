@@ -4,7 +4,7 @@ import {
 	SET_SELECTED_DATE,
 	SET_NUTRITION_JOURNAL,
 	SET_WATER_INTAKE,
-	ADD_TO_WATER_INTAKE
+	UPDATE_WATER_INTAKE
 } from '../actionTypes';
 
 let initialState = {
@@ -41,8 +41,16 @@ const journal = (state=initialState, action) => {
 				}
 			};
 		case SET_WATER_INTAKE:
-			return { ...state, 'nutrition.water': action.waterIntake };
-		case ADD_TO_WATER_INTAKE:
+			return { 
+				...state, 
+				[action.date]: {
+					'nutrition':  {
+						...state[action.date].nutrition,
+						'water': action.waterIntake 
+					}
+				}
+			};
+		case UPDATE_WATER_INTAKE:
 			return { 
 				...state, 
 				[action.date]: {
