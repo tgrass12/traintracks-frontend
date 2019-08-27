@@ -1,6 +1,7 @@
 @import 'colors';
 @import 'card';
 @import 'button';
+@import 'input';
 
 .workout-log-container {
 	display: flex;
@@ -26,8 +27,74 @@
 	width: 100%;
 }
 
+.exercise-logger-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+
+	h2 {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+.exercise-logger-form {
+	display: grid;
+	grid-template-columns: 3.2rem;
+	align-items: center;
+	justify-content: center;
+
+	label {
+		grid-column: 1;
+	}
+
+	input {
+		grid-column-start: 3;
+		grid-column-end: 5;
+	}
+
+	button {
+		grid-column-start: 3;
+		grid-column-end: 5;
+	}
+
+	div {
+		grid-column-start: 1;
+		grid-column-end: 6;
+		display: flex;
+		justify-content: center;
+	}
+}
+
+#logger-sets-label {
+	grid-row: 3;
+	grid-column: 2;
+}
+
+#logger-sets {
+	width: 3.2rem;
+	grid-row: 3;
+	grid-column: 1;
+}
+
+#logger-reps-label {
+	grid-row: 3;
+	grid-column: 4;
+}
+
+#logger-reps {
+	width: 3.2rem;
+	grid-row: 3;
+	grid-column: 3;
+}
+
 #exercise-cta {
 	@extend %btn-cta;
+}
+
+#log-exercise-btn {
+	@extend %btn-action;
 }
 
 @media all and (max-width: 1100px) {

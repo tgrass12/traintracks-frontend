@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ExerciseLoggerForm /> should render 1`] = `
+<form
+  className="exercise-logger-form"
+>
+  <label
+    htmlFor="logger-exercise-name"
+  >
+    Exercise: 
+  </label>
+  <input
+    id="logger-exercise-name"
+    onChange={[Function]}
+    value=""
+  />
+  <label
+    htmlFor="logger-weight"
+  >
+    Weight: 
+  </label>
+  <input
+    id="logger-weight"
+    onChange={[Function]}
+    type="number"
+    value={0}
+  />
+  <input
+    id="logger-sets"
+    onChange={[Function]}
+    type="number"
+    value={1}
+  />
+  <label
+    htmlFor="logger-sets"
+    id="logger-sets-label"
+  >
+    Set(s) of
+  </label>
+  <input
+    id="logger-reps"
+    onChange={[Function]}
+    type="number"
+    value={1}
+  />
+  <label
+    htmlFor="logger-reps"
+    id="logger-reps-label"
+  >
+    Reps
+  </label>
+  <div>
+    <button
+      id="log-exercise-btn"
+      onClick={[Function]}
+    >
+      + Add Exercise
+    </button>
+  </div>
+</form>
+`;

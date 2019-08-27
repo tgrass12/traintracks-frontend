@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ExerciseLogger /> should render 1`] = `
+<div
+  className="exercise-logger-container"
+>
+  <h2>
+     Log an exercise 
+  </h2>
+  <ExerciseLoggerForm
+    logExercise={[Function]}
+  />
+</div>
+`;
