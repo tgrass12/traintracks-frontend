@@ -1,10 +1,14 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addExercise } from '../../store/actions/journal';
 import ExerciseLoggerForm from './ExerciseLoggerForm';
+
 let ExerciseLogger = ({hideModal}) => {
-
+	let dispatch = useDispatch();
+	let date = useSelector(state => state.journal.selectedDate);
+	
 	let logExercise = (exercise) => {
-		console.log(exercise);
-
+		dispatch(addExercise(date, exercise));
 		if (hideModal) hideModal();
 	}
 

@@ -5,7 +5,8 @@ import {
 	SET_SELECTED_DATE,
 	SET_NUTRITION_JOURNAL,
 	SET_WATER_INTAKE,
-	UPDATE_WATER_INTAKE
+	UPDATE_WATER_INTAKE,
+	ADD_EXERCISE
 } from '../../actionTypes';
 
 const initialState = {
@@ -26,7 +27,8 @@ const initialState = {
 			},
 			meals: [],
 			water: 0,
-		}
+		},
+		workouts: []
 	}
 }
 
@@ -48,28 +50,10 @@ const mockJournal = {
 			},
 			meals: ['Breakfast', 'Lunch', 'Dinner'],
 			water: 32,
-		}
+		},
+		workouts: []
 	}
 }
-
-const mockNutritionEntry = {
-	nutrition: {
-		target: {
-			cals: 2000,
-			macros: {
-				carbs: {
-					total: 400
-				},
-				protein: 150,
-				fats: {
-					total: 45
-				}
-			}
-		},
-		meals: ['Breakfast', 'Lunch', 'Dinner'],
-		water: 32,
-	}
-};
 
 describe('journal reducer', () => {
 	it('should handle default state', () => {
@@ -88,14 +72,14 @@ describe('journal reducer', () => {
 	});
 
 	it('should handle SET_NUTRITION_JOURNAL', () => {
-		const date = '2019-07-03';
+		const date = '2019-07-02';
 		const action = {
 			type: SET_NUTRITION_JOURNAL,
 			date,
-			entry: mockNutritionEntry.nutrition
+			entry: mockJournal
 		}
 		expect(journalReducer(initialState, action)[date])
-			.toEqual(mockNutritionEntry);
+			.toEqual(mockJournal);
 	});
 
 	it('should handle SET_WATER_INTAKE', () => {
@@ -120,5 +104,22 @@ describe('journal reducer', () => {
 		}
 		expect(journalReducer(mockJournal, action)[date].nutrition.water)
 			.toEqual(40);
+	});
+
+	it('should handle ADD_EXERCISE', () => {
+		const date = '2019-07-02';
+		const exercise = {
+			'exerciseName': 'Squat',
+			'weight': 135,
+			'sets': 3,
+			'reps': 8
+		};
+		const action = {
+			type: ADD_EXERCISE,
+			date,
+			exercise
+		};
+		expect(journalReducer(mockJournal, action)[date].workouts.length)
+			.toEqual(1);
 	});
 });

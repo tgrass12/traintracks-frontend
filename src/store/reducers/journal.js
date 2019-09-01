@@ -4,7 +4,8 @@ import {
 	SET_SELECTED_DATE,
 	SET_NUTRITION_JOURNAL,
 	SET_WATER_INTAKE,
-	UPDATE_WATER_INTAKE
+	UPDATE_WATER_INTAKE,
+	ADD_EXERCISE
 } from '../actionTypes';
 
 let initialState = {
@@ -25,7 +26,8 @@ let initialState = {
 			},
 			meals: [],
 			water: 0,
-		}
+		},
+		workouts: []
 	}
 }
 
@@ -34,10 +36,16 @@ const journal = (state=initialState, action) => {
 		case SET_SELECTED_DATE:
 			return { ...state, 'selectedDate': action.selectedDate };
 		case SET_NUTRITION_JOURNAL:
+			//TODO: Refactor this
+			console.log(state)
 			return { 
 				...state,
 				[action.date]: {
-					'nutrition': action.entry
+					'nutrition': {
+						...state[action.date].nutrition, 
+						...action.entry.nutrition
+					},
+					'workouts': action.entry.workouts
 				}
 			};
 		case SET_WATER_INTAKE:
@@ -58,6 +66,13 @@ const journal = (state=initialState, action) => {
 						...state[action.date].nutrition,
 						'water': state[action.date].nutrition.water + action.waterIntake
 					}
+				}
+			};
+		case ADD_EXERCISE: 
+			return {
+				...state,
+				[action.date]: {
+					'workouts': [...state[action.date].workouts, action.exercise]
 				}
 			};
 		default:

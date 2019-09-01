@@ -28,10 +28,10 @@ let ExerciseLoggerForm = ({logExercise}) => {
 	let handleClick = (e) => {
 		e.preventDefault();
 		let exerciseToLog = {
-			'exercise': exerciseName,
-			'weight': weight,
-			'sets': sets,
-			'reps': reps
+			exerciseName,
+			weight,
+			sets,
+			reps
 		};
 
 		logExercise(exerciseToLog);

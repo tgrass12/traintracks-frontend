@@ -3,7 +3,8 @@ import {
 	SET_NUTRITION_JOURNAL,
 	SET_SELECTED_DATE,
 	SET_WATER_INTAKE,
-	UPDATE_WATER_INTAKE
+	UPDATE_WATER_INTAKE,
+	ADD_EXERCISE
 } from '../../actionTypes';
 
 describe('journal actions', () => {
@@ -54,6 +55,23 @@ describe('journal actions', () => {
 			waterIntake
 		}
 		expect(actions.updateWaterIntake(date, waterIntake))
+			.toEqual(expectedAction);
+	});
+
+	it('should create an action to update exercises', () => {
+		const date = '2019-07-02';
+		const exercise = {
+			'exerciseName': 'Squat',
+			'weight': 135,
+			'sets': 3,
+			'reps': 8
+		}
+		const expectedAction = {
+			type: ADD_EXERCISE,
+			date,
+			exercise
+		}
+		expect(actions.updateExercise(date, exercise))
 			.toEqual(expectedAction);
 	});
 });

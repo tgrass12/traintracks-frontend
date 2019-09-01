@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import JournalHeader from '../Journal/JournalHeader';
 import LogNewExercise from './LogNewExercise';
 import '../../styles/WorkoutLog.scss';
 
 let WorkoutLog = () => {
-	let [loggedExercises, setLoggedExercises] = useState([]);
+	let loggedExercises = useSelector(state => {
+		let date = state.journal.selectedDate;
+		return state.journal[date].workouts.exercise;
+	});
 
 	let exercises = loggedExercises.map(e => {
-		return (<div key={e}>{e}</div>);
+		return (
+			<div key={e._id}>
+				{e.name}
+			</div>
+		);
 	});
 
 	return (
