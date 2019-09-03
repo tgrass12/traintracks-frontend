@@ -4,7 +4,7 @@ import '../../styles/Modal.scss';
 
 let Modal = (Component, isOpen = false, hideModal, props) => {
 	if (process.env.NODE_ENV !== 'test') {
-		ReactModal.setAppElement('.main');
+		ReactModal.setAppElement('#root');
 	}
 	else {
 		ReactModal.setAppElement(document.createElement('div'));

@@ -1,9 +1,13 @@
-import { getCurrentDate } from '../../../shared/util';
+import { 
+	getCurrentDate,
+	setToNextDay, 
+} from '../../../shared/util';
 
 import journalReducer from '../journal';
 import { 
 	SET_SELECTED_DATE,
-	SET_NUTRITION_JOURNAL,
+	RECEIVE_JOURNAL_SUCCESS,
+	RECEIVE_JOURNAL_EMPTY,
 	SET_WATER_INTAKE,
 	UPDATE_WATER_INTAKE,
 	ADD_EXERCISE
@@ -25,16 +29,93 @@ const initialState = {
 					}
 				}
 			},
-			meals: [],
+		meals: [
+			{ 'name': 'Breakfast' }, 
+			{ 'name': 'Lunch' },
+			{ 'name': 'Dinner' }
+		],
 			water: 0,
 		},
 		workouts: []
 	}
 }
 
-const mockJournal = {
+const mockEmptyJournal = {
 	selectedDate: getCurrentDate(),
-	'2019-07-02': {
+	[getCurrentDate()]: {
+		nutrition: {
+			target: {
+				cals: 0,
+				macros: {
+					carbs: {
+						total: 0
+					},
+					protein: 0,
+					fats: {
+						total: 0
+					}
+				}
+			},
+		meals: [
+			{ 'name': 'Breakfast' }, 
+			{ 'name': 'Lunch' },
+			{ 'name': 'Dinner' }
+		],
+			water: 0,
+		},
+		workouts: []
+	},
+	[setToNextDay(getCurrentDate())]: {
+		nutrition: {
+			target: {
+				cals: 0,
+				macros: {
+					carbs: {
+						total: 0
+					},
+					protein: 0,
+					fats: {
+						total: 0
+					}
+				}
+			},
+		meals: [
+			{ 'name': 'Breakfast' }, 
+			{ 'name': 'Lunch' },
+			{ 'name': 'Dinner' }
+		],
+			water: 0,
+		},
+		workouts: []
+	}
+}
+
+const mockFinalJournal = {
+	selectedDate: getCurrentDate(),
+	[getCurrentDate()]: {
+		nutrition: {
+			target: {
+				cals: 0,
+				macros: {
+					carbs: {
+						total: 0
+					},
+					protein: 0,
+					fats: {
+						total: 0
+					}
+				}
+			},
+		meals: [
+			{ 'name': 'Breakfast' }, 
+			{ 'name': 'Lunch' },
+			{ 'name': 'Dinner' }
+		],
+			water: 0,
+		},
+		workouts: []
+	},
+	[setToNextDay(getCurrentDate())]: {
 		nutrition: {
 			target: {
 				cals: 2000,
@@ -48,12 +129,40 @@ const mockJournal = {
 					}
 				}
 			},
-			meals: ['Breakfast', 'Lunch', 'Dinner'],
+		meals: [
+			{ 'name': 'Breakfast' }, 
+			{ 'name': 'Lunch' },
+			{ 'name': 'Dinner' }
+		],
 			water: 32,
 		},
 		workouts: []
-	}
+	},
 }
+
+const mockJournalEntry = {
+	nutrition: {
+		target: {
+			cals: 2000,
+			macros: {
+				carbs: {
+					total: 400
+				},
+				protein: 150,
+				fats: {
+					total: 45
+				}
+			}
+		},
+	meals: [
+		{ 'name': 'Breakfast' }, 
+		{ 'name': 'Lunch' },
+		{ 'name': 'Dinner' }
+	],
+		water: 32,
+	},
+	workouts: []
+};
 
 describe('journal reducer', () => {
 	it('should handle default state', () => {
@@ -61,7 +170,7 @@ describe('journal reducer', () => {
 	});
 
 	it('should handle SET_SELECTED_DATE', () => {
-		const selectedDate = '2019-07-02';
+		const selectedDate = setToNextDay(getCurrentDate());
 		const action = {
 			type: SET_SELECTED_DATE,
 			selectedDate
@@ -71,15 +180,27 @@ describe('journal reducer', () => {
 			.toEqual(selectedDate);
 	});
 
-	it('should handle SET_NUTRITION_JOURNAL', () => {
-		const date = '2019-07-02';
+	it('should handle RECEIVE_JOURNAL_SUCCESS', () => {
+		const date = setToNextDay(getCurrentDate());
 		const action = {
-			type: SET_NUTRITION_JOURNAL,
+			type: RECEIVE_JOURNAL_SUCCESS,
 			date,
-			entry: mockJournal
+			entry: mockJournalEntry
 		}
-		expect(journalReducer(initialState, action)[date])
-			.toEqual(mockJournal);
+
+		expect(journalReducer(initialState, action))
+			.toEqual(mockFinalJournal);
+	});
+
+	it('should handle RECEIVE_JOURNAL_EMPTY', () => {
+		const date = setToNextDay(getCurrentDate());
+		const action = {
+			type: RECEIVE_JOURNAL_EMPTY,
+			date
+		};
+
+		expect(journalReducer(initialState, action))
+			.toEqual(mockEmptyJournal);
 	});
 
 	it('should handle SET_WATER_INTAKE', () => {
@@ -96,18 +217,18 @@ describe('journal reducer', () => {
 
 	it('should handle UPDATE_WATER_INTAKE', () => {
 		const waterIntake = 8;
-		const date = '2019-07-02';
+		const date = setToNextDay(getCurrentDate());
 		const action = {
 			type: UPDATE_WATER_INTAKE,
 			date,
 			waterIntake
 		}
-		expect(journalReducer(mockJournal, action)[date].nutrition.water)
+		expect(journalReducer(mockFinalJournal, action)[date].nutrition.water)
 			.toEqual(40);
 	});
 
 	it('should handle ADD_EXERCISE', () => {
-		const date = '2019-07-02';
+		const date = getCurrentDate();
 		const exercise = {
 			'exerciseName': 'Squat',
 			'weight': 135,
@@ -119,7 +240,7 @@ describe('journal reducer', () => {
 			date,
 			exercise
 		};
-		expect(journalReducer(mockJournal, action)[date].workouts.length)
+		expect(journalReducer(initialState, action)[date].workouts.length)
 			.toEqual(1);
 	});
 });

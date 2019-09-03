@@ -1,11 +1,12 @@
 import * as actions from '../journal';
 import {
-	SET_NUTRITION_JOURNAL,
+	FETCH_JOURNAL,
+	RECEIVE_JOURNAL_SUCCESS,
+	RECEIVE_JOURNAL_EMPTY,
 	SET_SELECTED_DATE,
-	SET_WATER_INTAKE,
-	UPDATE_WATER_INTAKE,
-	ADD_EXERCISE
 } from '../../actionTypes';
+
+const date = '2019-07-02';
 
 describe('journal actions', () => {
 	it('should create an action to set the date', () => {
@@ -17,61 +18,55 @@ describe('journal actions', () => {
 		expect(actions.setSelectedDate(selectedDate)).toEqual(expectedAction);
 	});
 
-	it('should create an action to set the nutrition journal', () => {
-		const date = '2019-07-02';
-		const entry = {
-			meals: ['Breakfast', 'Lunch', 'Dinner'],
-			targets: {},
-			water: 64
-		}
+	it('should create an action to fetch a journal', () => {
 		const expectedAction = {
-			type: SET_NUTRITION_JOURNAL,
+			type: FETCH_JOURNAL,
+			date
+		};
+		expect(actions.beginFetchJournal(date)).toEqual(expectedAction);
+	});
+
+	it('should create an action to receive the journal', () => {
+		const entry = {
+			nutrition: {
+				target: {
+					cals: 2000,
+					macros: {
+						carbs: {
+							total: 400
+						},
+						protein: 150,
+						fats: {
+							total: 45
+						}
+					}
+				},
+			meals: [
+				{ 'name': 'Breakfast' }, 
+				{ 'name': 'Lunch' },
+				{ 'name': 'Dinner' }
+			],
+				water: 32,
+			},
+			workouts: []
+		};
+		
+		const expectedAction = {
+			type: RECEIVE_JOURNAL_SUCCESS,
 			date,
 			entry
 		};
 
-		expect(actions.setNutritionJournal(date, entry))
+		expect(actions.receiveJournalSuccess(date, entry))
 			.toEqual(expectedAction);
 	});
 
-	it('should create an action to set water intake', () => {
-		const date = '2019-07-02';
-		const waterIntake = 24;
+	it('should create an action to receive an empty journal', () => {
 		const expectedAction = {
-			type: SET_WATER_INTAKE,
-			date,
-			waterIntake
-		}
-		expect(actions.setWaterIntake(date, waterIntake))
-			.toEqual(expectedAction);
-	});
+			type: RECEIVE_JOURNAL_EMPTY,
+			date
+		};
 
-	it('should create an action to add to the water intake', () => {
-		const date = '2019-07-02';
-		const waterIntake = 24;
-		const expectedAction = {
-			type: UPDATE_WATER_INTAKE,
-			date,
-			waterIntake
-		}
-		expect(actions.updateWaterIntake(date, waterIntake))
-			.toEqual(expectedAction);
-	});
-
-	it('should create an action to update exercises', () => {
-		const date = '2019-07-02';
-		const exercise = {
-			'exerciseName': 'Squat',
-			'weight': 135,
-			'sets': 3,
-			'reps': 8
-		}
-		const expectedAction = {
-			type: ADD_EXERCISE,
-			date,
-			exercise
-		}
-		expect(actions.updateExercise(date, exercise))
-			.toEqual(expectedAction);
+		expect(actions.receiveJournalEmpty(date)).toEqual(expectedAction);
 	});
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addExercise } from '../../store/actions/journal';
+import { addExercise } from '../../store/actions/workoutLog';
 import ExerciseLoggerForm from './ExerciseLoggerForm';
 
 let ExerciseLogger = ({hideModal}) => {

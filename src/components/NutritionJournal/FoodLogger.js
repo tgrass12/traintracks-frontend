@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import FoodFinder from './FoodFinder';
 import LogFoodForm from './LogFoodForm';
-import { fetchJournal } from '../../store/actions/journal';
+import { updateNutrition } from '../../store/actions/nutritionJournal';
 import { formatDateStandard } from '../../shared/util';
 
 let FoodLogger = ({hideModal}) => {
@@ -19,16 +19,18 @@ let FoodLogger = ({hideModal}) => {
 				'food': foodToLog,
 				'servings': servings
 			}
+
 			await fetch(apiUrl, {
 				method: 'POST',
 				body: JSON.stringify(payload),
 				headers: {
 					'Content-Type': 'application/json'
 				}
-			}).then(res => res.json());
+			}).then(res => res.json())
+			.then(data => {
+				dispatch(updateNutrition(date, data.nutrition));
+			});
 
-			//TODO: this is dirty, only replace relevant components
-			dispatch(fetchJournal(date));
 			if (hideModal) hideModal();
 		}
 	}

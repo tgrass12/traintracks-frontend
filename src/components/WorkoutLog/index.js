@@ -7,7 +7,7 @@ import '../../styles/WorkoutLog.scss';
 let WorkoutLog = () => {
 	let loggedExercises = useSelector(state => {
 		let date = state.journal.selectedDate;
-		return state.journal[date].workouts.exercise;
+		return state.journal[date].workouts;
 	});
 
 	let exercises = loggedExercises.map(e => {

@@ -3,9 +3,11 @@ import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import queryString from 'query-string';
 import {
-	addToWaterIntake,
-	fetchJournal,
+	fetchJournal
 } from '../../store/actions/journal';
+import {
+	addToWaterIntake
+} from '../../store/actions/nutritionJournal';
 import JournalHeader from '../Journal/JournalHeader';
 import ComputedNutrients from './ComputedNutrients';
 import Meal from './Meal';
