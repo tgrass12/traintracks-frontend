@@ -15,14 +15,16 @@ export const addExercise = (date, exercise) => {
 		try {
 			const state = getState();
 			const user = state.user.username;
-			dispatch(updateExercise(date, exercise));
-			let response = await fetch(`/api/users/${user}/journal/${date}/workouts`, {
+			fetch(`/api/users/${user}/journal/${date}/workouts`, {
 	  			method: 'POST',
 	  			body: JSON.stringify(exercise),
 	  			headers: {
 	    			'Content-Type': 'application/json'
 	    		}
-	    	});
+	    	}).then(res => res.json()
+	    	.then(exercise => {
+				dispatch(updateExercise(date, exercise));
+	    	}));
 
 		} catch(err) {
 			let error = new Error(`Error logging exercise: ${err}`);
