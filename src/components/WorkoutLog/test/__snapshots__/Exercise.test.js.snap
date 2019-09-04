@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Exercise /> should render 1`] = `
+<div
+  className="logged-exercise"
+>
+  <span
+    className="logged-exercise-name"
+  >
+     
+     
+  </span>
+  <div
+    className="logged-exercise-activity"
+  >
+    <span>
+       
+       
+    </span>
+    <span>
+       
+       
+    </span>
+    <span>
+       
+       
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Exercise /> should render passed props 1`] = `
+<div
+  className="logged-exercise"
+>
+  <span
+    className="logged-exercise-name"
+  >
+     
+    Squat
+     
+  </span>
+  <div
+    className="logged-exercise-activity"
+  >
+    <span>
+       
+      195
+       
+    </span>
+    <span>
+       
+      3
+       
+    </span>
+    <span>
+       
+      8
+       
+    </span>
+  </div>
+</div>
+`;

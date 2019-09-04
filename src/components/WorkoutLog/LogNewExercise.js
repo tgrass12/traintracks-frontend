@@ -1,23 +1,6 @@
-import React, { useState } from 'react';
-import Modal from '../../hocs/Modal';
-import ExerciseLogger from './ExerciseLogger';
+import React from 'react';
 
-let LogNewExercise = () => {
-	let [isModalVisible, setIsModalVisible] = useState(false);
-
-	const displayModal = () => {
-		setIsModalVisible(true);
-	}
-
-	const hideModal = () => {
-		setIsModalVisible(false);
-	}
-
-	let ExerciseLoggerModal = Modal(
-		ExerciseLogger,
-		isModalVisible,
-		hideModal
-	);
+let LogNewExercise = ({ExerciseLoggerModal, displayModal}) => {
 
 	return (
 		<div className="new-exercise-hero">

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoggedExercises /> should render 1`] = `
+<div>
+  <div
+    id="logged-exercises"
+  />
+</div>
+`;
+
+exports[`<LoggedExercises /> should render passed exercises 1`] = `
+<div>
+  <div
+    id="logged-exercises"
+  >
+    <Exercise
+      key="1"
+      name="Squat"
+      reps={8}
+      sets={3}
+      weight={195}
+    />
+    <Exercise
+      key="2"
+      name="Bench"
+      reps={8}
+      sets={3}
+      weight={195}
+    />
+  </div>
+</div>
+`;

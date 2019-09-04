@@ -9,7 +9,21 @@ exports[`<LogNewExercise /> should render 1`] = `
   </h3>
   <button
     id="exercise-cta"
-    onClick={[Function]}
+  >
+    Log One Now
+  </button>
+</div>
+`;
+
+exports[`<LogNewExercise /> should render passed modal 1`] = `
+<div
+  className="new-exercise-hero"
+>
+  <h3>
+    No Exercises Yet
+  </h3>
+  <button
+    id="exercise-cta"
   >
     Log One Now
   </button>
@@ -29,7 +43,7 @@ exports[`<LogNewExercise /> should render 1`] = `
     shouldFocusAfterRender={true}
     shouldReturnFocusAfterClose={true}
   >
-    <ExerciseLogger
+    <mockComponent
       hideModal={[Function]}
     />
   </Modal>

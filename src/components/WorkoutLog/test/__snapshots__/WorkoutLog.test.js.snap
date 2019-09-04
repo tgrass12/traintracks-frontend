@@ -1,13 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<WorkoutLog /> should render 1`] = `
+exports[`<WorkoutLog /> should render LogNewExercise when there are no exercises 1`] = `
 <div
   className="workout-log-container"
 >
   <div
-    className="workout-log"
+    className="exercise-logger"
   >
-    <LogNewExercise />
+    <withRouter(JournalHeader) />
+    <div
+      className="workout-log"
+    >
+      <LogNewExercise
+        ExerciseLoggerModal={
+          <Modal
+            ariaHideApp={true}
+            bodyOpenClassName="ReactModal__Body--open"
+            className="modal-content"
+            closeTimeoutMS={0}
+            isOpen={false}
+            onRequestClose={[Function]}
+            overlayClassName="modal-overlay"
+            parentSelector={[Function]}
+            portalClassName="ReactModalPortal"
+            role="dialog"
+            shouldCloseOnEsc={true}
+            shouldCloseOnOverlayClick={true}
+            shouldFocusAfterRender={true}
+            shouldReturnFocusAfterClose={true}
+          >
+            <ExerciseLogger
+              hideModal={[Function]}
+            />
+          </Modal>
+        }
+        displayModal={[Function]}
+      />
+    </div>
+    <Modal
+      ariaHideApp={true}
+      bodyOpenClassName="ReactModal__Body--open"
+      className="modal-content"
+      closeTimeoutMS={0}
+      isOpen={false}
+      onRequestClose={[Function]}
+      overlayClassName="modal-overlay"
+      parentSelector={[Function]}
+      portalClassName="ReactModalPortal"
+      role="dialog"
+      shouldCloseOnEsc={true}
+      shouldCloseOnOverlayClick={true}
+      shouldFocusAfterRender={true}
+      shouldReturnFocusAfterClose={true}
+    >
+      <ExerciseLogger
+        hideModal={[Function]}
+      />
+    </Modal>
   </div>
 </div>
 `;

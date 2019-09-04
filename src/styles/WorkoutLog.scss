@@ -2,6 +2,7 @@
 @import 'card';
 @import 'button';
 @import 'input';
+@import 'table';
 
 .workout-log-container {
 	display: flex;
@@ -65,6 +66,33 @@
 		display: flex;
 		justify-content: center;
 	}
+}
+
+#logged-exercises {
+	@extend %table;
+	border: 1px solid $flat-red;
+	border-radius: 3px;
+}
+
+.logged-exercise {
+	@extend %table-row;
+	width: 100%;
+}
+
+.logged-exercise-name {
+	@extend %row-primary;
+}
+
+.logged-exercise-activity {
+	@extend %row-secondary;
+}
+
+.logged-exercise-activity * {
+	@extend %row-secondary-items;
+}
+
+.add-exercise-btn {
+	@extend %btn-action;
 }
 
 #logger-sets-label {
