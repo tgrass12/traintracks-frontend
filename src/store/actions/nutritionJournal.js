@@ -35,7 +35,7 @@ export const addToWaterIntake = (date, waterIntake) => {
 			const user = state.user.username;
 			dispatch(updateWaterIntake(date, waterIntake));
 			await fetch(`/api/users/${user}/journal/${date}/water`, {
-		  		method: 'PATCH',
+		  		method: 'POST',
 		  		body: JSON.stringify({ 'waterAmount': waterIntake }),
 		  		headers: {
 		    		'Content-Type': 'application/json'

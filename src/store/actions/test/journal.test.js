@@ -29,7 +29,7 @@ describe('journal actions', () => {
 	it('should create an action to receive the journal', () => {
 		const entry = {
 			nutrition: {
-				target: {
+				targets: {
 					cals: 2000,
 					macros: {
 						carbs: {
@@ -41,11 +41,7 @@ describe('journal actions', () => {
 						}
 					}
 				},
-			meals: [
-				{ 'name': 'Breakfast' }, 
-				{ 'name': 'Lunch' },
-				{ 'name': 'Dinner' }
-			],
+			meals: [],
 				water: 32,
 			},
 			workouts: []
@@ -62,11 +58,22 @@ describe('journal actions', () => {
 	});
 
 	it('should create an action to receive an empty journal', () => {
+		const meals = [
+			'Breakfast',
+			'Lunch',
+			'Dinner'
+		];
+		const targets = {
+			'diet': {}
+		}
+
 		const expectedAction = {
 			type: RECEIVE_JOURNAL_EMPTY,
-			date
+			date,
+			meals,
+			targets
 		};
 
-		expect(actions.receiveJournalEmpty(date)).toEqual(expectedAction);
+		expect(actions.receiveJournalEmpty(date, meals, targets)).toEqual(expectedAction);
 	});
 });

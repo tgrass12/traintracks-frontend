@@ -5,6 +5,7 @@ import LogFoodForm from './LogFoodForm';
 import { updateNutrition } from '../../store/actions/nutritionJournal';
 import { formatDateStandard } from '../../shared/util';
 
+//Add currentMeal to props
 let FoodLogger = ({hideModal}) => {
 	let dispatch = useDispatch();
 	let journalDate = useSelector(state => state.journal.selectedDate);
@@ -27,8 +28,8 @@ let FoodLogger = ({hideModal}) => {
 					'Content-Type': 'application/json'
 				}
 			}).then(res => res.json())
-			.then(data => {
-				dispatch(updateNutrition(date, data.nutrition));
+			.then(nutrition => {
+				dispatch(updateNutrition(date, nutrition));
 			});
 
 			if (hideModal) hideModal();

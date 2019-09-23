@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should contain routes for linked components 1`] = `
+exports[`<Main /> should contain routes for linked components 1`] = `
 <div
   className="main"
 >

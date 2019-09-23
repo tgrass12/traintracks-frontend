@@ -17,7 +17,7 @@ const initialState = {
 	selectedDate: getCurrentDate(),
 	[getCurrentDate()]: {
 		nutrition: {
-			target: {
+			targets: {
 				cals: 0,
 				macros: {
 					carbs: {
@@ -29,11 +29,7 @@ const initialState = {
 					}
 				}
 			},
-		meals: [
-			{ 'name': 'Breakfast' }, 
-			{ 'name': 'Lunch' },
-			{ 'name': 'Dinner' }
-		],
+		meals: [],
 			water: 0,
 		},
 		workouts: []
@@ -44,7 +40,7 @@ const mockEmptyJournal = {
 	selectedDate: getCurrentDate(),
 	[getCurrentDate()]: {
 		nutrition: {
-			target: {
+			targets: {
 				cals: 0,
 				macros: {
 					carbs: {
@@ -56,18 +52,14 @@ const mockEmptyJournal = {
 					}
 				}
 			},
-		meals: [
-			{ 'name': 'Breakfast' }, 
-			{ 'name': 'Lunch' },
-			{ 'name': 'Dinner' }
-		],
+		meals: [],
 			water: 0,
 		},
 		workouts: []
 	},
 	[setToNextDay(getCurrentDate())]: {
 		nutrition: {
-			target: {
+			targets: {
 				cals: 0,
 				macros: {
 					carbs: {
@@ -94,7 +86,7 @@ const mockFinalJournal = {
 	selectedDate: getCurrentDate(),
 	[getCurrentDate()]: {
 		nutrition: {
-			target: {
+			targets: {
 				cals: 0,
 				macros: {
 					carbs: {
@@ -106,18 +98,14 @@ const mockFinalJournal = {
 					}
 				}
 			},
-		meals: [
-			{ 'name': 'Breakfast' }, 
-			{ 'name': 'Lunch' },
-			{ 'name': 'Dinner' }
-		],
+		meals: [],
 			water: 0,
 		},
 		workouts: []
 	},
 	[setToNextDay(getCurrentDate())]: {
 		nutrition: {
-			target: {
+			targets: {
 				cals: 2000,
 				macros: {
 					carbs: {
@@ -142,7 +130,7 @@ const mockFinalJournal = {
 
 const mockJournalEntry = {
 	nutrition: {
-		target: {
+		targets: {
 			cals: 2000,
 			macros: {
 				carbs: {
@@ -194,9 +182,24 @@ describe('journal reducer', () => {
 
 	it('should handle RECEIVE_JOURNAL_EMPTY', () => {
 		const date = setToNextDay(getCurrentDate());
+		const meals = ['Breakfast', 'Lunch', 'Dinner'];
+		const targets = { 
+			cals: 0,
+			macros: {
+				carbs: {
+					total: 0
+				},
+				protein: 0,
+				fats: {
+					total: 0
+				}
+			}
+		};
 		const action = {
 			type: RECEIVE_JOURNAL_EMPTY,
-			date
+			date,
+			meals,
+			targets
 		};
 
 		expect(journalReducer(initialState, action))

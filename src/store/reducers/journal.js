@@ -10,9 +10,9 @@ import {
 	ADD_EXERCISE
 } from '../actionTypes';
 
-let emptyJournal = {
+let journalFrame = {
 	nutrition: {
-		target: {
+		targets: {
 			cals: 0,
 			macros: {
 				carbs: {
@@ -24,11 +24,7 @@ let emptyJournal = {
 				}
 			}
 		},
-		meals: [
-			{ 'name': 'Breakfast' }, 
-			{ 'name': 'Lunch' },
-			{ 'name': 'Dinner' }
-		],
+		meals: [],
 		water: 0,
 	},
 	workouts: []
@@ -36,7 +32,7 @@ let emptyJournal = {
 
 let initialState = {
 	selectedDate: getCurrentDate(),
-	[getCurrentDate()]: emptyJournal
+	[getCurrentDate()]: journalFrame
 };
 
 let setNutrition = (state, action) => {
@@ -46,7 +42,7 @@ let setNutrition = (state, action) => {
 	if (state[action.date] && state[action.date].nutrition)
 		return state[action.date].nutrition;
 
-	return emptyJournal.nutrition;
+	return journalFrame.nutrition;
 }
 
 let setWorkouts = (state, action) => {
@@ -56,7 +52,19 @@ let setWorkouts = (state, action) => {
 	if (state[action.date] && state[action.date].workouts)
 		return state[action.date].workouts;
 
-	return emptyJournal.workouts;	
+	return journalFrame.workouts;	
+}
+
+let createEmptyJournal = ({meals, targets}) => {
+	let clone = { ...journalFrame }
+	clone.nutrition = {
+		...clone.nutrition,
+		targets: targets,
+		meals: meals.map(m => {
+			return { 'name': m };
+		})
+	}
+	return clone;
 }
 
 const journal = (state=initialState, action) => {
@@ -74,15 +82,16 @@ const journal = (state=initialState, action) => {
 				...state,
 				[action.date]: {
 					...state[action.date],
-					'nutrition':  nutrition,
+					'nutrition': nutrition,
 					'workouts': workouts
 				}
 			};
 
 		case RECEIVE_JOURNAL_EMPTY:
+			const emptyJournal = createEmptyJournal(action);
 			return {
 				...state,
-				[action.date]: emptyJournal
+				[action.date]: { ...emptyJournal }
 			};
 
 		case UPDATE_NUTRITION:
