@@ -1,32 +1,31 @@
 @import 'colors';
+@import 'card';
 
 //TODO: Refactor header stuff to mixin;
 .calendar-container {
 	font-family: 'Raleway', sans-serif;
-	box-sizing: border-box;
 	position: relative;
 	display: flex;
 	height: 770px;
 	width: 80%;
-	top: 50px;
-	left: 10%;	
+	margin: 3rem;
 }
 
 .calendar {
+	@extend %card;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	width: 60%;
 	margin-right: 10px;
-	box-shadow: 0px 0px 10px 2px $light-gray;
 }
 
 .details-container {
+	@extend %card;
 	position: relative;
 	display: flex;
 	box-sizing: border-box;
 	width: 40%;
-	box-shadow: 0px 0px 10px 2px $light-gray;
 }
 
 .calendar-header {
@@ -142,6 +141,15 @@
 
 .calendar-icon {
 	color: white;
+}
+
+.details-header {
+	background-color: $flat-red;
+	color: white;
+	height: 3.6rem;
+	font-size: 2.4rem;
+	line-height: 3.6rem;
+	width: 100%;
 }
 
 @media (max-width: 980px) {
