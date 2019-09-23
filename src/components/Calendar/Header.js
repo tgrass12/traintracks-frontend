@@ -25,9 +25,19 @@ let Header = ({date, setDate}) => {
 	return (
 		<div className="calendar-header">
 			<div className="header-month">
-				<div className="icon" onClick={prevMonth}>chevron_left</div>
+				<div 
+					id="prev-month-icon" 
+					className="icon" 
+					onClick={prevMonth}>
+					chevron_left
+				</div>
 				{formattedMonthYear}
-				<div className="icon" onClick={nextMonth}>chevron_right</div>
+				<div
+					id="next-month-icon"
+					className="icon" 
+					onClick={nextMonth}>
+					chevron_right
+				</div>
 			</div>
 			<div className="header-days">
 				{days}

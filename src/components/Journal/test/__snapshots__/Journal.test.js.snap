@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render properly 1`] = `
+<div
+  className="daily-journal"
+>
+  <div
+    className="journal-container"
+  >
+    <div
+      className="tab-container"
+    >
+      <div
+        className="tab-header"
+      >
+        <TabHeader
+          isActive={true}
+          key="Nutrition"
+          label="Nutrition"
+          setActiveItem={[Function]}
+        />
+        <TabHeader
+          isActive={false}
+          key="Exercise"
+          label="Exercise"
+          setActiveItem={[Function]}
+        />
+      </div>
+      <div
+        className="tab-contents"
+      >
+        <withRouter(NutritionJournal) />
+      </div>
+    </div>
+  </div>
+</div>
+`;

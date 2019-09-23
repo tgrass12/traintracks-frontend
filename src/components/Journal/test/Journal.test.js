@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import DailyJournal from '../DailyJournal';
+import Journal from '../';
 
 it('should render properly', () => {
-	const wrapper = shallow(<DailyJournal/>);
+	const wrapper = shallow(<Journal/>);
 	expect(toJson(wrapper)).toMatchSnapshot();
 });

@@ -2,13 +2,13 @@
 
 exports[`<ComputedNutrients /> should render 1`] = `
 <div
-  className="journal-footer-row"
+  className="computed-nutrients"
 >
   <span
     className="values-label"
   />
   <div
-    className="journal-nutrients-values"
+    className="nutrient-values"
   >
     <TrackedNutrients />
   </div>
@@ -17,7 +17,7 @@ exports[`<ComputedNutrients /> should render 1`] = `
 
 exports[`<ComputedNutrients /> should use contain the passed label 1`] = `
 <div
-  className="journal-footer-row"
+  className="computed-nutrients"
 >
   <span
     className="values-label"
@@ -25,7 +25,7 @@ exports[`<ComputedNutrients /> should use contain the passed label 1`] = `
     testLabel
   </span>
   <div
-    className="journal-nutrients-values"
+    className="nutrient-values"
   >
     <TrackedNutrients />
   </div>

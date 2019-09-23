@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render 1`] = `
+<div
+  className="calendar-header"
+>
+  <div
+    className="header-month"
+  >
+    <div
+      className="icon"
+      id="prev-month-icon"
+      onClick={[Function]}
+    >
+      chevron_left
+    </div>
+    Invalid Date
+    <div
+      className="icon"
+      id="next-month-icon"
+      onClick={[Function]}
+    >
+      chevron_right
+    </div>
+  </div>
+  <div
+    className="header-days"
+  >
+    <div
+      className="day-label"
+      key="SUN"
+    >
+      SUN
+    </div>
+    <div
+      className="day-label"
+      key="MON"
+    >
+      MON
+    </div>
+    <div
+      className="day-label"
+      key="TUE"
+    >
+      TUE
+    </div>
+    <div
+      className="day-label"
+      key="WED"
+    >
+      WED
+    </div>
+    <div
+      className="day-label"
+      key="THU"
+    >
+      THU
+    </div>
+    <div
+      className="day-label"
+      key="FRI"
+    >
+      FRI
+    </div>
+    <div
+      className="day-label"
+      key="SAT"
+    >
+      SAT
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Header /> should render passed date 1`] = `
+<div
+  className="calendar-header"
+>
+  <div
+    className="header-month"
+  >
+    <div
+      className="icon"
+      id="prev-month-icon"
+      onClick={[Function]}
+    >
+      chevron_left
+    </div>
+    August 2019
+    <div
+      className="icon"
+      id="next-month-icon"
+      onClick={[Function]}
+    >
+      chevron_right
+    </div>
+  </div>
+  <div
+    className="header-days"
+  >
+    <div
+      className="day-label"
+      key="SUN"
+    >
+      SUN
+    </div>
+    <div
+      className="day-label"
+      key="MON"
+    >
+      MON
+    </div>
+    <div
+      className="day-label"
+      key="TUE"
+    >
+      TUE
+    </div>
+    <div
+      className="day-label"
+      key="WED"
+    >
+      WED
+    </div>
+    <div
+      className="day-label"
+      key="THU"
+    >
+      THU
+    </div>
+    <div
+      className="day-label"
+      key="FRI"
+    >
+      FRI
+    </div>
+    <div
+      className="day-label"
+      key="SAT"
+    >
+      SAT
+    </div>
+  </div>
+</div>
+`;
