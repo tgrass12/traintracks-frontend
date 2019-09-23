@@ -1,10 +1,11 @@
 import React from 'react';
 
-let Day = ({day, active, selected, setDate, dietLogged}) => {
+let Day = ({day, active, selected, setDate, dietLogged, workoutLogged}) => {
 
 	let handleClick = () => {
 		setDate(day);
 	}
+
 	return (
 		<div 
 			className={
@@ -16,6 +17,9 @@ let Day = ({day, active, selected, setDate, dietLogged}) => {
 			<div className="day-banner">
 				{dietLogged && 
 					<div className='diet-logged-icon' />
+				}
+				{workoutLogged && 
+					<div className='workout-logged-icon' />
 				}
 				<span>{day.getDate()}</span>
 			</div>

@@ -115,18 +115,28 @@
 	transition: background-color 0.25s;
 }
 
-.diet-logged-icon {
-	position: absolute;
+%logged-icon {
+	display: inline-block;
+	float: left;
 	height: 10px;
 	width: 10px;
-	margin: 5px;
+	margin: 5px 2px;
 	border-radius: 1em;
+}
+
+.diet-logged-icon {
+	@extend %logged-icon;
 	background-color: $bright-green;
+}
+
+.workout-logged-icon {
+	@extend %logged-icon;
+	background-color: $bright-purple;
 }
 
 .selected .day-banner {
 	background-color: $flat-red;
-	height: 1.10em;
+	height: 1.2em;
 	color: white;
 }
 

@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import dateFns from 'date-fns';
 import Day from './Day';
 
-let DaysContainer = ({date, setDate, datesWithEntries}) => {
+let DaysContainer = ({date, setDate, datesWithEntries={}}) => {
 	let startOfMonth = dateFns.startOfMonth(date);
 	let endOfMonth = dateFns.endOfMonth(startOfMonth);
 	let startDate = dateFns.startOfWeek(startOfMonth);
@@ -15,15 +15,19 @@ let DaysContainer = ({date, setDate, datesWithEntries}) => {
 		for (let i = 0; i < 7; i++) {
 			let isActive = dateFns.isSameMonth(day, startOfMonth);
 			let isSelected = dateFns.isSameDay(day, date);
-			let hasJournalEntry = datesWithEntries.includes(
-				dateFns.format(day, 'YYYY-MM-DD')
-			);
+			let formattedDay = dateFns.format(day, 'YYYY-MM-DD');
+			let dietLogged = datesWithEntries[formattedDay] && 
+				datesWithEntries[formattedDay].isDietLogged;
+			let workoutLogged = datesWithEntries[formattedDay] && 
+				datesWithEntries[formattedDay].isWorkoutLogged;
+
 			dayRow.push(
 				<Day
 					setDate={setDate}
 					active={isActive}
 					selected={isSelected}
-					dietLogged={hasJournalEntry}
+					dietLogged={dietLogged}
+					workoutLogged={workoutLogged}
 					key={day} 
 					day={day}
 				/>

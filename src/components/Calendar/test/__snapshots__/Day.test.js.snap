@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Day /> should render 1`] = `
+<div
+  className="day-cell 
+				disabled
+				"
+  onClick={[Function]}
+>
+  <div
+    className="day-banner"
+  >
+    <span>
+      4
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Day /> should render active state 1`] = `
+<div
+  className="day-cell 
+				
+				"
+  onClick={[Function]}
+>
+  <div
+    className="day-banner"
+  >
+    <span>
+      4
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Day /> should render appropriate dots when diet and workout are logged 1`] = `
+<div
+  className="day-cell 
+				disabled
+				"
+  onClick={[Function]}
+>
+  <div
+    className="day-banner"
+  >
+    <div
+      className="diet-logged-icon"
+    />
+    <div
+      className="workout-logged-icon"
+    />
+    <span>
+      4
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Day /> should render diet logged dot when diet was logged 1`] = `
+<div
+  className="day-cell 
+				disabled
+				"
+  onClick={[Function]}
+>
+  <div
+    className="day-banner"
+  >
+    <div
+      className="diet-logged-icon"
+    />
+    <span>
+      4
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Day /> should render inactive state 1`] = `
+<div
+  className="day-cell 
+				disabled
+				"
+  onClick={[Function]}
+>
+  <div
+    className="day-banner"
+  >
+    <span>
+      4
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Day /> should render non-selected state 1`] = `
+<div
+  className="day-cell 
+				disabled
+				"
+  onClick={[Function]}
+>
+  <div
+    className="day-banner"
+  >
+    <span>
+      4
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Day /> should render selected state 1`] = `
+<div
+  className="day-cell 
+				disabled
+				selected"
+  onClick={[Function]}
+>
+  <div
+    className="day-banner"
+  >
+    <span>
+      4
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Day /> should render workout logged dot when workout was logged 1`] = `
+<div
+  className="day-cell 
+				disabled
+				"
+  onClick={[Function]}
+>
+  <div
+    className="day-banner"
+  >
+    <div
+      className="workout-logged-icon"
+    />
+    <span>
+      4
+    </span>
+  </div>
+</div>
+`;

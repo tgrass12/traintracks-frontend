@@ -9,23 +9,33 @@ import '../../styles/Calendar.scss';
 let Calendar = () => {
 	let user = useSelector(state => state.user.username);
 	let [date, setDate] = useState(new Date());
-	let [datesWithEntries, setEntryDates] = useState([]);
-
-	let getJournalEntries = (newDate) => {
-		let date = dateFns.format(newDate, 'YYYY-MM-DD');
-		let apiUrl = `/api/users/${user}/journal/range?range=month&scope=${date}`;
-		return fetch(apiUrl).then(res => res.json())
-			.then(journalEntries => {
-				return journalEntries.filter(j => j.logged.cals > 0)
-					.map(j => j.date);
-		});
-	}
+	let [datesWithEntries, setEntryDates] = useState({});
 
 	useEffect(() => {
-		getJournalEntries(date).then(dates => {
-			setEntryDates(dates);
+		let getJournalEntries = (newDate) => {
+			let date = dateFns.format(newDate, 'YYYY-MM-DD');
+			let apiUrl = `/api/users/${user}/journal/range?range=month&scope=${date}`;
+			return fetch(apiUrl).then(res => res.json())
+			.then(journalEntries => {
+				let entriesWithLogs = {};
+				let filteredEntries = journalEntries.filter(j => {
+					return j.nutrition !== null || j.workouts.length > 0
+				});
+				
+				for (let entry of filteredEntries) {
+					entriesWithLogs[entry.date] = {
+						isDietLogged: entry.nutrition != null,
+						isWorkoutLogged: entry.workouts.length > 0
+					}
+				}
+				return entriesWithLogs;
+			});
+		}
+
+		getJournalEntries(date).then(entries => {
+			setEntryDates(entries);
 		})
-	}, [date]);
+	}, [date, user]);
 
 	let setSelectedDate = (newDate) => {
 		setDate(newDate);
