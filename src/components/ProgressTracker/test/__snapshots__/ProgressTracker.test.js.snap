@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProgressTracker /> should display progress numbers in percentage and actual values 1`] = `
+<div
+  className="progress-tracker-card"
+>
+  <div
+    className="progress-percentage"
+  >
+    50
+    %
+  </div>
+  <span
+    className="progress-values"
+  >
+    1000
+    /
+    2000
+     
+  </span>
+  <div
+    className="progress-item-name"
+  />
+</div>
+`;
+
+exports[`<ProgressTracker /> should display the item name 1`] = `
+<div
+  className="progress-tracker-card"
+>
+  <div
+    className="progress-percentage"
+  >
+    NaN
+    %
+  </div>
+  <span
+    className="progress-values"
+  >
+    /
+     
+  </span>
+  <div
+    className="progress-item-name"
+  >
+    Vanilla Shake
+  </div>
+</div>
+`;
+
+exports[`<ProgressTracker /> should render 1`] = `
+<div
+  className="progress-tracker-card"
+>
+  <div
+    className="progress-percentage"
+  >
+    NaN
+    %
+  </div>
+  <span
+    className="progress-values"
+  >
+    /
+     
+  </span>
+  <div
+    className="progress-item-name"
+  />
+</div>
+`;

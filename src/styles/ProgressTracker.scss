@@ -1,0 +1,36 @@
+@import 'colors';
+@import 'card';
+
+.progress-tracker-card {
+	@extend %card;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 18rem;
+	width: 18rem;
+	margin: 5px;
+
+	* {
+		padding: 2px 0px;
+	}
+}
+
+.progress-percentage {
+	flex: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 3rem;
+	left: 1rem;
+	top: 2rem;
+}
+
+.progress-values {
+	font-size: 2rem;
+}
+
+.progress-item-name {
+	width: 100%;
+	background-color: $bright-blue;
+	font-size: 1.5rem;
+}
