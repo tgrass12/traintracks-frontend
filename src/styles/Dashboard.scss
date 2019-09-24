@@ -1,0 +1,27 @@
+@import 'card';
+@import 'button';
+
+.dashboard-section {
+	@extend %card;
+	display: flex;
+	margin: 10px 20px;
+
+	:last-child {
+		border-right: none;
+	}
+
+	> div {
+		flex: 1;
+	}
+}
+
+.nutrition-dashboard-actions {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+#dashboard-nutrition-journal-btn {
+	@extend %btn-standard;
+	margin: 5px;
+}

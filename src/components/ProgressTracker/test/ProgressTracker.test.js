@@ -11,7 +11,7 @@ describe('<ProgressTracker />', () => {
 	});
 
 	it('should display the item name', () => {
-		const wrapper = shallow(<ProgressTracker itemName='Vanilla Shake'/>);
+		const wrapper = shallow(<ProgressTracker label='Vanilla Shake'/>);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 

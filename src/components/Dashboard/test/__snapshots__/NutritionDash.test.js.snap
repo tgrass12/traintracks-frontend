@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NutritionDash /> should render 1`] = `
+<div
+  className="dashboard-section"
+>
+  <div
+    className="nutrition-dashboard-actions"
+  >
+    <button
+      id="dashboard-nutrition-journal-btn"
+      onClick={[Function]}
+    >
+      View in Journal
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<NutritionDash /> should render a <ProgressTracker /> for each item passed 1`] = `
+<div
+  className="dashboard-section"
+>
+  <ProgressTracker
+    current={0}
+    key="cals"
+    label="CALS"
+    target={2000}
+  />
+  <ProgressTracker
+    current={0}
+    key="carbs"
+    label="CARBS"
+    target={240}
+  />
+  <ProgressTracker
+    current={0}
+    key="fats"
+    label="FATS"
+    target={90}
+  />
+  <ProgressTracker
+    current={0}
+    key="protein"
+    label="PROTEIN"
+    target={165}
+  />
+  <div
+    className="nutrition-dashboard-actions"
+  >
+    <button
+      id="dashboard-nutrition-journal-btn"
+      onClick={[Function]}
+    >
+      View in Journal
+    </button>
+  </div>
+</div>
+`;

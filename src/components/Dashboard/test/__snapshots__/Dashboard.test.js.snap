@@ -1,7 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render 1`] = `
+exports[`<Dashboard /> should render 1`] = `
 <div>
-  Dashboard Component
+  <NutritionDash
+    handleNav={[Function]}
+    items={
+      Array [
+        Object {
+          "label": "cals",
+          "logged": 0,
+          "target": 2000,
+        },
+        Object {
+          "label": "carbs",
+          "logged": 0,
+          "target": 200,
+        },
+        Object {
+          "label": "fats",
+          "logged": 0,
+          "target": 80,
+        },
+        Object {
+          "label": "protein",
+          "logged": 0,
+          "target": 160,
+        },
+      ]
+    }
+  />
 </div>
 `;

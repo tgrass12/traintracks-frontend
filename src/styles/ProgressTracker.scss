@@ -1,14 +1,12 @@
 @import 'colors';
-@import 'card';
 
 .progress-tracker-card {
-	@extend %card;
 	display: flex;
 	flex-direction: column;
+	border-right: 1px solid $light-gray;
 	flex-wrap: wrap;
 	height: 18rem;
 	width: 18rem;
-	margin: 5px;
 
 	* {
 		padding: 2px 0px;

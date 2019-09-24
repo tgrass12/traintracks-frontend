@@ -31,7 +31,7 @@ exports[`<ProgressTracker /> should display the item name 1`] = `
   <div
     className="progress-percentage"
   >
-    NaN
+    0
     %
   </div>
   <span
@@ -55,7 +55,7 @@ exports[`<ProgressTracker /> should render 1`] = `
   <div
     className="progress-percentage"
   >
-    NaN
+    0
     %
   </div>
   <span
