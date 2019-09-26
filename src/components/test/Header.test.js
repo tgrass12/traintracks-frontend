@@ -22,13 +22,18 @@ it('should navigate to home page when logo is clicked', () => {
 	);
 
 	wrapper.find('a#app-icon').simulate('click', { button: 0 });
-	// wrapper.root.find(e => e.props.href === '/').props.onClick({
-
-	// });
 	expect(toJson(wrapper)).toMatchSnapshot();
-	// expect(wrapper.find('Router')
-	// 		.props().history.location.pathname
-	// ).toEqual('/');
+});
+
+it('should navigate to the dashboard when Dashboard is clicked', () => {
+	const wrapper = mount(
+		<MemoryRouter initialEntries={['/test']} keyLength={0}>
+			<Header/>
+		</MemoryRouter>
+	);
+
+	wrapper.find('li a[href="/"]').simulate('click', { button: 0 });
+	expect(toJson(wrapper)).toMatchSnapshot();
 });
 
 it('should navigate to the journal when Journal is clicked', () => {

@@ -10,6 +10,9 @@ let Header = () => {
 				<Link to="/" id="app-icon"> TrainTracks </Link>
 				<ul className="nav-items">
 					<li>
+						<Link to="/"> Dashboard </Link>
+					</li>
+					<li>
 						<Link to="/journal"> Journal </Link>
 					</li>
 					<li>
