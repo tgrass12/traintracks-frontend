@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import toJson from 'enzyme-to-json';
 import { MemoryRouter } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
-import Header from '../Header';
+import Header from '../';
 
 it('should render a navigation bar with links', () => {
 	const wrapper = renderer.create(
