@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'button';
 
 .header {
 	display: flex;
@@ -35,7 +36,20 @@
 }
 
 #app-icon {
+	position: absolute;
 	margin-left: 2rem;
 	font-size: 3rem;
 	color: white;
 }
+
+.auth-btn-container {
+	flex: 1;
+
+	button {
+		@extend %btn-standard;
+		font-size: 1.6rem;
+		margin: 0 0.6rem;
+		float: right;
+	}
+}
+

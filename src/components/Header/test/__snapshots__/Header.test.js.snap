@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should navigate to home page when logo is clicked 1`] = `
+exports[`<Header/> User logged in should navigate to home page when logo is clicked 1`] = `
 <MemoryRouter
   initialEntries={
     Array [
@@ -58,13 +58,19 @@ exports[`should navigate to home page when logo is clicked 1`] = `
             id="app-icon"
             to="/"
           >
-            <a
+            <LinkAnchor
               href="/"
               id="app-icon"
-              onClick={[Function]}
+              navigate={[Function]}
             >
-               TrainTracks 
-            </a>
+              <a
+                href="/"
+                id="app-icon"
+                onClick={[Function]}
+              >
+                 TrainTracks 
+              </a>
+            </LinkAnchor>
           </Link>
           <ul
             className="nav-items"
@@ -73,39 +79,64 @@ exports[`should navigate to home page when logo is clicked 1`] = `
               <Link
                 to="/"
               >
-                <a
+                <LinkAnchor
                   href="/"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Dashboard 
-                </a>
+                  <a
+                    href="/"
+                    onClick={[Function]}
+                  >
+                     Dashboard 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
             <li>
               <Link
                 to="/journal"
               >
-                <a
+                <LinkAnchor
                   href="/journal"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Journal 
-                </a>
+                  <a
+                    href="/journal"
+                    onClick={[Function]}
+                  >
+                     Journal 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
             <li>
               <Link
                 to="/calendar"
               >
-                <a
+                <LinkAnchor
                   href="/calendar"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Calendar 
-                </a>
+                  <a
+                    href="/calendar"
+                    onClick={[Function]}
+                  >
+                     Calendar 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
           </ul>
+          <div
+            className="auth-btn-container"
+          >
+            <button
+              id="logout"
+              onClick={[Function]}
+            >
+              Sign out
+            </button>
+          </div>
         </nav>
       </div>
     </Header>
@@ -113,7 +144,7 @@ exports[`should navigate to home page when logo is clicked 1`] = `
 </MemoryRouter>
 `;
 
-exports[`should navigate to the calendar when Calendar is clicked 1`] = `
+exports[`<Header/> User logged in should navigate to the calendar when Calendar is clicked 1`] = `
 <MemoryRouter
   keyLength={0}
 >
@@ -166,13 +197,19 @@ exports[`should navigate to the calendar when Calendar is clicked 1`] = `
             id="app-icon"
             to="/"
           >
-            <a
+            <LinkAnchor
               href="/"
               id="app-icon"
-              onClick={[Function]}
+              navigate={[Function]}
             >
-               TrainTracks 
-            </a>
+              <a
+                href="/"
+                id="app-icon"
+                onClick={[Function]}
+              >
+                 TrainTracks 
+              </a>
+            </LinkAnchor>
           </Link>
           <ul
             className="nav-items"
@@ -181,39 +218,64 @@ exports[`should navigate to the calendar when Calendar is clicked 1`] = `
               <Link
                 to="/"
               >
-                <a
+                <LinkAnchor
                   href="/"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Dashboard 
-                </a>
+                  <a
+                    href="/"
+                    onClick={[Function]}
+                  >
+                     Dashboard 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
             <li>
               <Link
                 to="/journal"
               >
-                <a
+                <LinkAnchor
                   href="/journal"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Journal 
-                </a>
+                  <a
+                    href="/journal"
+                    onClick={[Function]}
+                  >
+                     Journal 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
             <li>
               <Link
                 to="/calendar"
               >
-                <a
+                <LinkAnchor
                   href="/calendar"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Calendar 
-                </a>
+                  <a
+                    href="/calendar"
+                    onClick={[Function]}
+                  >
+                     Calendar 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
           </ul>
+          <div
+            className="auth-btn-container"
+          >
+            <button
+              id="logout"
+              onClick={[Function]}
+            >
+              Sign out
+            </button>
+          </div>
         </nav>
       </div>
     </Header>
@@ -221,7 +283,7 @@ exports[`should navigate to the calendar when Calendar is clicked 1`] = `
 </MemoryRouter>
 `;
 
-exports[`should navigate to the dashboard when Dashboard is clicked 1`] = `
+exports[`<Header/> User logged in should navigate to the dashboard when Dashboard is clicked 1`] = `
 <MemoryRouter
   initialEntries={
     Array [
@@ -279,13 +341,19 @@ exports[`should navigate to the dashboard when Dashboard is clicked 1`] = `
             id="app-icon"
             to="/"
           >
-            <a
+            <LinkAnchor
               href="/"
               id="app-icon"
-              onClick={[Function]}
+              navigate={[Function]}
             >
-               TrainTracks 
-            </a>
+              <a
+                href="/"
+                id="app-icon"
+                onClick={[Function]}
+              >
+                 TrainTracks 
+              </a>
+            </LinkAnchor>
           </Link>
           <ul
             className="nav-items"
@@ -294,39 +362,64 @@ exports[`should navigate to the dashboard when Dashboard is clicked 1`] = `
               <Link
                 to="/"
               >
-                <a
+                <LinkAnchor
                   href="/"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Dashboard 
-                </a>
+                  <a
+                    href="/"
+                    onClick={[Function]}
+                  >
+                     Dashboard 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
             <li>
               <Link
                 to="/journal"
               >
-                <a
+                <LinkAnchor
                   href="/journal"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Journal 
-                </a>
+                  <a
+                    href="/journal"
+                    onClick={[Function]}
+                  >
+                     Journal 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
             <li>
               <Link
                 to="/calendar"
               >
-                <a
+                <LinkAnchor
                   href="/calendar"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Calendar 
-                </a>
+                  <a
+                    href="/calendar"
+                    onClick={[Function]}
+                  >
+                     Calendar 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
           </ul>
+          <div
+            className="auth-btn-container"
+          >
+            <button
+              id="logout"
+              onClick={[Function]}
+            >
+              Sign out
+            </button>
+          </div>
         </nav>
       </div>
     </Header>
@@ -334,7 +427,7 @@ exports[`should navigate to the dashboard when Dashboard is clicked 1`] = `
 </MemoryRouter>
 `;
 
-exports[`should navigate to the journal when Journal is clicked 1`] = `
+exports[`<Header/> User logged in should navigate to the journal when Journal is clicked 1`] = `
 <MemoryRouter
   keyLength={0}
 >
@@ -387,13 +480,19 @@ exports[`should navigate to the journal when Journal is clicked 1`] = `
             id="app-icon"
             to="/"
           >
-            <a
+            <LinkAnchor
               href="/"
               id="app-icon"
-              onClick={[Function]}
+              navigate={[Function]}
             >
-               TrainTracks 
-            </a>
+              <a
+                href="/"
+                id="app-icon"
+                onClick={[Function]}
+              >
+                 TrainTracks 
+              </a>
+            </LinkAnchor>
           </Link>
           <ul
             className="nav-items"
@@ -402,39 +501,64 @@ exports[`should navigate to the journal when Journal is clicked 1`] = `
               <Link
                 to="/"
               >
-                <a
+                <LinkAnchor
                   href="/"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Dashboard 
-                </a>
+                  <a
+                    href="/"
+                    onClick={[Function]}
+                  >
+                     Dashboard 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
             <li>
               <Link
                 to="/journal"
               >
-                <a
+                <LinkAnchor
                   href="/journal"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Journal 
-                </a>
+                  <a
+                    href="/journal"
+                    onClick={[Function]}
+                  >
+                     Journal 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
             <li>
               <Link
                 to="/calendar"
               >
-                <a
+                <LinkAnchor
                   href="/calendar"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                   Calendar 
-                </a>
+                  <a
+                    href="/calendar"
+                    onClick={[Function]}
+                  >
+                     Calendar 
+                  </a>
+                </LinkAnchor>
               </Link>
             </li>
           </ul>
+          <div
+            className="auth-btn-container"
+          >
+            <button
+              id="logout"
+              onClick={[Function]}
+            >
+              Sign out
+            </button>
+          </div>
         </nav>
       </div>
     </Header>
@@ -442,7 +566,7 @@ exports[`should navigate to the journal when Journal is clicked 1`] = `
 </MemoryRouter>
 `;
 
-exports[`should render a navigation bar with links 1`] = `
+exports[`<Header/> User logged in should render a navigation bar with links for signed in user 1`] = `
 <div
   className="header"
 >
@@ -484,6 +608,52 @@ exports[`should render a navigation bar with links 1`] = `
         </a>
       </li>
     </ul>
+    <div
+      className="auth-btn-container"
+    >
+      <button
+        id="logout"
+        onClick={[Function]}
+      >
+        Sign out
+      </button>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`<Header/> User not logged in should render the nav bar with Login/Register links 1`] = `
+<div
+  className="header"
+>
+  <nav
+    className="header-content"
+  >
+    <a
+      href="/"
+      id="app-icon"
+      onClick={[Function]}
+    >
+       TrainTracks 
+    </a>
+    <div
+      className="auth-btn-container"
+    >
+      <div>
+        <button
+          id="register"
+          onClick={[Function]}
+        >
+          Register
+        </button>
+        <button
+          id="login"
+          onClick={[Function]}
+        >
+          Log in
+        </button>
+      </div>
+    </div>
   </nav>
 </div>
 `;
