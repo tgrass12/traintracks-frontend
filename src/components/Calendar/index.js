@@ -12,6 +12,7 @@ let Calendar = () => {
 	let [datesWithEntries, setEntryDates] = useState({});
 
 	useEffect(() => {
+		if (!user) return;
 		let getJournalEntries = (newDate) => {
 			let date = dateFns.format(newDate, 'YYYY-MM-DD');
 			let apiUrl = `/api/users/${user}/journal/range?range=month&scope=${date}`;

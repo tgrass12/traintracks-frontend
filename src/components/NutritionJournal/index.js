@@ -20,15 +20,16 @@ let NutritionJournal = ({location}) => {
 	const dispatch = useDispatch();
 	const date = useSelector(state => state.journal.selectedDate);
 	const nutrition = useSelector(state => state.journal[date].nutrition);
+	const user = useSelector(state => state.user.username);
 	const [selectedFood, setSelectedFood] = useState({});
 	const water = nutrition.water;
 	const dateStr = queryString.parse(location.search).date || date;
 	useEffect(() => {
-		if (isValidDateString(dateStr)) {
+		if (isValidDateString(dateStr) && user) {
 			dispatch(fetchJournal(dateStr));
 			setSelectedFood({});
 		}
-	}, [dispatch, dateStr]);
+	}, [dispatch, dateStr, user]);
 
 	let handleClick = async (foodId) => {
 		let apiUrl = `/api/foods/${foodId}`;
