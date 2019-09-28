@@ -1,22 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Main /> should contain routes for linked components 1`] = `
+exports[`<Main /> Authenticated should contain routes for linked components 1`] = `
 <div
   className="main"
 >
   <Sidebar />
-  <Route
-    component={[Function]}
-    exact={true}
-    path="/"
-  />
-  <Route
-    component={[Function]}
-    path="/journal"
-  />
-  <Route
-    component={[Function]}
-    path="/calendar"
-  />
+  <Switch>
+    <AuthenticatedRoute
+      component={[Function]}
+      path="/journal"
+    />
+    <AuthenticatedRoute
+      component={[Function]}
+      path="/calendar"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+  </Switch>
+</div>
+`;
+
+exports[`<Main /> Not Authenticated should render Landing component 1`] = `
+<div
+  className="main"
+>
+  <Switch>
+    <AuthenticatedRoute
+      component={[Function]}
+      path="/journal"
+    />
+    <AuthenticatedRoute
+      component={[Function]}
+      path="/calendar"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+  </Switch>
 </div>
 `;
