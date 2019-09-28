@@ -23,7 +23,7 @@
 .nav-items {
 	list-style-type: none;
 	padding: 0;
-	flex: 1;
+	flex: 2;
 
 	> li {
 		margin: 1.5rem;
@@ -36,7 +36,8 @@
 }
 
 #app-icon {
-	position: absolute;
+	flex: 1;
+	text-align: left;
 	margin-left: 2rem;
 	font-size: 3rem;
 	color: white;
