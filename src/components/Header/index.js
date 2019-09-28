@@ -4,7 +4,7 @@ import { useAuth0 } from '../../Auth/auth0-wrapper';
 import '../../styles/Header.scss';
 
 let Header = () => {
-	const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+	const { isAuthenticated, loginWithRedirect, logout, loading } = useAuth0();
 
 	return (
 		<div className="header">
@@ -24,7 +24,7 @@ let Header = () => {
 					</ul>
 				}
 				<div className="auth-btn-container"> 
-					{ !isAuthenticated &&
+					{ !isAuthenticated && !loading &&
 						<div>
 							<button 
 								id="register" 
