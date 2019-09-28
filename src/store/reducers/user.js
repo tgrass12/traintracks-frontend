@@ -5,7 +5,7 @@ import {
 } from '../actionTypes';
 
 let initialState = {
-	username: 'tyler',
+	username: '',
 	meals: []
 }
 

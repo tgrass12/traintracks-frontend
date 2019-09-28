@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-import createAuth0Client from "@auth0/auth0-spa-js";
+import React, { useState, useEffect, useContext } from 'react';
+import { useDispatch } from 'react-redux';
+import createAuth0Client from '@auth0/auth0-spa-js';
+import { fetchUser } from '../store/actions/user';
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
@@ -11,6 +13,7 @@ export const Auth0Provider = ({
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
   ...initOptions
 }) => {
+  const dispatch = useDispatch();
   const [isAuthenticated, setIsAuthenticated] = useState();
   const [user, setUser] = useState();
   const [auth0Client, setAuth0] = useState();
@@ -32,6 +35,7 @@ export const Auth0Provider = ({
 
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser();
+        await dispatch(fetchUser(user.nickname));
         setUser(user);
       }
 
@@ -51,6 +55,7 @@ export const Auth0Provider = ({
       setPopupOpen(false);
     }
     const user = await auth0Client.getUser();
+    await dispatch(fetchUser(user.nickname));
     setUser(user);
     setIsAuthenticated(true);
   };
@@ -59,6 +64,7 @@ export const Auth0Provider = ({
     setLoading(true);
     await auth0Client.handleRedirectCallback();
     const user = await auth0Client.getUser();
+    await dispatch(fetchUser(user.nickname));
     setLoading(false);
     setIsAuthenticated(true);
     setUser(user);

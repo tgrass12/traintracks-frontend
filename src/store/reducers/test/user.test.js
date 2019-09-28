@@ -8,7 +8,7 @@ import {
 describe('user reducer', () => {
 	it('should return initial state', () => {
 		expect(userReducer(undefined, {})).toEqual({
-			username: 'tyler',
+			username: '',
 			meals: []
 		});
 	});
