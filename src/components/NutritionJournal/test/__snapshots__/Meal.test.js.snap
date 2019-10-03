@@ -73,11 +73,6 @@ exports[`should render an empty meal 1`] = `
   >
     <FoodLogger
       hideModal={[Function]}
-      meals={
-        Array [
-          undefined,
-        ]
-      }
     />
   </Modal>
 </div>

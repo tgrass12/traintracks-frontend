@@ -5,11 +5,11 @@ import LogFoodForm from './LogFoodForm';
 import { updateNutrition } from '../../store/actions/nutritionJournal';
 import { formatDateStandard } from '../../shared/util';
 
-//Add currentMeal to props
-let FoodLogger = ({hideModal}) => {
+let FoodLogger = ({currentMeal, hideModal}) => {
 	let dispatch = useDispatch();
 	let journalDate = useSelector(state => state.journal.selectedDate);
 	let meals = useSelector(state => state.journal[journalDate].nutrition.meals);
+
 	let [foodToLog, setFoodToLog] = useState();
 
 	let logFood = async (meal, servings) => {
@@ -42,7 +42,12 @@ let FoodLogger = ({hideModal}) => {
 		<div className='log-food'>
 			<h4> Log Food </h4>
 			<FoodFinder setFoodToLog={setFoodToLog}/>
-			<LogFoodForm food={foodToLog} meals={mealNames} logFood={logFood}/>
+			<LogFoodForm 
+				currentMeal={currentMeal} 
+				meals={mealNames} 
+				logFood={logFood}
+				food={foodToLog} 
+			/>
 		</div>
 	)
 }

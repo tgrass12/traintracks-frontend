@@ -30,7 +30,7 @@ let Meal = ({name, foods=[], loggedValues, handleClick}) => {
 		FoodLogger, 
 		isModalVisible,
 		hideModal,
-		{meals: [name]}
+		{ currentMeal: name }
 	);
 
 	return (

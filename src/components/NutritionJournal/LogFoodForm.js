@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-let LogFoodForm = ({meals=[], logFood}) => {
+let LogFoodForm = ({currentMeal, meals=[], logFood}) => {
 	let [servings, setServings] = useState(1);
-	let [selectedMeal, setSelectedMeal] = useState(meals[0]);
+	let [selectedMeal, setSelectedMeal] = useState(currentMeal || meals[0]);
 
 	let handleSelectedMeal = (e) => {
 		setSelectedMeal(e.target.value);
