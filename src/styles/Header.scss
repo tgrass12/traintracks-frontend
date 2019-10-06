@@ -46,7 +46,7 @@
 .auth-btn-container {
 	flex: 1;
 
-	button {
+	a {
 		@extend %btn-standard;
 		font-size: 1.6rem;
 		margin: 0 0.6rem;

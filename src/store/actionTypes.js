@@ -14,6 +14,8 @@ export const UPDATE_WATER_INTAKE = "UPDATE_WATER_INTAKE";
 export const ADD_EXERCISE = "ADD_EXERCISE";
 
 /* User Actions */
+export const LOGOUT_USER = "LOGOUT_USER";
+export const SET_AUTHENTICATED = "SET_AUTHENTICATED";
 export const FETCH_MEALS = "FETCH_MEALS";
 export const SET_USER = "SET_USER";
 export const SET_MEALS = "SET_MEALS";

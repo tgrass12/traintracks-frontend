@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Auth /> should render Login if isRegister is false 1`] = `
+<div>
+  <div>
+     Login Component 
+  </div>
+</div>
+`;
+
+exports[`<Auth /> should render Register if isRegister is true 1`] = `
+<div>
+  <div>
+     Register Component 
+  </div>
+</div>
+`;

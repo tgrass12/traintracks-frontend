@@ -40,9 +40,13 @@ jest.mock('react-redux', () => ({
 	useSelector: () => mockJournal
 }));
 
+jest.mock('react-router', () => ({
+	useHistory: () => {}
+}));
+
 describe('<Dashboard />', () => {
 	it('should render', () => {
-		const wrapper = shallow(<Dashboard.WrappedComponent />);
+		const wrapper = shallow(<Dashboard />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });

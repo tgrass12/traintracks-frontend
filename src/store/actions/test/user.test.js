@@ -1,5 +1,6 @@
 import * as actions from '../user';
 import {
+	SET_AUTHENTICATED,
 	SET_USER,
 	SET_MEALS,
 	SET_USERNAME
@@ -15,6 +16,14 @@ describe('user actions', () => {
 		expect(actions.setUsername(username)).toEqual(expectedAction);
 	});
 
+	it('should create an action to set authenticated state', () => {
+		const expectedAction = {
+			type: SET_AUTHENTICATED,
+			isAuthenticated: true
+		}
+		expect(actions.setAuthenticated(true)).toEqual(expectedAction);
+	});
+
 	it('should create an action to set the user', () => {
 		const user =  {
 			username: 'test',
@@ -23,7 +32,7 @@ describe('user actions', () => {
 
 		const expectedAction = {
 			type: SET_USER,
-			user
+			data: user
 		}
 		expect(actions.setUser(user)).toEqual(expectedAction);
 	});

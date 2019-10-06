@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AuthenticatedRoute /> should render Redirect if isAuthenticated is false 1`] = `
+<Redirect
+  push={true}
+  to={
+    Object {
+      "pathname": "/login",
+      "state": Object {
+        "referrer": undefined,
+      },
+    }
+  }
+/>
+`;
+
+exports[`<AuthenticatedRoute /> should render route if isAuthenticated is true 1`] = `
+<Route
+  render={[Function]}
+/>
+`;

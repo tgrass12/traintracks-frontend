@@ -59,19 +59,19 @@ export const fetchJournal = function(date) {
 			});
 		}
 
-		dispatch(beginFetchJournal(date));
-
-		const username = state.user.username;
+		const username = state.user.data.username;
 		let apiUrl = `/api/users/${username}/journal/${date}`;
+		
+		dispatch(beginFetchJournal(date));
 
 		return fetch(apiUrl).then(async res =>  {
 			if (res.status === 204)
 			{
-				if (state.user.meals.length === 0) {
+				if (state.user.data.meals.length === 0) {
 					await dispatch(fetchUser(username));
 					state = getState();
 				}
-				await dispatch(receiveJournalEmpty(date, state.user.meals, state.user.targets.diet));
+				await dispatch(receiveJournalEmpty(date, state.user.data.meals, state.user.data.targets.diet));
 				return Promise.resolve();
 			}
 			return res.json();

@@ -1,5 +1,6 @@
 import userReducer from '../user';
 import {
+	SET_AUTHENTICATED,
 	SET_USER,
 	SET_USERNAME,
 	SET_MEALS
@@ -8,9 +9,20 @@ import {
 describe('user reducer', () => {
 	it('should return initial state', () => {
 		expect(userReducer(undefined, {})).toEqual({
-			username: '',
-			meals: []
+			isAuthenticated: false,
+			data: {}
 		});
+	});
+
+	it('should handle SET_AUTHENTICATED', () => {
+		const isAuthenticated = true;
+		expect(
+			userReducer({},
+			{
+				type: SET_AUTHENTICATED,
+				isAuthenticated
+			}
+		)).toEqual({ isAuthenticated: true });
 	});
 
 	it('should handle SET_USER', () => {
@@ -23,9 +35,11 @@ describe('user reducer', () => {
 			userReducer({},
 			{
 				type: SET_USER,
-				user 
+				data: user 
 			}
-		)).toEqual(user);
+		)).toEqual({
+			data: user
+		});
 	});
 
 	it('should handle SET_USERNAME', () => {

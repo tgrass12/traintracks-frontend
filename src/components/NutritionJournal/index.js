@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import queryString from 'query-string';
 import {
@@ -16,7 +16,8 @@ import FoodDetails from './FoodDetails';
 import WaterTracker from './WaterTracker';
 import { isValidDateString } from '../../shared/util';
 
-let NutritionJournal = ({location}) => {
+let NutritionJournal = () => {
+	const location = useLocation();
 	const dispatch = useDispatch();
 	const date = useSelector(state => state.journal.selectedDate);
 	const nutrition = useSelector(state => state.journal[date].nutrition);
@@ -114,4 +115,4 @@ let NutritionJournal = ({location}) => {
 	)
 }
 
-export default withRouter(NutritionJournal);
+export default NutritionJournal;

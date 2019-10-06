@@ -1,10 +1,22 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useAuth0 } from '../../Auth/auth0-wrapper';
 import '../../styles/Header.scss';
+import {
+	logoutUser,
+} from '../../store/actions/user';
 
 let Header = () => {
-	const { isAuthenticated, loginWithRedirect, logout, loading } = useAuth0();
+	const isAuthenticated = useSelector(state => state.user.isAuthenticated);
+	const dispatch = useDispatch();
+
+	let logout = async () => {
+		const api = '/api/auth/logout';
+		await fetch(api, {
+			method: 'POST'
+		});
+		dispatch(logoutUser());
+	}
 
 	return (
 		<div className="header">
@@ -24,26 +36,26 @@ let Header = () => {
 					</ul>
 				}
 				<div className="auth-btn-container"> 
-					{ !isAuthenticated && !loading &&
+					{ !isAuthenticated &&
 						<div>
-							<button 
+							<Link
+								to="/register"
 								id="register" 
-								onClick={() => loginWithRedirect()}
 							>
 								Register
-							</button>	
-							<button 
+							</Link>	
+							<Link 
+								to="/login"
 								id="login"
-								onClick={() => loginWithRedirect()}
 							> 
 								Log in 
-							</button>
+							</Link>
 						</div>
 					}
 					{ isAuthenticated && 
-						<button id="logout" onClick={() => logout()}> 
+						<Link id="logout" to="/" onClick={() => logout()}> 
 							Sign out 
-						</button>
+						</Link>
 					}
 				</div>
 			</nav>

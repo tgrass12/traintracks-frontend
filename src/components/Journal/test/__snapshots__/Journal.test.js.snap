@@ -29,7 +29,7 @@ exports[`should render properly 1`] = `
       <div
         className="tab-contents"
       >
-        <withRouter(NutritionJournal) />
+        <NutritionJournal />
       </div>
     </div>
   </div>

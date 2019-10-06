@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import NutritionDash from './NutritionDash';
 import { formatDateStandard } from '../../shared/util';
@@ -8,7 +8,8 @@ import {
 } from '../../store/actions/journal';
 import '../../styles/Dashboard.scss';
 
-let Dashboard = ({history}) => {
+let Dashboard = () => {
+	const history = useHistory();
 	const dispatch = useDispatch();
 	const today = formatDateStandard(new Date());
 	const todaysJournal = useSelector(state => state.journal[today]);
@@ -54,4 +55,4 @@ let Dashboard = ({history}) => {
 	)
 }
 
-export default withRouter(Dashboard);
+export default Dashboard;

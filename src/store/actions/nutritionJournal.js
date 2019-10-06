@@ -32,7 +32,7 @@ export const addToWaterIntake = (date, waterIntake) => {
 	return async (dispatch, getState) => {
 		try {
 			const state = getState();
-			const user = state.user.username;
+			const user = state.user.data.username;
 			dispatch(updateWaterIntake(date, waterIntake));
 			await fetch(`/api/users/${user}/journal/${date}/water`, {
 		  		method: 'POST',
@@ -55,7 +55,7 @@ export const addToWaterIntake = (date, waterIntake) => {
 export const fetchWaterIntake = (date) => {
 	return (dispatch, getState) => {
 		const state = getState();
-		const user = state.user.username;
+		const user = state.user.data.username;
 		return fetch(`/api/users/${user}/journal/${date}/water`)
 			.then(res => res.json())
 			.then(res => dispatch(setWaterIntake(res.water)));

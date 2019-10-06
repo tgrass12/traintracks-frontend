@@ -130,12 +130,26 @@ exports[`<Header/> User logged in should navigate to home page when logo is clic
           <div
             className="auth-btn-container"
           >
-            <button
+            <Link
               id="logout"
               onClick={[Function]}
+              to="/"
             >
-              Sign out
-            </button>
+              <LinkAnchor
+                href="/"
+                id="logout"
+                navigate={[Function]}
+                onClick={[Function]}
+              >
+                <a
+                  href="/"
+                  id="logout"
+                  onClick={[Function]}
+                >
+                  Sign out
+                </a>
+              </LinkAnchor>
+            </Link>
           </div>
         </nav>
       </div>
@@ -269,12 +283,26 @@ exports[`<Header/> User logged in should navigate to the calendar when Calendar 
           <div
             className="auth-btn-container"
           >
-            <button
+            <Link
               id="logout"
               onClick={[Function]}
+              to="/"
             >
-              Sign out
-            </button>
+              <LinkAnchor
+                href="/"
+                id="logout"
+                navigate={[Function]}
+                onClick={[Function]}
+              >
+                <a
+                  href="/"
+                  id="logout"
+                  onClick={[Function]}
+                >
+                  Sign out
+                </a>
+              </LinkAnchor>
+            </Link>
           </div>
         </nav>
       </div>
@@ -413,12 +441,26 @@ exports[`<Header/> User logged in should navigate to the dashboard when Dashboar
           <div
             className="auth-btn-container"
           >
-            <button
+            <Link
               id="logout"
               onClick={[Function]}
+              to="/"
             >
-              Sign out
-            </button>
+              <LinkAnchor
+                href="/"
+                id="logout"
+                navigate={[Function]}
+                onClick={[Function]}
+              >
+                <a
+                  href="/"
+                  id="logout"
+                  onClick={[Function]}
+                >
+                  Sign out
+                </a>
+              </LinkAnchor>
+            </Link>
           </div>
         </nav>
       </div>
@@ -552,12 +594,26 @@ exports[`<Header/> User logged in should navigate to the journal when Journal is
           <div
             className="auth-btn-container"
           >
-            <button
+            <Link
               id="logout"
               onClick={[Function]}
+              to="/"
             >
-              Sign out
-            </button>
+              <LinkAnchor
+                href="/"
+                id="logout"
+                navigate={[Function]}
+                onClick={[Function]}
+              >
+                <a
+                  href="/"
+                  id="logout"
+                  onClick={[Function]}
+                >
+                  Sign out
+                </a>
+              </LinkAnchor>
+            </Link>
           </div>
         </nav>
       </div>
@@ -611,15 +667,248 @@ exports[`<Header/> User logged in should render a navigation bar with links for 
     <div
       className="auth-btn-container"
     >
-      <button
+      <a
+        href="/"
         id="logout"
         onClick={[Function]}
       >
         Sign out
-      </button>
+      </a>
     </div>
   </nav>
 </div>
+`;
+
+exports[`<Header/> User not logged in should navigate to login page on login click 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "PUSH",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          Object {
+            "hash": "",
+            "pathname": "/login",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 1,
+        "length": 2,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/login",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Header>
+      <div
+        className="header"
+      >
+        <nav
+          className="header-content"
+        >
+          <Link
+            id="app-icon"
+            to="/"
+          >
+            <LinkAnchor
+              href="/"
+              id="app-icon"
+              navigate={[Function]}
+            >
+              <a
+                href="/"
+                id="app-icon"
+                onClick={[Function]}
+              >
+                 TrainTracks 
+              </a>
+            </LinkAnchor>
+          </Link>
+          <div
+            className="auth-btn-container"
+          >
+            <div>
+              <Link
+                id="register"
+                to="/register"
+              >
+                <LinkAnchor
+                  href="/register"
+                  id="register"
+                  navigate={[Function]}
+                >
+                  <a
+                    href="/register"
+                    id="register"
+                    onClick={[Function]}
+                  >
+                    Register
+                  </a>
+                </LinkAnchor>
+              </Link>
+              <Link
+                id="login"
+                to="/login"
+              >
+                <LinkAnchor
+                  href="/login"
+                  id="login"
+                  navigate={[Function]}
+                >
+                  <a
+                    href="/login"
+                    id="login"
+                    onClick={[Function]}
+                  >
+                    Log in
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </Header>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`<Header/> User not logged in should navigate to register on register click 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "PUSH",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          Object {
+            "hash": "",
+            "pathname": "/register",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 1,
+        "length": 2,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/register",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Header>
+      <div
+        className="header"
+      >
+        <nav
+          className="header-content"
+        >
+          <Link
+            id="app-icon"
+            to="/"
+          >
+            <LinkAnchor
+              href="/"
+              id="app-icon"
+              navigate={[Function]}
+            >
+              <a
+                href="/"
+                id="app-icon"
+                onClick={[Function]}
+              >
+                 TrainTracks 
+              </a>
+            </LinkAnchor>
+          </Link>
+          <div
+            className="auth-btn-container"
+          >
+            <div>
+              <Link
+                id="register"
+                to="/register"
+              >
+                <LinkAnchor
+                  href="/register"
+                  id="register"
+                  navigate={[Function]}
+                >
+                  <a
+                    href="/register"
+                    id="register"
+                    onClick={[Function]}
+                  >
+                    Register
+                  </a>
+                </LinkAnchor>
+              </Link>
+              <Link
+                id="login"
+                to="/login"
+              >
+                <LinkAnchor
+                  href="/login"
+                  id="login"
+                  navigate={[Function]}
+                >
+                  <a
+                    href="/login"
+                    id="login"
+                    onClick={[Function]}
+                  >
+                    Log in
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </Header>
+  </Router>
+</MemoryRouter>
 `;
 
 exports[`<Header/> User not logged in should render the nav bar with Login/Register links 1`] = `
@@ -640,18 +929,20 @@ exports[`<Header/> User not logged in should render the nav bar with Login/Regis
       className="auth-btn-container"
     >
       <div>
-        <button
+        <a
+          href="/register"
           id="register"
           onClick={[Function]}
         >
           Register
-        </button>
-        <button
+        </a>
+        <a
+          href="/login"
           id="login"
           onClick={[Function]}
         >
           Log in
-        </button>
+        </a>
       </div>
     </div>
   </nav>

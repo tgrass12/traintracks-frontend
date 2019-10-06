@@ -1,18 +1,21 @@
 import { 
+	SET_AUTHENTICATED,
 	SET_USER,
 	SET_USERNAME,
 	SET_MEALS,
 } from '../actionTypes';
 
 let initialState = {
-	username: '',
-	meals: []
+	isAuthenticated: false,
+	data: {},
 }
 
 const user = (state=initialState, action) => {
 	switch(action.type) {
+		case SET_AUTHENTICATED:
+			return { ...state, isAuthenticated: action.isAuthenticated };
 		case SET_USER:
-			return action.user;
+			return { ...state, data: action.data };
 		case SET_USERNAME:
 			return { ...state, username: action.username }
 		case SET_MEALS: 

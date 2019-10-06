@@ -7,7 +7,7 @@ exports[`<WorkoutLog /> should render LogNewExercise when there are no exercises
   <div
     className="exercise-logger"
   >
-    <withRouter(JournalHeader) />
+    <JournalHeader />
     <div
       className="workout-log"
     >

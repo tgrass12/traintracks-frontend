@@ -1,27 +1,17 @@
-import React, { useEffect } from "react";
-import { Route } from "react-router-dom";
-import { useAuth0 } from "../Auth/auth0-wrapper";
+import React from "react";
+import { useSelector } from 'react-redux';
+import { Route, Redirect } from "react-router-dom";
 
 const AuthenticatedRoute = ({ component: Component, path, ...rest }) => {
-  const { loading, isAuthenticated, loginWithRedirect } = useAuth0();
+  const isAuthenticated = useSelector(state => state.user.isAuthenticated);
 
-  useEffect(() => {
-    if (loading || isAuthenticated) {
-      return;
-    }
-    const fn = async () => {
-      await loginWithRedirect({
-        appState: { targetUrl: path }
-      });
-    };
-    fn();
-  }, [loading, isAuthenticated, loginWithRedirect, path]);
-
-  const render = props => isAuthenticated === true ? 
-  	<Component {...props} /> : 
-  	null;
-
-  return <Route path={path} render={render} {...rest} />;
+  return isAuthenticated ? 
+    <Route path={path} render={props => <Component {...props} />} {...rest} /> :
+    <Redirect push to={{
+      pathname: '/login',
+      state: { referrer: path }
+      }} 
+    />;
 };
 
 export default AuthenticatedRoute;

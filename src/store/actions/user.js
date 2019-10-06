@@ -1,14 +1,40 @@
 import { 
+	LOGOUT_USER,
+	SET_AUTHENTICATED,
 	SET_USER,
 	SET_MEALS,
 	SET_USERNAME,
 	FETCH_MEALS
 } from '../actionTypes';
 
+export const refreshSession = () => {
+	return (dispatch) => {
+		const api = '/api/auth/session';
+		fetch(api).then(res => res.json())
+		.then(user => {
+			dispatch(setAuthenticated(true));
+			dispatch(setUser(user));
+		});
+	}
+}
+
+export const logoutUser = () => {
+	return {
+		type: LOGOUT_USER
+	}
+}
+
+export const setAuthenticated = (isAuthenticated) => {
+	return {
+		type: SET_AUTHENTICATED,
+		isAuthenticated
+	}
+}
+
 export const setUser = (user) => {
 	return {
 		type: SET_USER,
-		user
+		data: user
 	}
 }
 

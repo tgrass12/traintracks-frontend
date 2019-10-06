@@ -1,13 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import Cookies from 'universal-cookie';
 import App from '../App';
 
-it('should render the header', () => {
-	const wrapper = shallow(<App />);
-	expect(wrapper.find('Header').exists()).toBeTruthy();
-});
+jest.mock('react-redux', () => ({
+	useDispatch: () => {}
+}));
 
-it('should render the main content wrapper', () => {
-	const wrapper = shallow(<App />);
-	expect(wrapper.find('Main').exists()).toBeTruthy();
+describe('<App />', () => {
+	it('should render', () => {
+		const wrapper = shallow(<App />);
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
+	test.todo('should load session if session cookie exists');
 });

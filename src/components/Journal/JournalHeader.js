@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import { fetchJournal } from '../../store/actions/journal';
 import { 
 	formatDateFullNamed,
@@ -8,7 +9,8 @@ import {
 	setToPrevDay
 } from '../../shared/util';
 
-let JournalHeader = (props) => {
+let JournalHeader = () => {
+	const history = useHistory();
 	const dispatch = useDispatch();
 	const date = useSelector(state => state.journal.selectedDate);
 	let formattedDate = formatDateFullNamed(date);
@@ -16,13 +18,13 @@ let JournalHeader = (props) => {
 	let prevDay = () => {
 		let newDate = setToPrevDay(date);
 		dispatch(fetchJournal(newDate));
-		props.history.push(`/journal?date=${newDate}`);
+		history.push(`/journal?date=${newDate}`);
 	}
 
 	let nextDay = () => {
 		let newDate = setToNextDay(date);
 		dispatch(fetchJournal(newDate));
-		props.history.push(`/journal?date=${newDate}`);
+		history.push(`/journal?date=${newDate}`);
 	}
 
 	//TODO: Refactor to HOC
@@ -40,4 +42,4 @@ let JournalHeader = (props) => {
 	)
 }
 
-export default withRouter(JournalHeader);
+export default JournalHeader;

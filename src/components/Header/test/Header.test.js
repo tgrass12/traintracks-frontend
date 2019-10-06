@@ -1,25 +1,20 @@
-/* eslint-disable import/first */
 import React from 'react';
+import { useSelector } from 'react-redux';
 import renderer from 'react-test-renderer';
 import toJson from 'enzyme-to-json';
 import { MemoryRouter } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
 import Header from '../';
 
-jest.mock('../../../Auth/auth0-wrapper', () => ({
-	useAuth0: jest.fn()
+jest.mock('react-redux', () => ({
+	useDispatch: () => {},
+	useSelector: jest.fn()
 }));
-
-import { useAuth0 } from '../../../Auth/auth0-wrapper';
 
 describe('<Header/>', () => {
 	describe('User not logged in', () => {
-		const mockLogin = jest.fn();
 		beforeAll(() => {
-			useAuth0.mockImplementation(() => ({
-				isAuthenticated: false,
-				loginWithRedirect: mockLogin
-			}));
+			useSelector.mockReturnValue(false);
 		});
 
 		it('should render the nav bar with Login/Register links', () => {
@@ -38,8 +33,8 @@ describe('<Header/>', () => {
 				</MemoryRouter>
 			);
 
-			wrapper.find('button#login').simulate('click');
-			expect(mockLogin).toHaveBeenCalled();
+			wrapper.find('a#login').simulate('click', { button: 0 });
+			expect(toJson(wrapper)).toMatchSnapshot();
 		});
 
 		it('should navigate to register on register click', () => {
@@ -48,18 +43,14 @@ describe('<Header/>', () => {
 					<Header/>
 				</MemoryRouter>
 			);
-			wrapper.find('#register').simulate('click');
-			expect(mockLogin).toHaveBeenCalled();
+			wrapper.find('a#register').simulate('click', { button: 0 });
+			expect(toJson(wrapper)).toMatchSnapshot();
 		});
 	});
 
 	describe('User logged in', () => {
-		const mockLogout = jest.fn();
 		beforeAll(() => {
-			useAuth0.mockImplementation(() => ({
-				isAuthenticated: true,
-				logout: mockLogout
-			}));
+			useSelector.mockReturnValue(true);
 		});
 
 		it('should render a navigation bar with links for signed in user', () => {
@@ -122,8 +113,15 @@ describe('<Header/>', () => {
 				</MemoryRouter>
 			);
 
-			wrapper.find('#logout').simulate('click');
-			expect(mockLogout).toHaveBeenCalled();			
+			jest.spyOn(global, 'fetch');
+
+			wrapper.find('a#logout').simulate('click');
+		  	expect(global.fetch).toHaveBeenCalledWith(
+		  		'/api/auth/logout', 
+		  		{
+    				method: 'POST',
+  				}
+  			);		
 		});
 	});
 });

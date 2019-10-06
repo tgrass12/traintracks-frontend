@@ -1,37 +1,31 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import AuthenticatedRoute from '../AuthenticatedRoute';
-import { useAuth0 } from '../../Auth/auth0-wrapper';
 
-jest.mock('../../Auth/auth0-wrapper', () => ({
-	useAuth0: jest.fn(() => ({
-		loading: false,
-		loginWithRedirect: jest.fn(),
-		isAuthenticated: false
-	}))
+jest.mock('react-redux', () => ({
+	useSelector: jest.fn(() => false)
 }));
 
 const MockComponent = () => (<div>Mock Component</div>);
 
 describe('<AuthenticatedRoute />', () => {
-	it('should not render route if isAuthenticated is false', () => {
+	it('should render Redirect if isAuthenticated is false', () => {
 		const wrapper = shallow(
 			<AuthenticatedRoute component={MockComponent}/>
 		);
 
-		expect(wrapper.props().render()).toBeFalsy();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render route if isAuthenticated is true', () => {
-		useAuth0.mockImplementation(() => ({
-			isAuthenticated: true
-		}));
+		useSelector.mockImplementation(() => true);
 		
 		const wrapper = shallow(
 			<AuthenticatedRoute component={MockComponent} />
 		);
 
-		expect(wrapper.props().render()).toBeTruthy();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	})
 });

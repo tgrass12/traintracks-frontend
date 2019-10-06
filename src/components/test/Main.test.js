@@ -1,30 +1,23 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import toJson from 'enzyme-to-json';
 import { shallow } from 'enzyme';
 import Main from '../Main';
-import { useAuth0 } from '../../Auth/auth0-wrapper';
 
 jest.mock('react-redux', () => ({
 	useDispatch: () => {},
-	useSelector: () => ({
-		'user': {
-			'username': 'test',
-			'meals': ['Breakfast', 'Lunch']
-		}
-	})
+	useSelector: jest.fn()
 }));
 
-jest.mock('../../Auth/auth0-wrapper', () => ({
-	useAuth0: jest.fn()
+jest.mock('react-router', () => ({
+	useHistory: jest.fn(),
+	useLocation: jest.fn()
 }));
-
 
 describe('<Main />', () => {
 	describe('Authenticated', () => {
 		beforeAll(() => {
-			useAuth0.mockImplementation(() => ({
-				isAuthenticated: true
-			}));
+			useSelector.mockImplementation(() => true);
 		});
 
 		it('should contain the sidebar', () => {
@@ -40,9 +33,7 @@ describe('<Main />', () => {
 
 	describe('Not Authenticated', () => {
 		beforeAll(() => {
-			useAuth0.mockImplementation(() => ({
-				isAuthenticated: false
-			}));
+			useSelector.mockImplementation(() => false);
 		});
 
 		it('should not render the sidebar', () => {
