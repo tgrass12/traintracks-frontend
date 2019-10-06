@@ -1,3 +1,4 @@
+import Cookies from 'universal-cookie';
 import { 
 	LOGOUT_USER,
 	SET_AUTHENTICATED,
@@ -12,8 +13,15 @@ export const refreshSession = () => {
 		const api = '/api/auth/session';
 		fetch(api).then(res => res.json())
 		.then(user => {
-			dispatch(setAuthenticated(true));
-			dispatch(setUser(user));
+			if (!user) {
+				// Something happened to the session. Reset cookie.
+				let cookies = new Cookies();
+				cookies.remove('connect.sid');
+			}
+			else {
+				dispatch(setAuthenticated(true));
+				dispatch(setUser(user));
+			}
 		});
 	}
 }
