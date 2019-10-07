@@ -53,3 +53,13 @@ button {
 		color: white;
 	}
 }
+
+%btn-disabled {
+	background-color: lightgray;
+	border-color: lightgray;
+	color: gray;
+
+	&:hover {
+		cursor: not-allowed;
+	};
+}
