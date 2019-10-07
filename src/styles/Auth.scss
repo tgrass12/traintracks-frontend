@@ -1,0 +1,47 @@
+@import 'card';
+@import 'button';
+@import 'colors';
+// @import 'input';
+
+#auth-form {
+	@extend %card;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 40rem;
+	height: 30rem;
+
+	h2 {
+		margin-bottom: 0;
+	}
+
+	button {
+		@extend %btn-cta;
+		width: 50%;
+		align-self: center;
+		margin-bottom: 1rem;
+	}
+
+	button:disabled {
+		@extend %btn-disabled;
+	}
+
+	label {
+		text-align: left;
+	}
+
+	input {
+		width: 25rem;
+		margin: 0;
+	}
+
+	div * {
+		display: block;
+	}
+}

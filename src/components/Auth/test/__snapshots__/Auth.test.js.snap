@@ -1,17 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Auth /> should render Login if isRegister is false 1`] = `
-<div>
+exports[`<Auth /> Log in should render Login form 1`] = `
+<form
+  id="auth-form"
+  onSubmit={[Function]}
+>
+  <h2>
+    Welcome Back
+  </h2>
   <div>
-     Login Component 
+    <label
+      htmlFor="username"
+    >
+       Username 
+    </label>
+    <input
+      name="username"
+      onChange={[Function]}
+      value=""
+    />
   </div>
-</div>
+  <div>
+    <label
+      htmlFor="password"
+    >
+       Password 
+    </label>
+    <input
+      name="password"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+  </div>
+  <button
+    type="submit"
+  >
+    Sign in
+  </button>
+</form>
 `;
 
-exports[`<Auth /> should render Register if isRegister is true 1`] = `
-<div>
+exports[`<Auth /> Register should render Register form 1`] = `
+<form
+  id="auth-form"
+  onSubmit={[Function]}
+>
+  <h2>
+    Join Today
+  </h2>
   <div>
-     Register Component 
+    <label
+      htmlFor="email"
+    >
+       Email 
+    </label>
+    <input
+      id="auth-email"
+      name="email"
+      onChange={[Function]}
+      type="email"
+      value=""
+    />
   </div>
-</div>
+  <div>
+    <label
+      htmlFor="username"
+    >
+       Username 
+    </label>
+    <input
+      name="username"
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+  <div>
+    <label
+      htmlFor="password"
+    >
+       Password 
+    </label>
+    <input
+      name="password"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+  </div>
+  <button
+    type="submit"
+  >
+    Register
+  </button>
+</form>
 `;
