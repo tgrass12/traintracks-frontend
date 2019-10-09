@@ -14,7 +14,7 @@ export const addExercise = (date, exercise) => {
 	return async (dispatch, getState) => {
 		try {
 			const state = getState();
-			const user = state.user.username;
+			const user = state.user.data.username;
 			fetch(`/api/users/${user}/journal/${date}/workouts`, {
 	  			method: 'POST',
 	  			body: JSON.stringify(exercise),
