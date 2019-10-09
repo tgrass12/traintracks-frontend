@@ -7,7 +7,7 @@ import Auth from './Auth';
 import Journal from './Journal';
 import Calendar from './Calendar';
 import Dashboard from './Dashboard';
-import Sidebar from './Sidebar';
+import Loading from './Loading';
 import LandingHero from './LandingHero';
 import {
 	setAuthenticated,
@@ -19,6 +19,7 @@ let Main = () => {
 	const location = useLocation();
 	const dispatch = useDispatch();
 	const isAuthenticated = useSelector(state => state.user.isAuthenticated);
+	const isLoading = useSelector(state => state.user.isLoading);
 
 	let onAuth = (username, password, isRegister, email) => {
 		//TODO: move to redux store, AUTHENTICATE_USER action
@@ -33,7 +34,7 @@ let Main = () => {
 
 		let api = isRegister ? '/api/auth/register' : '/api/auth/login';
 
-		fetch(api, {
+		return fetch(api, {
 	  		method: 'POST',
 	  		body: JSON.stringify(payload),
 	  		headers: {
@@ -48,29 +49,31 @@ let Main = () => {
 			dispatch(setAuthenticated(true));
 			dispatch(setUser(user));
 			history.push(pathToLoad);
+			return true;
 		})
 		.catch(err => {
 			console.log(err);
+			return false
 		});
 	}
 
 	return (
 		<div className="main">
-			{ isAuthenticated &&
-				<Sidebar/>
+			{ isLoading &&
+				<Loading />
 			}
-			<Switch>
-				<Route path="/login" render={() => <Auth onAuth={onAuth}/>} />
-				<Route path="/register" render={() => <Auth isRegister onAuth={onAuth}/>} />
-				<AuthenticatedRoute path="/journal" component={Journal} />
-				<AuthenticatedRoute path="/calendar" component={Calendar} />
-				{
+			{ !isLoading &&
+				<Switch>
+					<Route path="/login" render={() => <Auth onAuth={onAuth}/>} />
+					<Route path="/register" render={() => <Auth isRegister onAuth={onAuth}/>} />
+					<AuthenticatedRoute path="/journal" component={Journal} />
+					<AuthenticatedRoute path="/calendar" component={Calendar} />
 					<Route 
 						path="/" exact 
 						component={isAuthenticated ? Dashboard : LandingHero}
 					/>
-				}
-			</Switch>
+				</Switch>
+			}
 		</div>
 	)
 }

@@ -911,6 +911,77 @@ exports[`<Header/> User not logged in should navigate to register on register cl
 </MemoryRouter>
 `;
 
+exports[`<Header/> User not logged in should not load items if isLoading is true 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Header>
+      <div
+        className="header"
+      >
+        <nav
+          className="header-content"
+        >
+          <Link
+            id="app-icon"
+            to="/"
+          >
+            <LinkAnchor
+              href="/"
+              id="app-icon"
+              navigate={[Function]}
+            >
+              <a
+                href="/"
+                id="app-icon"
+                onClick={[Function]}
+              >
+                 TrainTracks 
+              </a>
+            </LinkAnchor>
+          </Link>
+          <div
+            className="auth-btn-container"
+          />
+        </nav>
+      </div>
+    </Header>
+  </Router>
+</MemoryRouter>
+`;
+
 exports[`<Header/> User not logged in should render the nav bar with Login/Register links 1`] = `
 <div
   className="header"

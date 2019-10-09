@@ -1,5 +1,6 @@
 import Cookies from 'universal-cookie';
 import { 
+	SET_USER_LOADING,
 	LOGOUT_USER,
 	SET_AUTHENTICATED,
 	SET_USER,
@@ -10,6 +11,7 @@ import {
 
 export const refreshSession = () => {
 	return (dispatch) => {
+		dispatch(setUserLoading(true));
 		const api = '/api/auth/session';
 		fetch(api).then(res => res.json())
 		.then(user => {
@@ -21,6 +23,7 @@ export const refreshSession = () => {
 			else {
 				dispatch(setAuthenticated(true));
 				dispatch(setUser(user));
+				dispatch(setUserLoading(false));
 			}
 		});
 	}
@@ -29,6 +32,13 @@ export const refreshSession = () => {
 export const logoutUser = () => {
 	return {
 		type: LOGOUT_USER
+	}
+}
+
+export const setUserLoading = (isLoading) => {
+	return {
+		type: SET_USER_LOADING,
+		isLoading
 	}
 }
 
@@ -92,10 +102,11 @@ export const fetchMeals = () => {
 export const fetchUser = (username) => {
 	return (dispatch) => {
 		const api = `/api/users/${username}`;
-
+		dispatch(setUserLoading(true));
 		return fetch(api).then(res => res.json())
 		.then(user => {
 			dispatch(setUser(user))
+			dispatch(setUserLoading(false));
 		});
 	}
 }

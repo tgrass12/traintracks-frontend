@@ -1,5 +1,6 @@
 import * as actions from '../user';
 import {
+	SET_USER_LOADING,
 	SET_AUTHENTICATED,
 	SET_USER,
 	SET_MEALS,
@@ -7,6 +8,16 @@ import {
 } from '../../actionTypes';
 
 describe('user actions', () => {
+
+	it('should create an action to set user loading state', () => {
+		const expectedAction = {
+			type: SET_USER_LOADING,
+			isLoading: true
+		};
+
+		expect(actions.setUserLoading(true)).toEqual(expectedAction);
+	});
+
 	it('should create an action to set the username', () => {
 		const username = 'tyler';
 		const expectedAction = {

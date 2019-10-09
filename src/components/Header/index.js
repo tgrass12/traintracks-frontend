@@ -8,6 +8,7 @@ import {
 
 let Header = () => {
 	const isAuthenticated = useSelector(state => state.user.isAuthenticated);
+	const isLoading = useSelector(state => state.user.isLoading);
 	const dispatch = useDispatch();
 
 	let logout = async () => {
@@ -36,7 +37,7 @@ let Header = () => {
 					</ul>
 				}
 				<div className="auth-btn-container"> 
-					{ !isAuthenticated &&
+					{ !isAuthenticated && !isLoading &&
 						<div>
 							<Link
 								to="/register"
@@ -52,7 +53,7 @@ let Header = () => {
 							</Link>
 						</div>
 					}
-					{ isAuthenticated && 
+					{ isAuthenticated && !isLoading &&
 						<Link id="logout" to="/" onClick={() => logout()}> 
 							Sign out 
 						</Link>

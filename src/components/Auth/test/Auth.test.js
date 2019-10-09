@@ -23,4 +23,6 @@ describe('<Auth />', () => {
 		test.todo('should validate password');
 		test.todo('should call onAuth with username, email, password');
 	});
+
+	test.todo('should display a spinner when making an auth request');
 });

@@ -46,11 +46,25 @@ describe('<Header/>', () => {
 			wrapper.find('a#register').simulate('click', { button: 0 });
 			expect(toJson(wrapper)).toMatchSnapshot();
 		});
+
+
+		it('should not load items if isLoading is true', () => {
+			useSelector.mockReturnValueOnce(false)
+			.mockReturnValueOnce(true);
+			
+			const wrapper = mount(
+				<MemoryRouter keyLength={0}>
+					<Header/>
+				</MemoryRouter>
+			);
+			expect(toJson(wrapper)).toMatchSnapshot();	
+		});
 	});
 
 	describe('User logged in', () => {
-		beforeAll(() => {
-			useSelector.mockReturnValue(true);
+		beforeEach(() => {
+			useSelector.mockReturnValueOnce(true)
+			.mockReturnValueOnce(false);
 		});
 
 		it('should render a navigation bar with links for signed in user', () => {

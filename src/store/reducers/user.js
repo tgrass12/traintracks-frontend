@@ -1,4 +1,5 @@
-import { 
+import {
+	SET_USER_LOADING,
 	SET_AUTHENTICATED,
 	SET_USER,
 	SET_USERNAME,
@@ -7,11 +8,14 @@ import {
 
 let initialState = {
 	isAuthenticated: false,
+	isLoading: false,
 	data: {},
 }
 
 const user = (state=initialState, action) => {
 	switch(action.type) {
+		case SET_USER_LOADING:
+			return { ...state, isLoading: action.isLoading };
 		case SET_AUTHENTICATED:
 			return { ...state, isAuthenticated: action.isAuthenticated };
 		case SET_USER:

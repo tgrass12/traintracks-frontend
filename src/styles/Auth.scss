@@ -1,7 +1,7 @@
 @import 'card';
 @import 'button';
 @import 'colors';
-// @import 'input';
+@import 'spinner';
 
 #auth-form {
 	@extend %card;
@@ -44,4 +44,11 @@
 	div * {
 		display: block;
 	}
+}
+
+.auth-spinner {
+	@extend %spinner-small;
+	height: 4rem;
+	width: 4rem;
+	margin-bottom: 1rem;
 }

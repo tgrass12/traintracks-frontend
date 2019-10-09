@@ -4,6 +4,7 @@ import '../../styles/Auth.scss';
 let Auth = ({isRegister, onAuth}) => {
 	const formHeaderText = isRegister ? 'Join Today' : 'Welcome Back';
 	const formButtonText = isRegister ? 'Register': 'Sign in';
+	const [isAuthorizing, setIsAuthorizing] = useState(false);
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -20,7 +21,7 @@ let Auth = ({isRegister, onAuth}) => {
 		return isRegister ? email.includes('@') : true;
 	}
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		const isUsernameValid = validateUsername(username);
@@ -29,14 +30,17 @@ let Auth = ({isRegister, onAuth}) => {
 		const isFormValid = isUsernameValid && isEmailValid && isPasswordValid;
 
 		if (isFormValid) {
-			onAuth(username, password, isRegister, email);
+			setIsAuthorizing(true);
+			const isAuthed = await onAuth(username, password, isRegister, email);
+			if (!isAuthed) {
+				setIsAuthorizing(false);
+			}
 		}
 
 		else {
 			console.log('Form is invalid');
 		}
 	}
-
 
 	const handleChange = (e) => {
 		switch(e.target.name) {
@@ -87,9 +91,14 @@ let Auth = ({isRegister, onAuth}) => {
 					onChange={handleChange}
 				/>			
 			</div>
-			<button type='submit'>
-				{formButtonText}
-			</button>
+			{ isAuthorizing &&
+				<div className="auth-spinner" />
+			}
+			{ !isAuthorizing &&
+				<button type='submit'>
+					{formButtonText}
+				</button>
+			}
 		</form>
 	)
 }

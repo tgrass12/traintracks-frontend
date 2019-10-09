@@ -20,12 +20,21 @@ describe('<AuthenticatedRoute />', () => {
 	});
 
 	it('should render route if isAuthenticated is true', () => {
-		useSelector.mockImplementation(() => true);
+		useSelector.mockImplementationOnce(() => true)
+		.mockImplementationOnce(() => false);
 		
 		const wrapper = shallow(
 			<AuthenticatedRoute component={MockComponent} />
 		);
 
 		expect(toJson(wrapper)).toMatchSnapshot();
-	})
+	});
+
+	it('should render Loading component if isLoading is true', () => {
+		useSelector.mockReturnValueOnce(false)
+		.mockReturnValueOnce(true);
+
+		const wrapper = shallow(<AuthenticatedRoute />);
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
 });

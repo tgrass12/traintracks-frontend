@@ -1,5 +1,6 @@
 import userReducer from '../user';
 import {
+	SET_USER_LOADING,
 	SET_AUTHENTICATED,
 	SET_USER,
 	SET_USERNAME,
@@ -10,8 +11,20 @@ describe('user reducer', () => {
 	it('should return initial state', () => {
 		expect(userReducer(undefined, {})).toEqual({
 			isAuthenticated: false,
+			isLoading: false,
 			data: {}
 		});
+	});
+
+	it('should handle SET_USER_LOADING', () => {
+		const isLoading = true;
+		expect(
+			userReducer({},
+			{
+				type: SET_USER_LOADING,
+				isLoading			
+			}
+		)).toEqual({ isLoading: true });
 	});
 
 	it('should handle SET_AUTHENTICATED', () => {

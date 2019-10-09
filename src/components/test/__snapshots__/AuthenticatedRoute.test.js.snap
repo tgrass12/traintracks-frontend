@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<AuthenticatedRoute /> should render Loading component if isLoading is true 1`] = `<Loading />`;
+
 exports[`<AuthenticatedRoute /> should render Redirect if isAuthenticated is false 1`] = `
 <Redirect
   push={true}
