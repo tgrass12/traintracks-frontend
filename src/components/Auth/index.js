@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../../styles/Auth.scss';
 
 let Auth = ({isRegister, onAuth}) => {
@@ -7,29 +7,6 @@ let Auth = ({isRegister, onAuth}) => {
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [isEmailValid, setIsEmailValid] = useState(!isRegister);
-	const [isPasswordValid, setIsPasswordValid] = useState(false);
-	const [isUsernameValid, setIsUsernameValid] = useState(false);
-
-	const isFormValid = isEmailValid && 
-		isPasswordValid && 
-		isUsernameValid;
-
-	//TODO: Set Form Validity checks/displays
-
-	useEffect(() => {
-		setEmail('');
-		setIsEmailValid(!isRegister);
-		setIsPasswordValid(validatePassword(password));
-		setIsUsernameValid(validateUsername(username));
-	},[isRegister]);
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		if (isFormValid) {
-			onAuth(username, password, email);
-		}
-	}
 
 	const validatePassword = (password) => {
 		return isRegister ? password.length > 6 : password.length > 0;
@@ -39,23 +16,38 @@ let Auth = ({isRegister, onAuth}) => {
 		return isRegister ? username.length > 2 : username.length > 0;
 	}
 
-	const validateEmail = (emailInput) => {
-		return isRegister ? emailInput.checkValidity() : true;
+	const validateEmail = (email) => {
+		return isRegister ? email.includes('@') : true;
 	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		const isUsernameValid = validateUsername(username);
+		const isPasswordValid = validatePassword(password);
+		const isEmailValid = validateEmail(email);
+		const isFormValid = isUsernameValid && isEmailValid && isPasswordValid;
+
+		if (isFormValid) {
+			onAuth(username, password, isRegister, email);
+		}
+
+		else {
+			console.log('Form is invalid');
+		}
+	}
+
 
 	const handleChange = (e) => {
 		switch(e.target.name) {
 			case 'email':
 				setEmail(e.target.value);
-				setIsEmailValid(validateEmail(e.target));
 				return;
 			case 'username':
 				setUsername(e.target.value);
-				setIsUsernameValid(validateUsername(e.target.value));
 				return;
 			case 'password':
 				setPassword(e.target.value);
-				setIsPasswordValid(validatePassword(e.target.value));
 				return;
 			default:
 				return;
@@ -71,7 +63,7 @@ let Auth = ({isRegister, onAuth}) => {
 					<input 
 						id='auth-email'
 						name='email'
-						type='email'
+						type='text'
 						value={email}
 						onChange={handleChange}
 					/>
@@ -81,6 +73,7 @@ let Auth = ({isRegister, onAuth}) => {
 				<label htmlFor='username'> Username </label>
 				<input 
 					name='username'
+					type='text'
 					value={username}
 					onChange={handleChange}
 				/>			

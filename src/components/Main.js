@@ -20,12 +20,16 @@ let Main = () => {
 	const dispatch = useDispatch();
 	const isAuthenticated = useSelector(state => state.user.isAuthenticated);
 
-	let onAuth = (username, password, isRegister) => {
+	let onAuth = (username, password, isRegister, email) => {
 		//TODO: move to redux store, AUTHENTICATE_USER action
 		const payload = {
 			username: username,
 			password: password
 		};
+
+		if (isRegister) {
+			payload.email = email;
+		}
 
 		let api = isRegister ? '/api/auth/register' : '/api/auth/login';
 
