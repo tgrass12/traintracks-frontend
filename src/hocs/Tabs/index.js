@@ -24,7 +24,7 @@ let Tabs = (ComponentsToTab) => {
 
 			tabHeaders.push(createTabHeaderItem(c.label, isActive));
 			if (isActive) {
-				tabContents = (<c.component />);
+				tabContents = (<c.component {...c.props} />);
 			}
 		}
 	}
