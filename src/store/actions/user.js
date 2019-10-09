@@ -23,8 +23,8 @@ export const refreshSession = () => {
 			else {
 				dispatch(setAuthenticated(true));
 				dispatch(setUser(user));
-				dispatch(setUserLoading(false));
 			}
+			dispatch(setUserLoading(false));
 		});
 	}
 }
