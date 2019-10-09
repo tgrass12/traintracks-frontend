@@ -21,10 +21,10 @@ export const addExercise = (date, exercise) => {
 	  			headers: {
 	    			'Content-Type': 'application/json'
 	    		}
-	    	}).then(res => res.json()
+	    	}).then(res => res.json())
 	    	.then(exercise => {
 				dispatch(updateExercise(date, exercise));
-	    	}));
+	    	});
 
 		} catch(err) {
 			let error = new Error(`Error logging exercise: ${err}`);

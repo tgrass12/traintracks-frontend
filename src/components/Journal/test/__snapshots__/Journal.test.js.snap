@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render properly 1`] = `
+exports[`<Journal /> should render properly 1`] = `
 <div
   className="daily-journal"
 >
@@ -29,7 +29,16 @@ exports[`should render properly 1`] = `
       <div
         className="tab-contents"
       >
-        <NutritionJournal />
+        <NutritionJournal
+          date={
+            Object {
+              "date": "2019-07-04",
+              "journal": Object {
+                "nutrition": Object {},
+              },
+            }
+          }
+        />
       </div>
     </div>
   </div>

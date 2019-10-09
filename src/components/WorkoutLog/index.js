@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import Modal from '../../hocs/Modal';
 import JournalHeader from '../Journal/JournalHeader';
 import ExerciseLogger from './ExerciseLogger';
@@ -7,12 +6,7 @@ import LogNewExercise from './LogNewExercise';
 import LoggedExercises from './LoggedExercises';
 import '../../styles/WorkoutLog.scss';
 
-let WorkoutLog = () => {
-	let loggedExercises = useSelector(state => {
-		let date = state.journal.selectedDate;
-		return state.journal[date].workouts;
-	});
-
+let WorkoutLog = ({workouts=[]}) => {
 	let [isModalVisible, setIsModalVisible] = useState(false);
 
 	const displayModal = () => {
@@ -34,10 +28,10 @@ let WorkoutLog = () => {
 			<div className="exercise-logger">
 				<JournalHeader/>
 				<div className="workout-log">
-					{loggedExercises.length > 0 ?
+					{workouts.length > 0 ?
 						<div>
 							<LoggedExercises 
-								loggedExercises={loggedExercises}
+								loggedExercises={workouts}
 							/>
 							<button 
 								className="add-exercise-btn"
@@ -45,6 +39,7 @@ let WorkoutLog = () => {
 							> 
 								Add Exercise 
 							</button>
+							{ExerciseLoggerModal}
 						</div>
 						:
 						<LogNewExercise 
@@ -53,7 +48,6 @@ let WorkoutLog = () => {
 						/>
 					}
 				</div>
-				{ExerciseLoggerModal}
 			</div>
 		</div>
 	)

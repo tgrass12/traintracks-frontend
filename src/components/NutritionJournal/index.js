@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router';
-import { useSelector, useDispatch } from 'react-redux';
-import queryString from 'query-string';
-import {
-	fetchJournal
-} from '../../store/actions/journal';
+import { useDispatch } from 'react-redux';
+
 import {
 	addToWaterIntake
 } from '../../store/actions/nutritionJournal';
@@ -14,23 +10,15 @@ import Meal from './Meal';
 import FoodLogger from './FoodLogger';
 import FoodDetails from './FoodDetails';
 import WaterTracker from './WaterTracker';
-import { isValidDateString } from '../../shared/util';
 
-let NutritionJournal = () => {
-	const location = useLocation();
+let NutritionJournal = ({date, nutrition}) => {
 	const dispatch = useDispatch();
-	const date = useSelector(state => state.journal.selectedDate);
-	const nutrition = useSelector(state => state.journal[date].nutrition);
-	const user = useSelector(state => state.user.username);
 	const [selectedFood, setSelectedFood] = useState({});
 	const water = nutrition.water;
-	const dateStr = queryString.parse(location.search).date || date;
+
 	useEffect(() => {
-		if (isValidDateString(dateStr) && user) {
-			dispatch(fetchJournal(dateStr));
 			setSelectedFood({});
-		}
-	}, [dispatch, dateStr, user]);
+	},[date]);
 
 	let handleClick = async (foodId) => {
 		let apiUrl = `/api/foods/${foodId}`;
