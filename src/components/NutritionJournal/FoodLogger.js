@@ -5,18 +5,18 @@ import LogFoodForm from './LogFoodForm';
 import { updateNutrition } from '../../store/actions/nutritionJournal';
 import { formatDateStandard } from '../../shared/util';
 
-let FoodLogger = ({currentMeal, hideModal}) => {
-	let dispatch = useDispatch();
-	let journalDate = useSelector(state => state.journal.selectedDate);
-	let meals = useSelector(state => state.journal[journalDate].nutrition.meals);
+const FoodLogger = ({currentMeal, hideModal}) => {
+	const dispatch = useDispatch();
+	const journalDate = useSelector(state => state.journal.selectedDate);
+	const meals = useSelector(state => state.journal[journalDate].nutrition.meals);
+	const user = useSelector(state => state.user.data.username);
+	const [foodToLog, setFoodToLog] = useState();
 
-	let [foodToLog, setFoodToLog] = useState();
-
-	let logFood = async (meal, servings) => {
-		let date = formatDateStandard(journalDate);
-		let apiUrl = `/api/users/tyler/journal/${date}?meal=${meal}`;
+	const logFood = async (meal, servings) => {
+		const date = formatDateStandard(journalDate);
+		const apiUrl = `/api/users/${user}/journal/${date}?meal=${meal}`;
 		if (foodToLog && servings > 0) {
-			let payload = {
+			const payload = {
 				'food': foodToLog,
 				'servings': servings
 			}
