@@ -1,4 +1,5 @@
 import React, { useState, useReducer } from 'react';
+import './MultistepForm.scss';
 
 const reducer = (state, action) => {
 	return Object.assign(state, action);
@@ -35,15 +36,17 @@ const MultistepForm = (Components=[], onSubmit) => {
 	const ActiveComponent = Components[currentStep];
 
 	return () => (
-		<form>	
-			<ActiveComponent
-				fields={state}
-				prev={prevStep}
-				next={nextStep}
-				handleUpdate={handleUpdate}
-				submit={submitForm}
-			/>
-		</form>
+		<div className='flex-container-centered'>
+			<form className='multistep-form'>	
+				<ActiveComponent
+					fields={state}
+					prev={prevStep}
+					next={nextStep}
+					handleUpdate={handleUpdate}
+					submit={submitForm}
+				/>
+			</form>
+		</div>
 	)
 
 }
