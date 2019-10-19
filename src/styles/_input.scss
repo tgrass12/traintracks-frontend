@@ -1,6 +1,6 @@
 @import 'colors';
 
-input {
+input[type="text"], input[type="number"] {
 	height: 3.2rem;
 	vertical-align: middle;
 	padding: 0;
