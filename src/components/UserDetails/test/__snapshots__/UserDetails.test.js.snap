@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserDetails /> should not allow continue if age < 1 1`] = `
+<div
+  className="form-section"
+>
+  <h2
+    className="form-header"
+  >
+    Basic Information
+  </h2>
+  <div
+    className="form-contents"
+  >
+    <div
+      className="form-input__text"
+    >
+      <label
+        htmlFor="user-info-name"
+      >
+        Name
+      </label>
+      <input
+        id="user-info-name"
+        name="name"
+        onChange={[Function]}
+        placeholder="Name"
+        type="text"
+      />
+    </div>
+    <div
+      className="form-input__number"
+    >
+      <label
+        htmlFor="user-info-age"
+      >
+        Age
+      </label>
+      <input
+        defaultValue={-2}
+        id="user-info-age"
+        min="1"
+        name="age"
+        onChange={[Function]}
+        placeholder="Age"
+        type="number"
+      />
+    </div>
+    <div
+      className="form-input__radio"
+    >
+      <label
+        className="form-input__radio-label"
+      >
+        Sex
+      </label>
+      <div
+        className="form-input__radio-options"
+      >
+        <input
+          checked={false}
+          id="sex-male"
+          name="sex"
+          onChange={[Function]}
+          type="radio"
+          value="Male"
+        />
+        <label
+          htmlFor="sex-male"
+        >
+          Male
+        </label>
+        <br />
+        <input
+          checked={false}
+          id="sex-female"
+          name="sex"
+          onChange={[Function]}
+          type="radio"
+          value="Female"
+        />
+        <label
+          htmlFor="sex-female"
+        >
+          Female
+        </label>
+        <br />
+        <input
+          checked={false}
+          id="sex-not-specified"
+          name="sex"
+          onChange={[Function]}
+          type="radio"
+          value="Prefer not to say"
+        />
+        <label
+          htmlFor="sex-not-specified"
+        >
+          Prefer not to say
+        </label>
+        <br />
+      </div>
+    </div>
+  </div>
+  <button
+    className="form-input__button-skip"
+    name="skip"
+    onClick={[Function]}
+    type="button"
+  >
+    Skip
+  </button>
+  <button
+    className="form-input__button-save-continue--disabled"
+    disabled={true}
+    onClick={[Function]}
+    type="submit"
+  >
+    Save and Continue
+  </button>
+</div>
+`;
+
+exports[`<UserDetails /> should render 1`] = `
+<div
+  className="form-section"
+>
+  <h2
+    className="form-header"
+  >
+    Basic Information
+  </h2>
+  <div
+    className="form-contents"
+  >
+    <div
+      className="form-input__text"
+    >
+      <label
+        htmlFor="user-info-name"
+      >
+        Name
+      </label>
+      <input
+        id="user-info-name"
+        name="name"
+        onChange={[Function]}
+        placeholder="Name"
+        type="text"
+      />
+    </div>
+    <div
+      className="form-input__number"
+    >
+      <label
+        htmlFor="user-info-age"
+      >
+        Age
+      </label>
+      <input
+        id="user-info-age"
+        min="1"
+        name="age"
+        onChange={[Function]}
+        placeholder="Age"
+        type="number"
+      />
+    </div>
+    <div
+      className="form-input__radio"
+    >
+      <label
+        className="form-input__radio-label"
+      >
+        Sex
+      </label>
+      <div
+        className="form-input__radio-options"
+      >
+        <input
+          checked={false}
+          id="sex-male"
+          name="sex"
+          onChange={[Function]}
+          type="radio"
+          value="Male"
+        />
+        <label
+          htmlFor="sex-male"
+        >
+          Male
+        </label>
+        <br />
+        <input
+          checked={false}
+          id="sex-female"
+          name="sex"
+          onChange={[Function]}
+          type="radio"
+          value="Female"
+        />
+        <label
+          htmlFor="sex-female"
+        >
+          Female
+        </label>
+        <br />
+        <input
+          checked={false}
+          id="sex-not-specified"
+          name="sex"
+          onChange={[Function]}
+          type="radio"
+          value="Prefer not to say"
+        />
+        <label
+          htmlFor="sex-not-specified"
+        >
+          Prefer not to say
+        </label>
+        <br />
+      </div>
+    </div>
+  </div>
+  <button
+    className="form-input__button-skip"
+    name="skip"
+    onClick={[Function]}
+    type="button"
+  >
+    Skip
+  </button>
+  <button
+    className="form-input__button-save-continue"
+    disabled={false}
+    onClick={[Function]}
+    type="submit"
+  >
+    Save and Continue
+  </button>
+</div>
+`;
