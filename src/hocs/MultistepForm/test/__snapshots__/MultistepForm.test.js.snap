@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormConfirmation /> should list passed fields 1`] = `
+<div>
+  <p
+    key="name"
+  >
+    name
+     : 
+    Tester
+  </p>
+  <p
+    key="age"
+  >
+    age
+     : 
+    24
+  </p>
+  <p
+    key="weight"
+  >
+    weight
+     : 
+    165
+  </p>
+  <div>
+    <button
+      id="prev"
+      type="button"
+    >
+      Go Back
+    </button>
+    <button
+      id="submit"
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<FormConfirmation /> should render 1`] = `
+<div>
+  <div>
+    <button
+      id="prev"
+      type="button"
+    >
+      Go Back
+    </button>
+    <button
+      id="submit"
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<MultistepForm /> should render 1`] = `<Component />`;
