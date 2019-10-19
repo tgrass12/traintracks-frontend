@@ -1,3 +1,5 @@
+@import 'button';
+
 .form-section {
 	display: flex;
 	flex-direction: column;
@@ -67,4 +69,22 @@
 	.form-input__radio-options {
 		padding-left: 1rem;
 	}
+}
+
+.form-input__button-skip {
+	@extend %btn-secondary;
+}
+
+.form-input__button-save-continue {
+	@extend %btn-standard;
+}
+
+.form-input__button-save-continue--disabled {
+	@extend %btn-disabled;
+}
+
+.form-input__text input, .form-input__text label, .form-input__number input,
+.form-input__number label, .form-input__radio {
+	width: 25rem;
+	margin: 0.2rem auto;
 }
