@@ -8,15 +8,19 @@ button {
 	}
 }
 
-%btn-standard {
+%btn {
 	min-height: 3.2rem;
 	min-width: 6rem;
-	background-color: $flat-red;
-	border-color: $flat-red;
-	color: white;
 	font-size: 1.2rem;
 	font-weight: 600;
 	border-radius: 3px;
+}
+
+%btn-standard {
+	@extend %btn;
+	background-color: $flat-red;
+	border-color: $flat-red;
+	color: white;
 
 	&:hover {
 		background-color: $medium-red;
@@ -25,14 +29,10 @@ button {
 }
 
 %btn-secondary {
-	min-height: 3.2rem;
-	min-width: 6rem;
+	@extend %btn;
 	background-color: $medium-gray;
 	border-color: $medium-gray;
 	color: white;
-	font-size: 1.2rem;
-	font-weight: 600;
-	border-radius: 3px;
 
 	&:hover {
 		background-color: $dark-gray;
@@ -72,8 +72,9 @@ button {
 }
 
 %btn-disabled {
-	background-color: lightgray;
-	border-color: lightgray;
+	@extend %btn;
+	background-color: $light-gray;
+	border-color: $light-gray;
 	color: gray;
 
 	&:hover {
