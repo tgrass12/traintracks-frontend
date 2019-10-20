@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NutrientGoals /> should handle field changes 1`] = `
+<div
+  className="form-section"
+>
+  <h2
+    className="form-header"
+  >
+    Nutrition Goals
+  </h2>
+  <div
+    className="form-contents"
+  >
+    <div
+      className="form-input__text"
+    >
+      <label
+        htmlFor="nutrition-goals-calories"
+      >
+        Calories
+      </label>
+      <input
+        defaultValue={3000}
+        id="nutrition-goals-calories"
+        min="0"
+        name="calories"
+        onChange={[Function]}
+        type="number"
+      />
+    </div>
+    <div
+      className="form-input__text"
+    >
+      <label
+        htmlFor="nutrition-goals-carbs"
+      >
+        Carbs
+      </label>
+      <input
+        defaultValue={300}
+        id="nutrition-goals-carbs"
+        min="0"
+        name="carbs"
+        onChange={[Function]}
+        type="number"
+      />
+    </div>
+    <div
+      className="form-input__text"
+    >
+      <label
+        htmlFor="nutrition-goals-protein"
+      >
+        Protein
+      </label>
+      <input
+        defaultValue={200}
+        id="nutrition-goals-protein"
+        min="0"
+        name="protein"
+        onChange={[Function]}
+        type="number"
+      />
+    </div>
+    <div
+      className="form-input__text"
+    >
+      <label
+        htmlFor="nutrition-goals-fats"
+      >
+        Fats
+      </label>
+      <input
+        defaultValue={100}
+        id="nutrition-goals-fats"
+        min="0"
+        name="fats"
+        onChange={[Function]}
+        type="number"
+      />
+    </div>
+  </div>
+  <div
+    className="form-buttons"
+  >
+    <button
+      className="form-input__button-go-back auto-margin-right"
+      type="button"
+    >
+      Go Back
+    </button>
+    <button
+      className="form-input__button-skip"
+      name="skip"
+      onClick={[Function]}
+      type="button"
+    >
+      Skip
+    </button>
+    <button
+      className="form-input__button-save-continue"
+      disabled={false}
+      onClick={[Function]}
+      type="submit"
+    >
+      Save and Continue
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<NutrientGoals /> should render 1`] = `
+<div
+  className="form-section"
+>
+  <h2
+    className="form-header"
+  >
+    Nutrition Goals
+  </h2>
+  <div
+    className="form-contents"
+  >
+    <div
+      className="form-input__text"
+    >
+      <label
+        htmlFor="nutrition-goals-calories"
+      >
+        Calories
+      </label>
+      <input
+        defaultValue={2000}
+        id="nutrition-goals-calories"
+        min="0"
+        name="calories"
+        onChange={[Function]}
+        type="number"
+      />
+    </div>
+    <div
+      className="form-input__text"
+    >
+      <label
+        htmlFor="nutrition-goals-carbs"
+      >
+        Carbs
+      </label>
+      <input
+        defaultValue={250}
+        id="nutrition-goals-carbs"
+        min="0"
+        name="carbs"
+        onChange={[Function]}
+        type="number"
+      />
+    </div>
+    <div
+      className="form-input__text"
+    >
+      <label
+        htmlFor="nutrition-goals-protein"
+      >
+        Protein
+      </label>
+      <input
+        defaultValue={190}
+        id="nutrition-goals-protein"
+        min="0"
+        name="protein"
+        onChange={[Function]}
+        type="number"
+      />
+    </div>
+    <div
+      className="form-input__text"
+    >
+      <label
+        htmlFor="nutrition-goals-fats"
+      >
+        Fats
+      </label>
+      <input
+        defaultValue={60}
+        id="nutrition-goals-fats"
+        min="0"
+        name="fats"
+        onChange={[Function]}
+        type="number"
+      />
+    </div>
+  </div>
+  <div
+    className="form-buttons"
+  >
+    <button
+      className="form-input__button-go-back auto-margin-right"
+      type="button"
+    >
+      Go Back
+    </button>
+    <button
+      className="form-input__button-skip"
+      name="skip"
+      onClick={[Function]}
+      type="button"
+    >
+      Skip
+    </button>
+    <button
+      className="form-input__button-save-continue"
+      disabled={false}
+      onClick={[Function]}
+      type="submit"
+    >
+      Save and Continue
+    </button>
+  </div>
+</div>
+`;
