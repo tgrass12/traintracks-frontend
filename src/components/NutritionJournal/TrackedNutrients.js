@@ -1,28 +1,21 @@
 import React from 'react';
 
 let defaultNutrients = {
-	"cals": 0,
-	"macros": {
-		"carbs": {
-			"total": 0
-		},
-		"protein": 0,
-		"fats": {
-			"total": 0
-		}
-	}
+	"energy": 0,
+	"totalCarbs": 0,
+	"protein": 0,
+	"totalFats": 0
 }
 
 let TrackedNutrients = ({nutrients=defaultNutrients, servings}) => {
-	let {cals, macros} = nutrients;
 	return (
 		<div className='logged-nutrients-total'>
 			<span>{servings}</span>
-			<span>{cals}</span>
-			<span>{macros.carbs.total}</span>
-			<span>{macros.protein}</span>
-			<span>{macros.fats.total}</span>
-		</div>	
+			<span>{nutrients.energy}</span>
+			<span>{nutrients.totalCarbs}</span>
+			<span>{nutrients.protein}</span>
+			<span>{nutrients.totalFats}</span>
+		</div>
 	)
 }
 

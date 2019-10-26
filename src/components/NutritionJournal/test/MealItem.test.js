@@ -6,16 +6,12 @@ import MealItem from '../MealItem';
 const food = {
 	_id: 12345,
 	name: 'Cheesecake',
-	'cals': 100,
-	'macros': {
-		"carbs": {
-			"total": 15
-		},
+	'nutrients': {
+		'energy': 100,
+		"totalCarbs": 15,
 		"protein": 20,
-		"fats": {
-			"total": 9
-		}
-	},
+		"totalFats": 9
+	}
 }
 
 it('should render an empty entry properly', () => {

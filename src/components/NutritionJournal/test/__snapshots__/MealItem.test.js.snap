@@ -11,14 +11,7 @@ exports[`should render an empty entry properly 1`] = `
   <div
     className="meal-item-values"
   >
-    <TrackedNutrients
-      nutrients={
-        Object {
-          "cals": undefined,
-          "macros": undefined,
-        }
-      }
-    />
+    <TrackedNutrients />
   </div>
 </div>
 `;
@@ -39,16 +32,10 @@ exports[`should render the given food name 1`] = `
     <TrackedNutrients
       nutrients={
         Object {
-          "cals": 100,
-          "macros": Object {
-            "carbs": Object {
-              "total": 15,
-            },
-            "fats": Object {
-              "total": 9,
-            },
-            "protein": 20,
-          },
+          "energy": 100,
+          "protein": 20,
+          "totalCarbs": 15,
+          "totalFats": 9,
         }
       }
     />

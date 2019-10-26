@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import NutritionDash from './NutritionDash';
 import { formatDateStandard } from '../../shared/util';
-import { 
+import {
 	fetchJournal
 } from '../../store/actions/journal';
 import '../../styles/Dashboard.scss';
@@ -26,28 +26,28 @@ let Dashboard = () => {
 	const nutritionDashItems = [
 		{
 			'label': 'cals',
-			'target': nutrition.targets.cals,
-			'logged': nutrition.logged ? nutrition.logged.cals : 0
+			'target': nutrition.targets.energy,
+			'logged': nutrition.logged ? nutrition.logged.energy : 0
 		},
 		{
 			'label': 'carbs',
-			'target': nutrition.targets.macros.carbs.total,
-			'logged': nutrition.logged ? nutrition.logged.macros.carbs.total : 0
+			'target': nutrition.targets.totalCarbs,
+			'logged': nutrition.logged ? nutrition.logged.totalCarbs : 0
 		},
 		{	'label': 'fats',
-			'target': nutrition.targets.macros.fats.total,
-			'logged': nutrition.logged ? nutrition.logged.macros.fats.total : 0
+			'target': nutrition.targets.totalFats,
+			'logged': nutrition.logged ? nutrition.logged.totalFats : 0
 		},
 		{
 			'label': 'protein',
-			'target': nutrition.targets.macros.protein,
-			'logged': nutrition.logged ? nutrition.logged.macros.protein : 0			
+			'target': nutrition.targets.protein,
+			'logged': nutrition.logged ? nutrition.logged.protein : 0
 		}
 	]
 
 	return (
 		<div>
-			<NutritionDash 
+			<NutritionDash
 				items={nutritionDashItems}
 				handleNav={handleNavigation}
 			/>

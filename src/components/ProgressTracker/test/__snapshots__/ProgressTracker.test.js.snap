@@ -1,5 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<ProgressTracker /> should display overflow instead of percent if target is 0 1`] = `
+<div
+  className="progress-tracker-card"
+>
+  <div
+    className="progress-value"
+  >
+    50
+  </div>
+  <span
+    className="progress-values"
+  >
+    50
+    /
+    0
+     
+  </span>
+  <div
+    className="progress-item-name"
+  />
+</div>
+`;
+
 exports[`<ProgressTracker /> should display progress numbers in percentage and actual values 1`] = `
 <div
   className="progress-tracker-card"

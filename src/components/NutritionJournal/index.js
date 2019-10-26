@@ -29,9 +29,9 @@ let NutritionJournal = ({date, nutrition}) => {
 	let mealComponents = nutrition.meals.map(m => {
 		return (
 			<Meal
-				key={m.name} 
-				name={m.name} 
-				foods={m.foods} 
+				key={m.name}
+				name={m.name}
+				foods={m.foods}
 				loggedValues={m.total}
 				handleClick={handleClick}
 			/>
@@ -42,22 +42,16 @@ let NutritionJournal = ({date, nutrition}) => {
 	let getRemainingNutrients = function(target, logged) {
 		if (logged == null) return target;
 		return {
-			"cals": target.cals - logged.cals,
-			"macros": {
-				"carbs": { 
-					"total": target.macros.carbs.total - logged.macros.carbs.total 
-				},
-				"protein": target.macros.protein - logged.macros.protein,
-				"fats": {
-					"total": target.macros.fats.total - logged.macros.fats.total
-				}
-			}
+			"energy": target.energy - logged.energy,
+			"totalCarbs": target.totalCarbs - logged.totalCarbs,
+			"protein": target.protein - logged.protein,
+			"totalFats": target.totalFats - logged.totalFats
 		}
 	}
 
 	let addWaterIntake = (e) => {
 		dispatch(addToWaterIntake(
-			date, 
+			date,
 			Number(e.target.value)
 			)
 		);
@@ -72,22 +66,22 @@ let NutritionJournal = ({date, nutrition}) => {
 						{mealComponents}
 					</div>
 					<div className='journal-values'>
-						<ComputedNutrients 
-							label="Logged" 
-							nutrients={nutrition.logged} 
+						<ComputedNutrients
+							label="Logged"
+							nutrients={nutrition.logged}
 						/>
-						<ComputedNutrients 
-							label="Targets" 
-							nutrients={nutrition.targets} 
+						<ComputedNutrients
+							label="Targets"
+							nutrients={nutrition.targets}
 						/>
-						<ComputedNutrients 
-							label="Remaining" 
+						<ComputedNutrients
+							label="Remaining"
 							nutrients={
 								getRemainingNutrients(
-									nutrition.targets, 
+									nutrition.targets,
 									nutrition.logged
 								)
-							} 
+							}
 						/>
 					</div>
 				</div>
@@ -97,7 +91,7 @@ let NutritionJournal = ({date, nutrition}) => {
 				<WaterTracker addWaterIntake={addWaterIntake} amount={water}/>
 			</div>
 			<div className="journal-additional-actions">
-				<FoodLogger meals={nutrition.meals.map(m => m.name)} /> 
+				<FoodLogger meals={nutrition.meals.map(m => m.name)} />
 			</div>
 		</div>
 	)

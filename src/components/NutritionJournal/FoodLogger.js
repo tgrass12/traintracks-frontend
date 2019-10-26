@@ -42,11 +42,11 @@ const FoodLogger = ({currentMeal, hideModal}) => {
 		<div className='log-food'>
 			<h4> Log Food </h4>
 			<FoodFinder setFoodToLog={setFoodToLog}/>
-			<LogFoodForm 
-				currentMeal={currentMeal} 
-				meals={mealNames} 
+			<LogFoodForm
+				currentMeal={currentMeal}
+				meals={mealNames}
 				logFood={logFood}
-				food={foodToLog} 
+				food={foodToLog}
 			/>
 		</div>
 	)

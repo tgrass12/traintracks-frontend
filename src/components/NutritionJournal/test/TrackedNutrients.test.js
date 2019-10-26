@@ -5,16 +5,10 @@ import TrackedNutrients from '../TrackedNutrients';
 
 const props = 	{
 	'nutrients': {
-		"cals": 200,
-		"macros": {
-			"carbs": {
-				"total": 15
-			},
-			"protein": 20,
-			"fats": {
-				"total": 9
-			}
-		}
+		"energy": 200,
+		"totalCarbs": 15,
+		"protein": 20,
+		"totalFats": 9
 	},
 	'servings': 2
 }
@@ -26,8 +20,8 @@ it('should render an empty entry properly', () => {
 
 it('should render the passed nutrients and servings.', () => {
 	const wrapper = shallow(
-		<TrackedNutrients 
-			servings={props.servings} 
+		<TrackedNutrients
+			servings={props.servings}
 			nutrients={props.nutrients}
 		/>
 	);

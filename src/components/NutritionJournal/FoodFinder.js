@@ -11,24 +11,17 @@ let FindFoods = ({setFoodToLog}) => {
 
 	let findFoods = async (e) => {
 		e.preventDefault();
-		let relevantFoods = await fetch(`/api/foods?query=${foodToFind}`)
+		const relevantFoods = await fetch(`/api/foods?query=${foodToFind}`)
 			.then(res => res.json());
-		let foods = relevantFoods.map(f => {
-			return {
-				'id': f._id,
-				'name': f.name,
-				'cals': f.cals
-			}
-		});
-		setFoundFoods(foods);
+		setFoundFoods(relevantFoods);
 	}
 
 	let foundFoodsComponents = foundFoods.map(f => {
 		return (
-			<FoodOverview 
-				key={f.id} 
-				food={f} 
-				setFoodToLog={setFoodToLog} 
+			<FoodOverview
+				key={f._id}
+				food={f}
+				setFoodToLog={setFoodToLog}
 			/>
 		)
 	});
@@ -38,8 +31,8 @@ let FindFoods = ({setFoodToLog}) => {
 			<form>
 				<label>Find a food</label>
 				<input onChange={handleFoodToFind}/>
-				<button 
-					id="find-food-btn" 
+				<button
+					id="find-food-btn"
 					onClick={findFoods}>
 					Find
 				 </button>

@@ -4,9 +4,11 @@ import toJson from 'enzyme-to-json';
 import FoodOverview from '../FoodOverview';
 
 const food = {
-	'id': 20,
+	'_id': 20,
 	'name': 'Cheeseburger',
-	'cals': 500
+	'nutrients': {
+		'energy': 500
+	}
 }
 
 it('should render properly', () => {
@@ -20,7 +22,7 @@ it('should render the name and calories of the food provided.', () => {
 });
 
 it('should invoke selected food change on click', () => {
-	let mockSetFood = jest.fn(x => x.id);
+	let mockSetFood = jest.fn(x => x._id);
 
 	const wrapper = shallow(
 		<FoodOverview food={food} setFoodToLog={mockSetFood} />

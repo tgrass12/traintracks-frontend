@@ -5,9 +5,10 @@ let ProgressTracker = ({label, current, target}) => {
 	let percentage = (Math.round(current / target * 1000) / 10) || 0;
 	return (
 		<div className="progress-tracker-card">
-			<div className="progress-percentage">
-				{percentage}%
-			</div>
+				{ target === 0 ?
+					<div className="progress-value">{current}</div> :
+					<div className="progress-percentage">{percentage}%</div>
+				}
 			<span className="progress-values">{current}/{target} </span>
 			<div className="progress-item-name">{label}</div>
 		</div>

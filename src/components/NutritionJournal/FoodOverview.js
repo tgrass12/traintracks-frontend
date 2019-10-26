@@ -1,14 +1,18 @@
 import React from 'react';
 
-let FoodOverview = ({food={}, setFoodToLog}) => {
+const defaultFood = {
+  nutrients: {}
+}
+
+let FoodOverview = ({food=defaultFood, setFoodToLog}) => {
 	let handleClick = () => {
-		setFoodToLog(food.id);
+		setFoodToLog(food._id);
 	}
 
 	return (
 		<div onClick={handleClick}>
 			<span>{food.name}</span>
-			<span>{food.cals}</span>
+			<span>{food.nutrients.energy}</span>
 		</div>
 	)
 }

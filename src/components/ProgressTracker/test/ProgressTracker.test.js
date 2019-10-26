@@ -21,4 +21,11 @@ describe('<ProgressTracker />', () => {
 		);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
+
+	it('should display overflow instead of percent if target is 0', () => {
+		const wrapper = shallow(
+			<ProgressTracker current={50} target={0} />
+		);
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
 });

@@ -6,28 +6,16 @@ import Dashboard from '../';
 const mockJournal = {
 	nutrition: {
 		targets: {
-			cals: 2000,
-			macros: {
-				carbs: {
-					total: 200
-				},
-				protein: 160,
-				fats: {
-					total: 80
-				}
-			}
+			energy: 2000,
+			totalCarbs: 200,
+			protein: 160,
+			totalFats: 80,
 		},
 		logged: {
-			cals: 0,
-			macros: {
-				carbs: {
-					total: 0
-				},
-				protein: 0,
-				fats: {
-					total: 0
-				}
-			}			
+			energy: 0,
+			totalCarbs: 0,
+			protein: 0,
+			totalFats: 0,
 		},
 		meals: [],
 		water: 0,
