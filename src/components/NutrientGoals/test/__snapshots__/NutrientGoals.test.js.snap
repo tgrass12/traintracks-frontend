@@ -16,15 +16,15 @@ exports[`<NutrientGoals /> should handle field changes 1`] = `
       className="form-input__text"
     >
       <label
-        htmlFor="nutrition-goals-calories"
+        htmlFor="nutrition-goals-energy"
       >
-        Calories
+        Energy
       </label>
       <input
         defaultValue={3000}
-        id="nutrition-goals-calories"
+        id="nutrition-goals-energy"
         min="0"
-        name="calories"
+        name="energy"
         onChange={[Function]}
         type="number"
       />
@@ -126,15 +126,15 @@ exports[`<NutrientGoals /> should render 1`] = `
       className="form-input__text"
     >
       <label
-        htmlFor="nutrition-goals-calories"
+        htmlFor="nutrition-goals-energy"
       >
-        Calories
+        Energy
       </label>
       <input
         defaultValue={2000}
-        id="nutrition-goals-calories"
+        id="nutrition-goals-energy"
         min="0"
-        name="calories"
+        name="energy"
         onChange={[Function]}
         type="number"
       />

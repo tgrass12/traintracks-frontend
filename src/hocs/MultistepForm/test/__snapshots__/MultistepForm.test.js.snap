@@ -1,36 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FormConfirmation /> should list passed fields 1`] = `
-<div>
-  <p
-    key="name"
+<div
+  className="form-section"
+>
+  <h2
+    className="form-header"
   >
-    name
-     : 
-    Tester
-  </p>
-  <p
-    key="age"
+    Review
+  </h2>
+  <div
+    className="form-contents"
   >
-    age
-     : 
-    24
-  </p>
-  <p
-    key="weight"
+    <div
+      key="name"
+    >
+      name
+      : 
+      Tester
+    </div>
+    <div
+      key="age"
+    >
+      age
+      : 
+      24
+    </div>
+    <div
+      key="weight"
+    >
+      weight
+      : 
+      165
+    </div>
+  </div>
+  <div
+    className="form-buttons flex-centered"
   >
-    weight
-     : 
-    165
-  </p>
-  <div>
     <button
+      className="form-input__button-go-back"
       id="prev"
       type="button"
     >
       Go Back
     </button>
     <button
+      className="form-input__button-save-continue"
       id="submit"
       type="submit"
     >
@@ -41,19 +56,66 @@ exports[`<FormConfirmation /> should list passed fields 1`] = `
 `;
 
 exports[`<FormConfirmation /> should render 1`] = `
-<div>
-  <div>
+<div
+  className="form-section"
+>
+  <h2
+    className="form-header"
+  >
+    Review
+  </h2>
+  <div
+    className="form-contents"
+  />
+  <div
+    className="form-buttons flex-centered"
+  >
     <button
+      className="form-input__button-go-back"
       id="prev"
       type="button"
     >
       Go Back
     </button>
     <button
+      className="form-input__button-save-continue"
       id="submit"
       type="submit"
     >
       Submit
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<FormConfirmation /> should render submitText 1`] = `
+<div
+  className="form-section"
+>
+  <h2
+    className="form-header"
+  >
+    Review
+  </h2>
+  <div
+    className="form-contents"
+  />
+  <div
+    className="form-buttons flex-centered"
+  >
+    <button
+      className="form-input__button-go-back"
+      id="prev"
+      type="button"
+    >
+      Go Back
+    </button>
+    <button
+      className="form-input__button-save-continue"
+      id="submit"
+      type="submit"
+    >
+      Get Started
     </button>
   </div>
 </div>

@@ -7,7 +7,7 @@ import {
 	SET_USERNAME
 } from '../../actionTypes';
 
-describe('user actions', () => {
+describe('user actions creators', () => {
 
 	it('should create an action to set user loading state', () => {
 		const expectedAction = {
@@ -55,5 +55,47 @@ describe('user actions', () => {
 			meals
 		}
 		expect(actions.setMeals(meals)).toEqual(expectedAction);
+	});
+});
+
+describe('user actions w/ dispatch', () => {
+
+	beforeAll(() => {
+		jest.spyOn(global, 'fetch');
+	});
+
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
+	it('should dispatch an action to init a new user', () => {
+		const username = 'test';
+		const userData = {
+			'sex': 'Male',
+			'energy': 2000,
+			'carbs': 200,
+			'protein': 160,
+			'fats': 90
+		}
+
+		actions.initNewUser(username, userData)();
+	  	expect(global.fetch).toHaveBeenCalledWith(
+	  		'/api/users/test/init',
+	  		{
+  				'method': 'PATCH',
+  				'headers': {
+  					'Content-Type': 'application/json'
+  				},
+					'body': JSON.stringify({
+						'sex': userData.sex,
+						'nutrients': {
+							'energy': userData.energy,
+							'totalCarbs': userData.carbs,
+							'protein': userData.protein,
+							'totalFats': userData.fats
+						}
+					})
+				},
+			);
 	});
 });

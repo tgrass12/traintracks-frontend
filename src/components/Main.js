@@ -9,6 +9,7 @@ import Calendar from './Calendar';
 import Dashboard from './Dashboard';
 import Loading from './Loading';
 import LandingHero from './LandingHero';
+import NewUserSetup from './NewUserSetup';
 import {
 	setAuthenticated,
 	setUser
@@ -45,7 +46,16 @@ let Main = () => {
 			if (user.err) {
 				throw new Error(user.err);
 			}
-			const pathToLoad = location.state ? location.state.referrer : '/';
+			let pathToLoad;
+
+			if (isRegister) {
+				pathToLoad = '/setup';
+			}
+
+			else {
+				pathToLoad = location.state ? location.state.referrer : '/';
+			}
+
 			dispatch(setAuthenticated(true));
 			dispatch(setUser(user));
 			history.push(pathToLoad);
@@ -66,10 +76,11 @@ let Main = () => {
 				<Switch>
 					<Route path="/login" render={() => <Auth onAuth={onAuth}/>} />
 					<Route path="/register" render={() => <Auth isRegister onAuth={onAuth}/>} />
+					<AuthenticatedRoute path="/setup" component={NewUserSetup} />
 					<AuthenticatedRoute path="/journal" component={Journal} />
 					<AuthenticatedRoute path="/calendar" component={Calendar} />
-					<Route 
-						path="/" exact 
+					<Route
+						path="/" exact
 						component={isAuthenticated ? Dashboard : LandingHero}
 					/>
 				</Switch>

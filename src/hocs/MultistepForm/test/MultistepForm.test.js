@@ -51,4 +51,10 @@ describe('<FormConfirmation />', () => {
 		wrapper.find('#submit').simulate('click');
 		expect(mockSubmit).toBeCalled();
 	});
+
+	it('should render submitText', () => {
+		const submitText = 'Get Started';
+		const wrapper = shallow(<FormConfirmation submitText={submitText} />);
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
 });

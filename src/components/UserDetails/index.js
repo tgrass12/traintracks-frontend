@@ -34,8 +34,8 @@ let UserDetails = ({handleUpdate, next, fields={}}) => {
 				break;
 			case 'age':
 				setAllowContinue(
-					Number(e.target.value) > 0 || 
-					e.target.value === '' 
+					Number(e.target.value) > 0 ||
+					e.target.value === ''
 				);
 				setAge(Number(e.target.value));
 				break;
@@ -76,14 +76,14 @@ let UserDetails = ({handleUpdate, next, fields={}}) => {
 						placeholder='Age'
 						onChange={handleChange}
 						defaultValue={age}
-					/>				
+					/>
 				</div>
 				<div className='form-input__radio'>
 					<label className='form-input__radio-label'>Sex</label>
-					<div className='form-input__radio-options'>				
-							<input 
+					<div className='form-input__radio-options'>
+							<input
 								id='sex-male'
-								type='radio' 
+								type='radio'
 								name='sex'
 								onChange={handleChange}
 								value='Male'
@@ -93,9 +93,9 @@ let UserDetails = ({handleUpdate, next, fields={}}) => {
 							Male
 						</label>
 						<br/>
-							<input 
+							<input
 								id='sex-female'
-								type='radio' 
+								type='radio'
 								name='sex'
 								onChange={handleChange}
 								value='Female'
@@ -107,7 +107,7 @@ let UserDetails = ({handleUpdate, next, fields={}}) => {
 						<br/>
 							<input
 								id='sex-not-specified'
-								type='radio' 
+								type='radio'
 								name='sex'
 								onChange={handleChange}
 								value='Prefer not to say'
@@ -120,25 +120,27 @@ let UserDetails = ({handleUpdate, next, fields={}}) => {
 					</div>
 				</div>
 			</div>
-			<button
-				name='skip'
-				type='button'
-				className='form-input__button-skip'
-				onClick={handleClick}
-			>
-				Skip
-			</button>
-			<button 
-				type='submit' 
-				className={allowContinue ? 
-					'form-input__button-save-continue' :
-					'form-input__button-save-continue--disabled'
-				}
-				disabled={!allowContinue}
-				onClick={handleClick}
-			>
-				Save and Continue
-			</button>
+			<div className='form-buttons flex-centered'>
+				<button
+					name='skip'
+					type='button'
+					className='form-input__button-skip'
+					onClick={handleClick}
+				>
+					Skip
+				</button>
+				<button
+					type='submit'
+					className={allowContinue ?
+						'form-input__button-save-continue' :
+						'form-input__button-save-continue--disabled'
+					}
+					disabled={!allowContinue}
+					onClick={handleClick}
+				>
+					Save and Continue
+				</button>
+			</div>
 		</div>
 	)
 }

@@ -1,5 +1,5 @@
 import Cookies from 'universal-cookie';
-import { 
+import {
 	SET_USER_LOADING,
 	LOGOUT_USER,
 	SET_AUTHENTICATED,
@@ -26,6 +26,32 @@ export const refreshSession = () => {
 			}
 			dispatch(setUserLoading(false));
 		});
+	}
+}
+
+export const initNewUser = (username, userData) => {
+	const payload = {
+		'sex': userData.sex,
+		'nutrients': {
+			'energy': userData.energy,
+			'totalCarbs': userData.carbs,
+			'protein': userData.protein,
+			'totalFats': userData.fats,
+		}
+	};
+
+	return (dispatch) => {
+		fetch(`/api/users/${username}/init`, {
+			'method': 'PATCH',
+			'headers': {
+				'Content-Type': 'application/json',
+			},
+			'body': JSON.stringify(payload)
+		})
+		.then(res => res.json())
+		.then(user =>
+			dispatch(setUser(user)
+		));
 	}
 }
 

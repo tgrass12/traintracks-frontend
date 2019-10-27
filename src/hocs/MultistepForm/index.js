@@ -5,7 +5,7 @@ const reducer = (state, action) => {
 	return Object.assign(state, action);
 };
 
-const MultistepForm = (Components=[], onSubmit) => {
+const MultistepForm = (Components=[], onSubmit, submitText) => {
 	Components.push(FormConfirmation);
 	const [currentStep, setCurrentStep] = useState(0);
 	const [state, dispatch] = useReducer(reducer, {});
@@ -37,13 +37,14 @@ const MultistepForm = (Components=[], onSubmit) => {
 
 	return () => (
 		<div className='flex-container-centered'>
-			<form className='multistep-form'>	
+			<form className='multistep-form'>
 				<ActiveComponent
 					fields={state}
 					prev={prevStep}
 					next={nextStep}
 					handleUpdate={handleUpdate}
 					submit={submitForm}
+					submitText={submitText}
 				/>
 			</form>
 		</div>
@@ -51,24 +52,28 @@ const MultistepForm = (Components=[], onSubmit) => {
 
 }
 
-const FormConfirmation = ({fields={}, prev, submit}) => {
+const FormConfirmation = ({fields={}, prev, submit, submitText='Submit'}) => {
 	let fieldComponents = [];
 
 	for (let f in fields) {
 		fieldComponents.push(
-			<p key={f}>
-				{f} : {fields[f]}
-			</p>
+			<div key={f}>
+				{f}: {fields[f]}
+			</div>
 		);
 	}
 
 	return (
-		<div>
-			{fieldComponents}
-			<div>
-				<button 
+		<div className='form-section'>
+			<h2 className='form-header'>Review</h2>
+			<div className='form-contents'>
+				{fieldComponents}
+			</div>
+			<div className='form-buttons flex-centered'>
+				<button
 					id='prev'
 					type='button'
+					className='form-input__button-go-back'
 					onClick={prev}
 				>
 					Go Back
@@ -76,9 +81,10 @@ const FormConfirmation = ({fields={}, prev, submit}) => {
 				<button
 					id='submit'
 					type='submit'
+					className='form-input__button-save-continue'
 					onClick={submit}
 				>
-					Submit
+					{submitText}
 				</button>
 			</div>
 		</div>

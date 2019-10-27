@@ -1,4 +1,4 @@
-import { 
+import {
 	SET_SELECTED_DATE,
 	FETCH_JOURNAL,
 	RECEIVE_JOURNAL_SUCCESS,
@@ -34,7 +34,7 @@ export const receiveJournalEmpty = function(date, meals, targets) {
 }
 
 const shouldFetchJournal = function(state, date) {
-	if (state.journal[date] 
+	if (state.journal[date]
 		&& (state.journal[date].nutrition.meals.length > 0 ||
 			state.journal[date].workouts.length > 0))
 	{
@@ -61,7 +61,7 @@ export const fetchJournal = function(date) {
 
 		const username = state.user.data.username;
 		let apiUrl = `/api/users/${username}/journal/${date}`;
-		
+
 		dispatch(beginFetchJournal(date));
 
 		return fetch(apiUrl).then(async res =>  {
@@ -69,9 +69,13 @@ export const fetchJournal = function(date) {
 			{
 				if (state.user.data.meals.length === 0) {
 					await dispatch(fetchUser(username));
-					state = getState();
 				}
-				await dispatch(receiveJournalEmpty(date, state.user.data.meals, state.user.data.targets.diet));
+				state = getState();
+				await dispatch(receiveJournalEmpty(
+					date,
+					state.user.data.meals,
+					state.user.data.targets.diet
+				));
 				return Promise.resolve();
 			}
 			return res.json();

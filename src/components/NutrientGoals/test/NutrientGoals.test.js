@@ -12,14 +12,14 @@ describe('<NutrientGoals />', () => {
 
 	it('should handle field changes', () => {
 		const wrapper = shallow(<NutrientGoals />);
-		wrapper.find('#nutrition-goals-calories').simulate('change',
+		wrapper.find('#nutrition-goals-energy').simulate('change',
 			{
 				target: {
-					name: 'calories',
+					name: 'energy',
 					value: 3000
 				}
 			}
-		);		
+		);
 		wrapper.find('#nutrition-goals-carbs').simulate('change',
 			{
 				target: {
@@ -27,7 +27,7 @@ describe('<NutrientGoals />', () => {
 					value: 300
 				}
 			}
-		);		
+		);
 		wrapper.find('#nutrition-goals-protein').simulate('change',
 			{
 				target: {

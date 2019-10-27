@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './NutrientGoals.scss';
 
 let NutrientGoals = ({handleUpdate, prev, next, fields={}}) => {
-	const [calories, setCalories] = useState(fields.calories || 2000);
+	const [energy, setEnergy] = useState(fields.energy || 2000);
 	const [carbs, setCarbs] = useState(fields.carbs || 250);
 	const [protein, setProtein] = useState(fields.protein || 190);
 	const [fats, setFats] = useState(fields.fats || 60);
@@ -12,15 +12,15 @@ let NutrientGoals = ({handleUpdate, prev, next, fields={}}) => {
 		e.preventDefault();
 		if (e.target.name === 'skip') {
 			handleUpdate({
-				calories: fields.calories,
-				carbs: fields.carbs,
-				protein: fields.protein,
-				fats: fields.fats
+				energy: fields.energy || 2000,
+				carbs: fields.carbs || 250,
+				protein: fields.protein || 190,
+				fats: fields.fats || 60
 			});
-		} 
+		}
 		else {
 			handleUpdate({
-				calories,
+				energy,
 				carbs,
 				protein,
 				fats
@@ -32,7 +32,7 @@ let NutrientGoals = ({handleUpdate, prev, next, fields={}}) => {
 
 	const checkFieldsValidity = (newVal) => {
 		const shouldAllowContinue = newVal >= 0 &&
-			calories >= 0 &&
+			energy >= 0 &&
 			carbs >= 0 &&
 			fats >= 0 &&
 			protein >= 0;
@@ -43,8 +43,8 @@ let NutrientGoals = ({handleUpdate, prev, next, fields={}}) => {
 	const handleChange = (e) => {
 		checkFieldsValidity(Number(e.target.value));
 		switch(e.target.name) {
-			case 'calories':
-				setCalories(Number(e.target.value));
+			case 'energy':
+				setEnergy(Number(e.target.value));
 				return;
 			case 'carbs':
 				setCarbs(Number(e.target.value));
@@ -61,19 +61,19 @@ let NutrientGoals = ({handleUpdate, prev, next, fields={}}) => {
 	}
 
 	return (
-		<div className='form-section'>	
+		<div className='form-section'>
 			<h2 className='form-header'>Nutrition Goals</h2>
 			<div className='form-contents'>
 				<div className='form-input__text'>
-					<label htmlFor='nutrition-goals-calories'>
-						Calories
+					<label htmlFor='nutrition-goals-energy'>
+						Energy
 					</label>
 					<input
-						id='nutrition-goals-calories'
+						id='nutrition-goals-energy'
 						type='number'
-						name='calories'
+						name='energy'
 						min='0'
-						defaultValue={calories}
+						defaultValue={energy}
 						onChange={handleChange}
 					/>
 				</div>
@@ -111,7 +111,7 @@ let NutrientGoals = ({handleUpdate, prev, next, fields={}}) => {
 					/>
 				</div>
 			</div>
-			<div className='form-buttons'>			
+			<div className='form-buttons'>
 				<button
 					type='button'
 					className='form-input__button-go-back auto-margin-right'
